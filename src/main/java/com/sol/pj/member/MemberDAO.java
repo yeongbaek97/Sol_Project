@@ -1,3 +1,7 @@
+/*조영백
+ *member 함수
+2021-12-28*/
+
 package com.sol.pj.member;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +18,7 @@ public class MemberDAO {
 	@Autowired
 	private SqlSession ss;
 	
+	//로그인
 	public void login(Member m, HttpServletRequest req) {
 
 		Member dbMember = ss.getMapper(MemberMapper.class).getMemberByID(m);
@@ -31,6 +36,7 @@ public class MemberDAO {
 
 	}
 
+	//로그인체크
 	public boolean logincheck(HttpServletRequest req) {
 		Member m = (Member) req.getSession().getAttribute("loginMember");
 		if (m != null) {
@@ -43,6 +49,7 @@ public class MemberDAO {
 		
 	}
 	
+	//로그아웃
 	public void logout(HttpServletRequest req) {
 		req.getSession().setAttribute("loginMember", null);
 	}

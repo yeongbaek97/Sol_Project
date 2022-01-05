@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	
 	<form action="login" method="post">
 	<table>
 		<tr>
@@ -20,6 +22,8 @@
 		<tr>
 			<td align="center"><button>로그인</button> &nbsp;&nbsp; <button type="button" onclick="goJoin()">회원가입</button></td>
 		</tr>
+		
+		
 	</table>
 	</form>
 
