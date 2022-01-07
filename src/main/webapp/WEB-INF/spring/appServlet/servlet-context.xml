@@ -28,9 +28,15 @@
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<beans:property name="url"
+<<<<<<< HEAD
 			value="jdbc:oracle:thin:@localhost:1521:xe" />
 		<beans:property name="username" value="c##mj" />
 		<beans:property name="password" value="mj" />
+=======
+			value="jdbc:oracle:thin:@118.44.23.84:1521:xe" />				<!-- 이부분 바꿔주세요 -->
+		<beans:property name="username" value="c##yb" />
+		<beans:property name="password" value="yb" />
+>>>>>>> 7c303490097172453487092de220841dc686f535
 	</beans:bean>
 
 	<beans:bean id="transactionManager"
@@ -43,8 +49,12 @@
 		<beans:property name="typeAliasesPackage" value="com.mj.ajax" />
 		<beans:property name="mapperLocations">
 			<beans:list>
+<<<<<<< HEAD
 				<beans:value>classpath:membermapper.xml</beans:value>
 				<beans:value>classpath:boardMapper.xml</beans:value>
+=======
+				<beans:value>classpath:memberMapper.xml</beans:value>
+>>>>>>> 7c303490097172453487092de220841dc686f535
 			</beans:list>
 		</beans:property>
 	</beans:bean>
