@@ -1,4 +1,4 @@
-package com.sol.pj;
+package com.sol.pj.member;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -7,19 +7,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.sol.pj.member.MemberDAO;
-
-
 @Controller
-public class HomeController {
-	
+public class MemberController {
+
 	@Autowired
 	private MemberDAO mDAO;
 	
-	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(HttpServletRequest req) {
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	public String login(HttpServletRequest req, Member m) {
 		
+		mDAO.login(m, req);
+		mDAO.logincheck(req);
+		
+		return "home";
+	}
+	
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest req, Member m) {
+		
+		mDAO.logout(req);
 		mDAO.logincheck(req);
 		
 		return "home";

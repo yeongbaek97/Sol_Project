@@ -23,14 +23,14 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-	<context:component-scan base-package="com.sol.pj" />
+	<context:component-scan base-package="com.mj.ajax" />
 
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<beans:property name="url"
-			value="jdbc:oracle:thin:@[IP]:[port]:[sid]" />				<!-- 이부분 바꿔주세요 -->
-		<beans:property name="username" value="[username]" />
-		<beans:property name="password" value="[password]" />
+			value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<beans:property name="username" value="c##mj" />
+		<beans:property name="password" value="mj" />
 	</beans:bean>
 
 	<beans:bean id="transactionManager"
@@ -40,10 +40,11 @@
 
 	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />
-		<beans:property name="typeAliasesPackage" value="com.sol.pj" />
+		<beans:property name="typeAliasesPackage" value="com.mj.ajax" />
 		<beans:property name="mapperLocations">
 			<beans:list>
-				<beans:value>classpath:[mapper.xml파일명]</beans:value>
+				<beans:value>classpath:membermapper.xml</beans:value>
+				<beans:value>classpath:boardMapper.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
