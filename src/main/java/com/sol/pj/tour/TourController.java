@@ -1,6 +1,8 @@
 package com.sol.pj.tour;
 
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,9 +18,9 @@ public class TourController {
 	private TourDAO tdao;
 	
 	@RequestMapping(value = "tour.list", method = RequestMethod.GET)
-	public String tourlist() {
+	public String tourlist(HttpServletRequest req) {
 		
-		tdao.getTourList();
+		tdao.getTourList(req);
 		
 		
 		return "tour/tourview";
