@@ -23,6 +23,15 @@
 		</tr>
 	</c:forEach>
 	</table>
+	
+	
+	<!-- 페이징 부분 뷰는 추후에 작업예정 -->
+	<c:if test="${curPage != 1 }">
+		<a href="tour.list.change?p=${curPage - 1 }" >dddd</a>
+	</c:if>
+	<c:if test="${curPage != pageCount }">
+		<a href="tour.list.change?p=${curPage + 1 }" >gggg</a>
+	</c:if>
 
 </body>
 </html>

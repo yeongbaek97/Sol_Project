@@ -21,14 +21,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TourDAO {
-
 	
-	public void getTourList(HttpServletRequest req) {
+	public void getTourList(int pageNo, HttpServletRequest req) {
 		//투어 리스트를 가져온다
 		String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList";
 		requrl += "?serviceKey=Aw4T8pItJbg5eFtUT1DD3MgYcrXC7hWdryfz0229tJjcIiZOGGigz6ntR7M3lYTOHTuvSBHWaHqdXHP5mswwUA==";
 		requrl += "&areaCode=1";
 		requrl += "&contentTypeId=12";
+		requrl += "&pageNo=" + pageNo;
 		requrl += "&MobileOS=ETC";
 		requrl += "&MobileApp=AppTest";
 		requrl += "&_type=json";
@@ -72,23 +72,28 @@ public class TourDAO {
             System.out.println("2" + items);
             JSONArray item = (JSONArray) items.get("item");
             System.out.println("3" + item);
-            
 
+            //totalCount
+            int allTourListCount;
+            allTourListCount =Integer.parseInt(body.get("totalCount").toString());
+            System.out.println(allTourListCount);
+            
+            int pageCount = (int) Math.ceil(allTourListCount / 10);	//10은 url주소에서 페이지당 10개 보여주는걸로 설정되었기 때문
+
+            
+            //페이지 변수값 넘겨주기
+            req.setAttribute("pageCount", pageCount);	//전체 페이지 수
+            req.setAttribute("curPage", pageNo);		//현재 페이지 수
+            
+            
+            
+            
+            
             ArrayList<TourList> tourList = new ArrayList<TourList>();
             
             for(int i=0 ; i < item.size(); i++) {
             	
             	JSONObject itemObject = (JSONObject) item.get(i);
-            	
-            	/*System.out.println(i +"번째 : " + itemObject.get("addr1") +
-            			itemObject.get("addr2")+
-            			itemObject.get("contentid")+
-            			itemObject.get("title")+
-            			itemObject.get("mapx")+
-            			itemObject.get("mapy")+
-            			itemObject.get("firstimage2"));*/
-            	
-            	
             	
             	//각 객체 저장
             	TourList tl = new TourList(itemObject.get("addr1").toString(),
