@@ -21,6 +21,10 @@
 		<input><button>검색(아이콘)</button>
 		
 		<jsp:include page="${loginPage }"></jsp:include>
+		<!-- 카카오로그인 -->
+		<a href="https://kauth.kakao.com/oauth/authorize?client_id=500a463927b5af4c4a3224e8a14e8ace&redirect_uri=http://localhost/pj/kakao.login&response_type=code">
+		<img src="resources/img/kakao_login_medium_narrow.png">
+		</a>
 	</div>
 	
 
