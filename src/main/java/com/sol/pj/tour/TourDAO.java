@@ -13,12 +13,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Service;
 
-
-
-
-
-
-
 @Service
 public class TourDAO {
 	
