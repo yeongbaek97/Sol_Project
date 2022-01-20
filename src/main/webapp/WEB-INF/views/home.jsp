@@ -25,11 +25,10 @@
 	
 
 	<!-- 네비바 -->
-<<<<<<< HEAD
-	<div class="navi_div">
-=======
+
+
 	<div>
->>>>>>> 6ad05edd0c8c8be070f23411147a82613ce4d993
+
 		<ul class="navi">
 			<li><a href="#">홈</a></li>
 			<li><a href="tour.list.regional?areaCode=1">여행지</a>
@@ -46,10 +45,7 @@
 	
 	<div>
 		<jsp:include page="${contentPage }"></jsp:include>
-<<<<<<< HEAD
-	
-=======
->>>>>>> 6ad05edd0c8c8be070f23411147a82613ce4d993
+
 	</div>
 </body>
 </html>
