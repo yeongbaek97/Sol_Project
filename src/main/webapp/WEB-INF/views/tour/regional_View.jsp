@@ -17,6 +17,18 @@
 			<td><a href="tour.list.regional?areaCode=3" >대전</a></td>
 			<td><a href="tour.list.regional?areaCode=4" >대구</a></td>
 			<td><a href="tour.list.regional?areaCode=5" >광주</a></td>
+			<td><a href="tour.list.regional?areaCode=6" >부산</a></td>
+			<td><a href="tour.list.regional?areaCode=7" >울산</a></td>
+			<td><a href="tour.list.regional?areaCode=8" >세종</a></td>
+			<td><a href="tour.list.regional?areaCode=31" >경기도</a></td>
+			<td><a href="tour.list.regional?areaCode=32" >강원도</a></td>
+			<td><a href="tour.list.regional?areaCode=33" >충청북도</a></td>
+			<td><a href="tour.list.regional?areaCode=34" >충청남도</a></td>
+			<td><a href="tour.list.regional?areaCode=35" >경상북도</a></td>
+			<td><a href="tour.list.regional?areaCode=36" >경상남도</a></td>
+			<td><a href="tour.list.regional?areaCode=37" >전라북도</a></td>
+			<td><a href="tour.list.regional?areaCode=38" >전라남도</a></td>
+			<td><a href="tour.list.regional?areaCode=39" >제주도</a></td>
 		</tr>
 	</table>
 </div>
