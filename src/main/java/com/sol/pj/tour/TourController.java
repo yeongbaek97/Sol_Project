@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -17,24 +17,28 @@ public class TourController {
 	@Autowired
 	private TourDAO tdao;
 	
-	@RequestMapping(value = "tour.list", method = RequestMethod.GET)
+	@RequestMapping(value = "tour.list.regional", method = RequestMethod.GET)
 	public String tourlist(HttpServletRequest req) {
 		
-		tdao.getTourList(1, req);
+		String areaCode = req.getParameter("areaCode");
 		
+		tdao.getTourList(1, areaCode, req);
+		req.setAttribute("contentPage", "tour/regional_View.jsp");
 		
-		return "tour/tourview";
+		return "home";
 	}
 	
-	@RequestMapping(value = "tour.list.change", method = RequestMethod.GET)
+	@RequestMapping(value = "tour.list.regional_change", method = RequestMethod.GET)
 	public String tourlistchange(HttpServletRequest req) {
 		
 		int p = Integer.parseInt(req.getParameter("p"));
+		String areaCode = (String) req.getSession().getAttribute("areaCode");
 		
-		tdao.getTourList(p, req);
+		
+		tdao.getTourList(p, areaCode, req);
 		
 		
-		return "tour/tourview";
+		return "home";
 	}
 
 

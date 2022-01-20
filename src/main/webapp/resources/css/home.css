@@ -1,18 +1,33 @@
 @charset "UTF-8";
 
+.navi_div{
+	margin-bottom: 150px;
+}
 
 .navi{
 	
-	list-style-type:none;
 	background-color: aqua;
 }
 
-.navi li{
+.navi>li{
+	
+	list-style-type:none;
+	margin-left: 350px;
 	float: left;
+	
 }
 
 .navi li a{
-	
-	margin-left: 300px;
+	display: block;
+	text-decoration:none;
+
+}
+
+.navi>li ul{
+	display: none;
+}
+
+.navi>li:hover>ul{
+	display: block;
 	
 }

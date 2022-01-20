@@ -12,16 +12,17 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 @Service
 public class TourDAO {
 	
-	public void getTourList(int pageNo, HttpServletRequest req) {
+	public void getTourList(int pageNo, String areaCode, HttpServletRequest req) {
 		//투어 리스트를 가져온다
 		String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList";
 		requrl += "?serviceKey=Aw4T8pItJbg5eFtUT1DD3MgYcrXC7hWdryfz0229tJjcIiZOGGigz6ntR7M3lYTOHTuvSBHWaHqdXHP5mswwUA==";
-		requrl += "&areaCode=1";
+		requrl += "&areaCode=" + areaCode;
 		requrl += "&contentTypeId=12";
 		requrl += "&pageNo=" + pageNo;
 		requrl += "&MobileOS=ETC";
@@ -99,6 +100,7 @@ public class TourDAO {
             	tourList.add(tl);
             }
             req.setAttribute("tourList", tourList);
+            req.getSession().setAttribute("areaCode", areaCode);
             System.out.println(tourList.get(0).getAddr1());
             
 		} catch (Exception e) {

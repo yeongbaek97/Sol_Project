@@ -9,7 +9,17 @@
 </head>
 <body>
 
-<h3>투어리스트 화면</h3>
+<div>
+	<table>
+		<tr>
+			<td><a href="tour.list.regional?areaCode=1" >서울</a></td>
+			<td><a href="tour.list.regional?areaCode=2" >1</a></td>
+			<td><a href="tour.list.regional?areaCode=3" >2</a></td>
+			<td><a href="tour.list.regional?areaCode=4" >3</a></td>
+			<td><a href="tour.list.regional?areaCode=5" >4</a></td>
+		</tr>
+	</table>
+</div>
 
 
 	<table>
@@ -27,10 +37,10 @@
 	
 	<!-- 페이징 부분 뷰는 추후에 작업예정 -->
 	<c:if test="${curPage != 1 }">
-		<a href="tour.list.change?p=${curPage - 1 }" >dddd</a>
+		<a href="tour.list.regional_change?p=${curPage - 1 }" >이전</a>
 	</c:if>
 	<c:if test="${curPage != pageCount }">
-		<a href="tour.list.change?p=${curPage + 1 }" >gggg</a>
+		<a href="tour.list.regional_change?p=${curPage + 1 }" >다음</a>
 	</c:if>
 
 </body>
