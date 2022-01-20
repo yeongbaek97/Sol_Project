@@ -36,7 +36,7 @@ public class TourController {
 		
 		
 		tdao.getTourList(p, areaCode, req);
-		
+		req.setAttribute("contentPage", "tour/regional_View.jsp");
 		
 		return "home";
 	}

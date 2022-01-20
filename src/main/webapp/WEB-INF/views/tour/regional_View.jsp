@@ -13,10 +13,10 @@
 	<table>
 		<tr>
 			<td><a href="tour.list.regional?areaCode=1" >서울</a></td>
-			<td><a href="tour.list.regional?areaCode=2" >1</a></td>
-			<td><a href="tour.list.regional?areaCode=3" >2</a></td>
-			<td><a href="tour.list.regional?areaCode=4" >3</a></td>
-			<td><a href="tour.list.regional?areaCode=5" >4</a></td>
+			<td><a href="tour.list.regional?areaCode=2" >인천</a></td>
+			<td><a href="tour.list.regional?areaCode=3" >대전</a></td>
+			<td><a href="tour.list.regional?areaCode=4" >대구</a></td>
+			<td><a href="tour.list.regional?areaCode=5" >광주</a></td>
 		</tr>
 	</table>
 </div>
