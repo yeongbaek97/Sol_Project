@@ -27,10 +27,9 @@
 	<!-- 네비바 -->
 
 
-	<div>
-
+	<div class="navi_div">
 		<ul class="navi">
-			<li><a href="#">홈</a></li>
+			<li><a href="">홈</a></li>
 			<li><a href="tour.list.regional?areaCode=1">여행지</a>
 				<ul>
 					<li><a href="tour.list.regional?areaCode=1">지역별</a></li>
@@ -38,7 +37,7 @@
 					<li><a href="tour.list">등등</a></li>
 				</ul>
 			</li>
-			<li><a href="#">여행게시판</a></li>
+			<li><a href="">여행게시판</a></li>
 			<li><a href="accom.home">숙소</a></li>
 		</ul>
 	</div>

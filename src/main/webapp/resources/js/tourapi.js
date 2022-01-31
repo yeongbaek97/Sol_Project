@@ -1,4 +1,3 @@
-
 function tourapia(){
 
 	$(function() {
@@ -23,4 +22,12 @@ function tourapia(){
 		
 });
 
+}
+
+/*
+ * 상세정보 이동
+ * http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro&contentId
+*/
+function aa(contentid) {
+	location.href="tour.list.detail&contentid";
 }

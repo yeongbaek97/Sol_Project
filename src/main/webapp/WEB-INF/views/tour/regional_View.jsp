@@ -37,16 +37,12 @@
 
 
 		<c:forEach var="c" items="${tourList}">
-			<div>
+			<div onclick="location.href='tour.list.detail?contentid=${c.contentid }'">
+			<img src="${c.firstimage2 }" style="width:300px;height:150px;object-fit: cover;">
+			${c.title }
 			${c.addr1 }
 			${c.contentid }
-			${c.title }
-			${c.mapx }
-			${c.mapy }
 			</div>
-
-
-
 		</c:forEach>
 
 	</div>

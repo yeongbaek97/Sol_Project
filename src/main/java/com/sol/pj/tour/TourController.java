@@ -40,6 +40,20 @@ public class TourController {
 		
 		return "home";
 	}
+	
+	@RequestMapping(value = "tour.list.detail", method = RequestMethod.GET)
+	public String tourlistdetail(HttpServletRequest req) {
+
+		
+		tdao.getTourDetail(req);
+		tdao.getTourDetail2(req);
+		tdao.getTourDetail3(req);
+		
+		
+		req.setAttribute("contentPage", "tour/detail_View.jsp");
+		
+		return "home";
+	}
 
 
 }
