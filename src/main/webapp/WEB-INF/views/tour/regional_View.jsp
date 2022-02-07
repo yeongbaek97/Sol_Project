@@ -42,6 +42,7 @@
 			<td>${c.title }</td>
 			<td>${c.mapx }</td>
 			<td>${c.mapy }</td>
+			<td><button onclick="location.href='accom.home?x=${c.mapx}&y=${c.mapy }'">근처숙소보기</button>
 		</tr>
 	</c:forEach>
 	</table>

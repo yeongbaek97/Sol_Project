@@ -7,56 +7,150 @@ $(function() {
 	//37.5700923166043, 126.98326280022346 종각
 	
 	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+	map.setZoomable(false);
 	
+	function getParameterByName(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+
+	let newX = getParameterByName("x");
+	let newY = getParameterByName("y");
 	
-	$("button").click(function() {
-		let lon = $(this).closest('tr').find('#lon').text();
-		let lat = $(this).closest('tr').find('#lat').text();
-		let name = $(this).closest('tr').find('#name').text();
-		
-		console.log(lon);
-		console.log(lat);
-		console.log(name);
-		
-		$.ajax({
-			url : "https://dapi.kakao.com/v2/local/search/keyword.json",
-			data : {query : name, x : lon, y : lat, radius : 200},
-			beforeSend : function(req) {
-				req.setRequestHeader("Authorization", "KakaoAK 2a5012215f9bc92d87ba9b465ec2e98b")
-			},
-			success : function(result) {
-				console.log(JSON.stringify(result));
-				
-				//지도 이동
-			    var moveLatLon = new kakao.maps.LatLng(lat, lon);
-			    map.setCenter(moveLatLon);
-			    
-			    var position =  new kakao.maps.LatLng(lat, lon);
-			    
-			    //마커 생성
-			    var marker = new kakao.maps.Marker({
-		    	  position: position,
-		    	  clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
-		    	});
-			    
-			    marker.setMap(map);
-			    
-			    // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-			    var iwContent = '<div style="padding:5px;">' +name +'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-			        iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+	// 이동할 위도 경도 위치를 생성합니다 
+    var moveLatLon = new kakao.maps.LatLng(newY, newX);
+    // 지도 중심을 이동 시킵니다
+    map.setCenter(moveLatLon);
+    
+    var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+    
+    // 장소 검색 객체를 생성합니다
+    var ps2 = new kakao.maps.services.Places(map); 
 
-			    // 인포윈도우를 생성합니다
-			    var infowindow = new kakao.maps.InfoWindow({
-			        content : iwContent,
-			        removable : iwRemoveable
-			    });
-
-			    // 마커에 클릭이벤트를 등록합니다
-			    kakao.maps.event.addListener(marker, 'click', function() {
-			          // 마커 위에 인포윈도우를 표시합니다
-			          infowindow.open(map, marker);  
-			    });
-			}
-		});
+    // 카테고리로 은행을 검색합니다
+    ps2.categorySearch('AD5', placesSearchCB2, {useMapBounds:true}); 
+    
+    var markers = [];
+    
+    // 키워드 검색 완료 시 호출되는 콜백함수 입니다
+    function placesSearchCB2 (data, status, pagination) {				    	
+        if (status === kakao.maps.services.Status.OK) {
+        	
+            for (var i=0; i<data.length; i++) {
+                displayMarker(data[i]);   
+                console.log(data[i]);
+            }    
+        }
+    }
+    
+    $("#narrow").click(function(e) {
+		var level = map.getLevel(); 
+		if(level <= 4) {
+			map.setLevel(4);
+		} else {
+			map.setLevel(level - 1);
+		}
+	    ps2.categorySearch('AD5', placesSearchCB2, {useMapBounds:true}); 
 	});
+    
+    $("#wide").click(function(e) {
+		var level = map.getLevel(); 
+		if(level >= 8) {
+			map.setLevel(8);
+		} else {
+			map.setLevel(level + 1)
+		}
+		
+	    ps2.categorySearch('AD5', placesSearchCB2, {useMapBounds:true}); 
+	});
+    
+    // 지도에 마커를 표시하는 함수입니다
+    function displayMarker(place) {
+        // 마커를 생성하고 지도에 표시합니다
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: new kakao.maps.LatLng(place.y, place.x) 
+        });
+
+        // 마커에 클릭이벤트를 등록합니다
+        kakao.maps.event.addListener(marker, 'click', function() {
+            // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+            infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+            infowindow.open(map, marker);
+        });
+        
+        markers.push(marker);
+    }
+	
+	$("#search").keyup(function(e) {
+		if(e.keyCode == 13) {
+			let search = $(this).val();
+			
+			//기존 마커 삭제
+			for (var i = 0; i < markers.length; i++) {
+				markers[i].setMap(null);
+			}   
+			 
+			let ps = new kakao.maps.services.Places(map); 
+			ps.keywordSearch(search, placesSearchCB); 
+			
+			// 키워드 검색 완료 시 호출되는 콜백함수 입니다
+			function placesSearchCB (data, status, pagination) {
+			    if (status === kakao.maps.services.Status.OK) {
+			        newY = data[0].y;
+			        newX = data[0].x;
+			        
+				    // 이동할 위도 경도 위치를 생성합니다 
+				    var moveLatLon = new kakao.maps.LatLng(newY, newX);
+				    // 지도 중심을 이동 시킵니다
+				    map.setCenter(moveLatLon);
+				    
+				    var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+				    
+				    // 장소 검색 객체를 생성합니다
+				    var ps2 = new kakao.maps.services.Places(map); 
+
+				    // 카테고리로 은행을 검색합니다
+				    ps2.categorySearch('AD5', placesSearchCB2, {useMapBounds:true}); 
+				    
+				    
+				    // 키워드 검색 완료 시 호출되는 콜백함수 입니다
+				    function placesSearchCB2 (data, status, pagination) {				    	
+				        if (status === kakao.maps.services.Status.OK) {
+				        	
+				            for (var i=0; i<data.length; i++) {
+				                displayMarker(data[i]);    
+				                console.log(data[i]);
+				            }       
+				        }
+				    }
+				    
+				   
+				    
+				    // 지도에 마커를 표시하는 함수입니다
+				    function displayMarker(place) {
+				        // 마커를 생성하고 지도에 표시합니다
+				        var marker = new kakao.maps.Marker({
+				            map: map,
+				            position: new kakao.maps.LatLng(place.y, place.x) 
+				        });
+
+				        // 마커에 클릭이벤트를 등록합니다
+				        kakao.maps.event.addListener(marker, 'click', function() {
+				            // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+				            infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+				            infowindow.open(map, marker);
+				        });
+				        
+				        markers.push(marker);
+				    }
+			    } 
+			}
+			
+		}
+	});
+	
+	
 });
