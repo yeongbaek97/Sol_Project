@@ -1,5 +1,4 @@
-
-function tourapia(){
+/*function tourapia(){
 
 	$(function() {
 		$.ajax({
@@ -24,3 +23,23 @@ function tourapia(){
 });
 
 }
+
+
+ * 상세정보 이동
+ * http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro&contentId
+
+function aa(contentid) {
+	location.href="tour.list.detail&contentid";
+}*/
+
+/*function bbb() {
+	$("#dd").mouseover(function() {
+		
+		$("#dddd").dialog("open");
+	});
+};
+
+$(function() {
+	
+	bbb();
+});*/
