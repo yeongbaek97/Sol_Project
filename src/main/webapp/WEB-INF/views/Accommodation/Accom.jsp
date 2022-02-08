@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="resources/jQuery.js"></script>
-<script type="text/javascript" src="resources/accommodation.js"></script>
+<script type="text/javascript" src="resources/js/accommodation.js"></script>
 <script src="https://tistory1.daumcdn.net/tistory/2784544/skin/images/xmltojsonPast.min.js"></script>
 </head>
 <body>
