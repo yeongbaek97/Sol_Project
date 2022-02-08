@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.tourtbl{
+	width: 60%;
+	margin: auto;
+}
+
+.tourtbl tr{
+	
+
+	
+}
+
+.tourtbl td{
+	width: 40px;
+	height:27px;
+	padding: 5px;
+	border: 1px solid black;
+	text-align: center;
+}
+
+.tourtbl a{
+	text-decoration:none;
+}
+
+.tour_list_view{
+	width: 60%;
+	margin: auto;
+}

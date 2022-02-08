@@ -8,19 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-${tourdetail.parking }
-${tourdetail.chkpet }
-${tourdetail.infocenter }
-${tourdetail.restdate }
-${tourdetail.usetime }
-${tourdetail.expguide }
-${tourdetail.expagerange }
-${tourdetail.chkbabycarriage }
+
+${tourdetail.agelimit }
+${tourdetail.bookingplace }
+
 <hr>
-<c:forEach var="c" items="${tourdetail2}">
-	${c.infoname }
-	${c.infotext }	
-</c:forEach>
+
 <hr>
 ${tourdetail3.createdtime }
 

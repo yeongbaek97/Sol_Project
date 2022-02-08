@@ -10,7 +10,7 @@
 <body>
 
 	<div>
-		<table>
+		<table class="tourtbl">
 			<tr>
 				<td><a href="tour.list.regional?areaCode=1">서울</a></td>
 				<td><a href="tour.list.regional?areaCode=2">인천</a></td>
@@ -21,6 +21,8 @@
 				<td><a href="tour.list.regional?areaCode=7">울산</a></td>
 				<td><a href="tour.list.regional?areaCode=8">세종</a></td>
 				<td><a href="tour.list.regional?areaCode=31">경기도</a></td>
+			</tr>
+			<tr>				
 				<td><a href="tour.list.regional?areaCode=32">강원도</a></td>
 				<td><a href="tour.list.regional?areaCode=33">충청북도</a></td>
 				<td><a href="tour.list.regional?areaCode=34">충청남도</a></td>
@@ -33,11 +35,9 @@
 		</table>
 	</div>
 
-	<div>
-
-
+	<div class="tour_list_view">
 		<c:forEach var="c" items="${tourList}">
-			<div onclick="location.href='tour.list.detail?contentid=${c.contentid }'">
+			<div id="dd" onclick="location.href='tour.list.detail?contentid=${c.contentid }'">
 			<img src="${c.firstimage2 }" style="width:300px;height:150px;object-fit: cover;">
 			${c.title }
 			${c.addr1 }
@@ -54,6 +54,8 @@
 	<c:if test="${curPage != pageCount }">
 		<a href="tour.list.regional_change?p=${curPage + 1 }">다음</a>
 	</c:if>
+
+	
 
 </body>
 </html>

@@ -46,10 +46,10 @@ public class MemberController {
 		 
 		 System.out.println(userInfo.get("nickname"));
 		
-		 
+		
 		 
 		
-		return "member/loginkakao";
+		return "home";
 	}
 	
 }
