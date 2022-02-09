@@ -40,6 +40,7 @@
 			</li>
 			<li><a href="#">여행게시판</a></li>
 			<li><a href="accom.home">숙소</a></li>
+			<li><a href="goto.accomIndex">숙소+캠핑</a>
 		</ul>
 	</div>
 	

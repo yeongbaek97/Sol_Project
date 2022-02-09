@@ -64,10 +64,13 @@ public class GoCampingDAO {
 	        	String addr = (String)tmp.get("addr1");
 	        	String dosi = (String)tmp.get("doNm");
 	        	String img = (String)tmp.get("firstImgUrl");
-	        	gc.setTitle(title);
-	        	gc.setAddr(addr);
-	        	gc.setDosi(dosi);
-	        	gc.setImg(img);
+	        	
+	        	if(dosi == areaCode) {
+	        		gc.setTitle(title);
+	        		gc.setAddr(addr);
+	        		gc.setDosi(dosi);
+	        		gc.setImg(img);
+	        	}
 	        	
 		        if(gc!=null) {
 		        	lgc.add(gc);

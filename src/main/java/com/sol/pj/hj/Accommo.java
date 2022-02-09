@@ -2,7 +2,7 @@ package com.sol.pj.hj;
 
 import java.math.BigDecimal;
 
-public class Accom {
+public class Accommo {
 
 	private String title;
 	private String addr;
@@ -11,11 +11,11 @@ public class Accom {
 	private BigDecimal mapX;
 	private BigDecimal mapY;
 	
-	public Accom() {
+	public Accommo() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Accom(String title, String addr, String img, String classifi, BigDecimal mapX, BigDecimal mapY) {
+	public Accommo(String title, String addr, String img, String classifi, BigDecimal mapX, BigDecimal mapY) {
 		super();
 		this.title = title;
 		this.addr = addr;

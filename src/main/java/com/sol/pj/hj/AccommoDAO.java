@@ -26,7 +26,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 @Service
-public class AccomDAO {
+public class AccommoDAO {
 
 	public static String getTagValue(String tag, Element eElement) {
     	//결과를 저장할 result 변수 선언
@@ -37,7 +37,7 @@ public class AccomDAO {
     	return result;
 	}
 	
-	public List<Accom> accomJSON(HttpServletRequest request) throws IOException, Exception {
+	public List<Accommo> accomJSON(HttpServletRequest request) throws IOException, Exception {
 		String areaCode = request.getParameter("areaCode");
 		String pageNo = request.getParameter("pageNo");
 		String claf = request.getParameter("classification");
@@ -89,10 +89,10 @@ public class AccomDAO {
 
 		//NodeList nList = doc.getElementsByTagName("item");
 		
-        List<Accom> acc = new ArrayList<Accom>();
+        List<Accommo> acc = new ArrayList<Accommo>();
         
 		for(int i=0; i<nList.getLength(); i++) {
-			Accom accm = new Accom();
+			Accommo accm = new Accommo();
 			Node nNode = nList.item(i);
 			if(nNode.getNodeType() == Node.ELEMENT_NODE) {
 				Element element = (Element) nNode;

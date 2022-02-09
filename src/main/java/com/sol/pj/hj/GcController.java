@@ -17,7 +17,7 @@ public class GcController {
 	@Autowired
 	private GoCampingDAO gDAO;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "goto.accomIndex", method = RequestMethod.GET)
 	public String home() {
 		
 		return "Accommodation/AccomIndex";
