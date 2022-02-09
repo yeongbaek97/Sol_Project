@@ -7,13 +7,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="shortcut icon" href="#">
-<script type="text/javascript" src="resources/jQuery.js"></script>
+<script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript">
 $(function() {
 	$("#btn").click(function() {
 		var areaCode = document.getElementById("areaCode").value;
 		var pageNo = document.getElementById("pageNo").value;
-		location.href="/project/gocamping.json?areaCode=" + areaCode + "&pageNo=" + pageNo;
+		location.href="gocamping.json?areaCode=" + areaCode + "&pageNo=" + pageNo;
 	});
 })
 </script>

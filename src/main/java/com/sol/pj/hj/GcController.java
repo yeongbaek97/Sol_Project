@@ -35,7 +35,7 @@ public class GcController {
 		return "Accommodation/Accom";
 	}
 	
-	@RequestMapping(value = "json.get", method = RequestMethod.GET,
+	@RequestMapping(value = "gocamping.json", method = RequestMethod.GET,
 			produces = "application/json; charset=utf-8")
 	public String getMenuJSON(GoCamping gc, HttpServletRequest request) throws IOException, ParseException {
 		List<GoCamping> mm = gDAO.gocampingJSON(request);
