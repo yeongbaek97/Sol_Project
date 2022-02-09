@@ -56,27 +56,41 @@ public class GoCampingDAO {
 	        
 	        
 	        List<GoCamping> lgc = new ArrayList<GoCamping>();
-	        
+            
+	        /*
+	       		필요한 값들을 item 배열에서 뽑아온 후
+	        	doNm(도 이름)와 areaCode(jsp에서 넘겨받은 값)이 같을 때만 (select box 선택값)
+	        	setter로 값을 넣어주고 (firstImageUrl의 값이 null이면 resources/img/NoImage.jpg를 넣음)
+	        	그 값들을 List 배열에 넣어줌
+	        	=> for문
+	        */
 	        for(int i=0; i<item.size(); i++) {
 	        	GoCamping gc = new GoCamping();
 	        	JSONObject tmp = (JSONObject)item.get(i);
 	        	String title = (String)tmp.get("facltNm");
 	        	String addr = (String)tmp.get("addr1");
 	        	String dosi = (String)tmp.get("doNm");
-
 	        	String img = (String)tmp.get("firstImageUrl");
 
-	        	String img = (String)tmp.get("firstImgUrl");
-parent of 32b7cc1 (update gocamping.jsp image tag, update gocamping DAO)
-	        	
 	        	if(dosi.equals(areaCode)) {
 	        		gc.setTitle(title);
 	        		gc.setAddr(addr);
 	        		gc.setDosi(dosi);
-	        		gc.setImg(img);
+	        		if(img!=null) {
+	        			gc.setImg(img);
+	        		} else {
+	        			img = "resources/img/NoImage.jpg";
+	        			gc.setImg(img);
+	        		}
 	        	}
-	        	
-		        if(gc!=null) {
+                /*
+                    sysout으로 if(dosi.equals(areadCode)) 전까지 뽑아봤을 때 title, addr, dosi, img => 나옴
+                    sysout으로 if(gc.getTitle()!=null) 전까지 뽑아봤을 때 title, addr, dosi, img => 나옴
+                    => 이때, dosi!=areaCode 이면, title의 sysout 값 = null
+                    sysout으로 if(gc.getTitle.length()!=0) => nullPointException
+                    => 위의 title의 sysout 값 null 확인 후 if(gc.getTitle()!=null) 수정 후 성공
+                */
+		        if(gc.getTitle()!=null) {
 		        	lgc.add(gc);
 		        }
 	        }
