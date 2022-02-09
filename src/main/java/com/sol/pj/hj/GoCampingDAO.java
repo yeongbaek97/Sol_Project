@@ -72,7 +72,7 @@ public class GoCampingDAO {
 	        	String title = (String)tmp.get("facltNm");
 	        	String addr = (String)tmp.get("addr1");
 	        	String dosi = (String)tmp.get("doNm");
-	        	String img = (String)tmp.get("firstImageUrl");
+	        	String img = (String)tmp.get("firstImageUrl999");
 	        	
 	        	if(dosi.equals(areaCode)) {
 	        		gc.setTitle(title);
