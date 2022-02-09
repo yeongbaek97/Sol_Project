@@ -76,7 +76,7 @@ $(function() {
 			<td>${g.title }</td>
 			<td>${g.addr }</td>
 			<td>${g.dosi }</td>
-			<td> <img src="${g.img }" style="width: 200px; height: 150px;"> </td>
+			<td>${g.img }</td>
 		</tr>
 	</c:forEach>
 	</table>
