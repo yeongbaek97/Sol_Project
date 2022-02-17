@@ -1,45 +1,93 @@
-/*function tourapia(){
+function areaEvent() {
 
-	$(function() {
-		$.ajax({
-			// 서버로 보낼 주소 입력
-			url : "tour.list",
-			// type 설정
-			type : 'GET',
-			// 요청한 데이터 형식
-			dataType : 'json',
-			// 전송할 데이터
-			data : {},
-			// 성공적으로 응답을 받으면
-			success : function(data) {
-				// 전송에 성공하면 실행될 코드
-				
-				console.log(data);
-				
-			}
-			
-		});
-		
-});
+	$(".area_select").click(function() {
+		var click_id = $(this).attr("id");
+
+		location.href = "tour.list.regional?sigunguCode=0&areaCode=" + click_id;
+
+	});
 
 }
 
+function guEvent() {
 
- * 상세정보 이동
- * http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro&contentId
+	$(document).on('click',".gu_select",function(){
+		
+		var click_id = $(this).attr("id");
+		
+		console.log(click_id);
+		location.href = "tour.list.regional?sigunguCode=" + click_id;
+	});
 
-function aa(contentid) {
-	location.href="tour.list.detail&contentid";
+}
+/*
+ * http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaCode?ServiceKey=인증키&areaCode=1&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest
+ */
+function GuOfficeEvent(areaCode) {
+
+	var url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaCode?ServiceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==&areaCode="+areaCode+"&numOfRows=35&MobileOS=ETC&MobileApp=AppTest&_type=json";
+	var Gu_office = document.getElementById("Gu_office");
+	console.log(areaCode);
+	$.getJSON(url, function(data) {
+		
+		var totalCount = data.response.body.totalCount;
+		var new_ul = document.getElementById("gu_ul");
+		
+		console.log(data);
+		for(var i=0;i<totalCount;i++){
+			
+			
+			
+			if(totalCount == 1){
+				var text = document.createTextNode(data.response.body.items.item.name);
+			}else{
+				var text = document.createTextNode(data.response.body.items.item[i].name);
+			}
+			
+			
+			var new_li = document.createElement("li");
+			new_li.appendChild(text);
+			new_li.id=data.response.body.items.item[i].code;
+			new_li.className="gu_select";
+			new_ul.appendChild(new_li);
+			
+			Gu_office.appendChild(new_ul);
+		}
+		
+
+	});
+}
+
+
+
+/*function getURLParams(url) {
+    var result = {};
+    url.replace(/[?&]{1}([^=&#]+)=([^&#]*)/g, function(s, k, v) { result[k] = decodeURIComponent(v); });
+    return result;
 }*/
 
-/*function bbb() {
-	$("#dd").mouseover(function() {
-		
-		$("#dddd").dialog("open");
-	});
-};
+
+
+//url 파라미터 가져오기
+/*function getParameterByName(name) {
+
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+
+            results = regex.exec(location.search);
+
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+
+}*/
+
+
+
 
 $(function() {
-	
-	bbb();
-});*/
+	//var areaCode = getParameterByName('areaCode');
+	var areaCode = document.getElementById("areaCode").value;
+	areaEvent();
+	GuOfficeEvent(areaCode);
+	guEvent();
+});

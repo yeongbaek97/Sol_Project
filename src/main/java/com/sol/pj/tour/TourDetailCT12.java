@@ -1,6 +1,6 @@
 package com.sol.pj.tour;
 
-public class TourDetail {
+public class TourDetailCT12 {
 
 	private String parking;			// 주차시설
 	private String chkpet;			// 애완동물 동반가능 정보
@@ -11,10 +11,10 @@ public class TourDetail {
 	private String expagerange;		// 체험가능 연령
 	private String chkbabycarriage;	// 유모차대여 정보
 	//개장일, 이용시기
-	public TourDetail() {
+	public TourDetailCT12() {
 		// TODO Auto-generated constructor stub
 	}
-	public TourDetail(String parking, String chkpet, String infocenter, String restdate, String usetime,
+	public TourDetailCT12(String parking, String chkpet, String infocenter, String restdate, String usetime,
 			String expguide, String expagerange, String chkbabycarriage) {
 		super();
 		this.parking = parking;
