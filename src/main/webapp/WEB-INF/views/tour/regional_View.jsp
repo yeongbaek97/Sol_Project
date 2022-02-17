@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<!-- 지역선택 Type1 -->
 	<div>
 		<table class="tourtbl">
 			<tr>
@@ -37,14 +38,50 @@
 
 	<div class="tour_list_view">
 		<c:forEach var="c" items="${tourList}">
-			<div id="dd" onclick="location.href='tour.list.detail?contentid=${c.contentid }'">
-			<img src="${c.firstimage2 }" style="width:300px;height:150px;object-fit: cover;">
-			${c.title }
-			${c.addr1 }
-			${c.contentid }
+			<div style="width: 33%;float: left;" id="dd" onclick="location.href='tour.list.detail?contentid=${c.contentid }'">
+				<img src="${c.firstimage2 }"style="width: 300px; height: 150px; object-fit: cover;"><br>
+				${c.title }<br>
+				${c.addr1 }
 			</div>
 		</c:forEach>
+	</div>
 
+<!-- 지역선택 Type2 -->
+	<div class="tour_list_select">
+		<div>
+		<input id="areaCode" type="hidden" value="${areaCode }">
+			<ul>
+				<li class="area_select" id="1">서울</li>
+				<li class="area_select" id="2">인천</li>
+				<li class="area_select" id="3">대전</li>
+				<li class="area_select" id="4">대구</li>
+			
+				<li class="area_select" id="5">광주</li>
+				<li class="area_select" id="6">부산</li>
+				<li class="area_select" id="7">울산</li>
+				<li class="area_select" id="8">세종</li>
+			
+				<li class="area_select" id="31">경기</li>
+				<li class="area_select" id="32">강원</li>
+				<li class="area_select" id="33">충북</li>
+				<li class="area_select" id="34">충남</li>
+			
+				<li class="area_select" id="35">경북</li>
+				<li class="area_select" id="36">경남</li>
+				<li class="area_select" id="37">전북</li>
+				<li class="area_select" id="38">전남</li>
+			
+				<li class="area_select" id="39">제주</li>
+			</ul>
+		</div>
+
+
+		<div id="Gu_office">
+			<ul id="gu_ul">
+				<li class="gu_select" id="0">전체</li>
+			</ul>
+			
+		</div>
 	</div>
 
 	<table>
@@ -61,14 +98,15 @@
 	</table>
 	
 	<!-- 페이징 부분 뷰는 추후에 작업예정 -->
-	<c:if test="${curPage != 1 }">
-		<a href="tour.list.regional_change?p=${curPage - 1 }">이전</a>
-	</c:if>
-	<c:if test="${curPage != pageCount }">
-		<a href="tour.list.regional_change?p=${curPage + 1 }">다음</a>
-	</c:if>
+	<div>
+		<c:if test="${curPage != 1 }">
+			<a href="tour.list.regional_change?p=${curPage - 1 }">이전</a>
+		</c:if>
+		<c:if test="${curPage != pageCount }">
+			<a href="tour.list.regional_change?p=${curPage + 1 }">다음</a>
+		</c:if>
+	</div>
 
-	
 
 </body>
 </html>

@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 ${tourdetail.parking }
 ${tourdetail.chkpet }
 ${tourdetail.infocenter }
@@ -23,7 +22,12 @@ ${tourdetail.chkbabycarriage }
 	${c.infotext }	
 </c:forEach>
 <hr>
-${tourdetail3.createdtime }
+
+
+<div>
+등록일 : ${tourdetailcommon.createdtime }
+전화번호 : ${tourdetailcommon.tel }
+</div>
 
 
 </body>

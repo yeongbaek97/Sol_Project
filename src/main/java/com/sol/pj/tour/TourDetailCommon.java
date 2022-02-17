@@ -1,6 +1,6 @@
 package com.sol.pj.tour;
 
-public class TourDetail3 {
+public class TourDetailCommon {
 	private String createdtime;
 	private String homepage;
 	private String modifiedtime;
@@ -15,11 +15,11 @@ public class TourDetail3 {
 	private String mlevel;
 	private String overview;
 	
-	public TourDetail3() {
+	public TourDetailCommon() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public TourDetail3(String createdtime, String homepage, String modifiedtime, String tel, String telname,
+	public TourDetailCommon(String createdtime, String homepage, String modifiedtime, String tel, String telname,
 			String title, String addr1, String addr2, String zipcode, String mapx, String mapy, String mlevel,
 			String overview) {
 		super();
