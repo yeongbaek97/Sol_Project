@@ -7,6 +7,7 @@ public class TourList {
 	private String title;
 	private String mapx;
 	private String mapy;
+	private String firstimage2;
 
 	
 	public TourList() {
@@ -14,13 +15,14 @@ public class TourList {
 	}
 
 
-	public TourList(String addr1, String contentid, String title, String mapx, String mapy) {
+	public TourList(String addr1, String contentid, String title, String mapx, String mapy, String firstimage2) {
 		super();
 		this.addr1 = addr1;
 		this.contentid = contentid;
 		this.title = title;
 		this.mapx = mapx;
 		this.mapy = mapy;
+		this.firstimage2 = firstimage2;
 	}
 
 
@@ -72,6 +74,19 @@ public class TourList {
 	public void setMapy(String mapy) {
 		this.mapy = mapy;
 	}
+
+
+	public String getFirstimage2() {
+		return firstimage2;
+	}
+
+
+	public void setFirstimage2(String firstimage2) {
+		this.firstimage2 = firstimage2;
+	}
+
+
+	
 
 	
 
