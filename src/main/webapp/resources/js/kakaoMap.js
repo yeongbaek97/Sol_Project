@@ -2,7 +2,8 @@ $(function() {
 	var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 	var options = { //지도를 생성할 때 필요한 기본 옵션
 		center: new kakao.maps.LatLng(37.5700923166043, 126.98326280022346), //지도의 중심좌표.
-		level: 5 //지도의 레벨(확대, 축소 정도)
+		level: 5, //지도의 레벨(확대, 축소 정도)
+		disableDoubleClickZoom: true
 	};
 	//37.5700923166043, 126.98326280022346 종각
 	
@@ -98,6 +99,10 @@ $(function() {
     		imageSrc = 'resources/img/homestay.png';
     	} else if(category.indexOf("캠핑") >= 0) {
     		imageSrc = 'resources/img/camping.png';
+    	} else if(category.indexOf("유스호스텔") >= 0) {
+    		imageSrc = 'resources/img/youthhostel.png';
+    	} else {
+    		imageSrc = 'resources/img/etc.png';
     	}
     	
     	    
@@ -130,6 +135,10 @@ $(function() {
 	    		customOverlayBackgroundColor = '#ADB9CA';
 	    	} else if(marker.T.Yj.indexOf("camping") >= 0) {
 	    		customOverlayBackgroundColor = '#00B050';
+	    	} else if(marker.T.Yj.indexOf("youthhostel") >= 0) {
+	    		customOverlayBackgroundColor = '#ffC000';
+	    	} else {
+	    		customOverlayBackgroundColor = '#828282';
 	    	}
         	
         	document.documentElement.style.setProperty("--customOverlayBackgroundColor", customOverlayBackgroundColor);
@@ -162,7 +171,7 @@ $(function() {
 				markers[i].setMap(null);
 			}   
 			
-			console.log(customOverlay)
+			
 			let ps = new kakao.maps.services.Places(map); 
 			ps.keywordSearch(search, placesSearchCB); 
 			
@@ -176,7 +185,7 @@ $(function() {
 				    var moveLatLon = new kakao.maps.LatLng(newY, newX);
 				    // 지도 중심을 이동 시킵니다
 				    map.setCenter(moveLatLon);
-				    
+
 				    var infowindow = new kakao.maps.InfoWindow({zIndex:1, removable: true});
 				    
 				    // 장소 검색 객체를 생성합니다
@@ -208,7 +217,7 @@ $(function() {
 				    	var imageSrc, //= 'resources/img/hotel3.png', // 마커이미지의 주소입니다    
 				        imageSize = new kakao.maps.Size(33, 37), // 마커이미지의 크기입니다
 				        imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-				    	
+				    	console.log(category.indexOf("유스호스텔"));
 				    	if(category.indexOf("호텔") >= 0) {
 				    		imageSrc = 'resources/img/hotel.png';
 				    	} else if(category.indexOf("모텔") >= 0) {
@@ -223,9 +232,12 @@ $(function() {
 				    		imageSrc = 'resources/img/homestay.png';
 				    	} else if(category.indexOf("캠핑") >= 0) {
 				    		imageSrc = 'resources/img/camping.png';
+				    	} else if(category.indexOf("유스호스텔") >= 0) {
+				    		imageSrc = 'resources/img/youthhostel.png';
+				    	} else {
+				    		imageSrc = 'resources/img/etc.png';
 				    	}
-				    	
-				    	    
+				    	   
 					    // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
 					    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
 
@@ -260,6 +272,10 @@ $(function() {
 					    		customOverlayBackgroundColor = '#ADB9CA';
 					    	} else if(marker.T.Yj.indexOf("camping") >= 0) {
 					    		customOverlayBackgroundColor = '#00B050';
+					    	} else if(marker.T.Yj.indexOf("youthhostel") >= 0) {
+					    		customOverlayBackgroundColor = '#ffC000';
+					    	} else {
+					    		customOverlayBackgroundColor = '#828282';
 					    	}
 				        	
 				        	document.documentElement.style.setProperty("--customOverlayBackgroundColor", customOverlayBackgroundColor);

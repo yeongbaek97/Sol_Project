@@ -38,7 +38,7 @@ public class TourDAO {
 		System.out.println(cafe);
 		//투어 리스트를 가져온다
 		String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList";
-		requrl += "?serviceKey=Aw4T8pItJbg5eFtUT1DD3MgYcrXC7hWdryfz0229tJjcIiZOGGigz6ntR7M3lYTOHTuvSBHWaHqdXHP5mswwUA==";
+		requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
 		requrl += "&areaCode=" + areaCode;
 		requrl += "&contentTypeId=" + ContentTypeId;
 		requrl += "&pageNo=" + pageNo;
