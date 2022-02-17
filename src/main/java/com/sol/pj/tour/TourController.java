@@ -22,14 +22,14 @@ public class TourController {
 	@Autowired
 	private MemberDAO mDAO;
 	
-	@RequestMapping(value = "tour.concept.select", method = RequestMethod.GET)
+	/*@RequestMapping(value = "tour.concept.select", method = RequestMethod.GET)
 	public String tourconceptselect(HttpServletRequest req) {
 		mDAO.logincheck(req);
 		
 		req.setAttribute("contentPage", "tour/concept_Select.jsp");
 		
 		return "home";
-	}
+	}*/
 	
 	@RequestMapping(value = "tour.list.regional", method = RequestMethod.GET)
 	public String tourlist(HttpServletRequest req) {

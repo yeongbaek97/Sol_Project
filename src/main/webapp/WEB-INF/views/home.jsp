@@ -31,10 +31,15 @@
 	<div class="navi_div">
 		<ul class="navi">
 			<li><a href="home.go">홈</a></li>
-			<li><a href="tour.concept.select">여행지</a>
+			<li><a href="tour.list.regional?sigunguCode=0&areaCode=1&ContentTypeId=39">여행지</a>
 				<ul>
-					<li><a href="tour.concept.select">컨셉별</a></li>
-					<li><a href="tour.list">등등</a></li>
+					<li><a href="tour.list.regional?sigunguCode=0&areaCode=1&ContentTypeId=39">카페</a></li>
+					<li><a href="tour.list.regional?sigunguCode=0&areaCode=1&ContentTypeId=15">행사/공연/축제</a></li>
+					<li><a href="tour.list.regional?sigunguCode=0&areaCode=1&ContentTypeId=12">관광지</a></li>
+					<li><a href="tour.list.regional?sigunguCode=0&areaCode=1&ContentTypeId=14">문화시설</a></li>
+					<li><a href="tour.list.regional?sigunguCode=0&areaCode=1&ContentTypeId=28">레포츠</a></li>
+
+					
 				</ul>
 			</li>
 			<li><a href="">여행게시판</a></li>

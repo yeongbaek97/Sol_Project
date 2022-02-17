@@ -20,11 +20,9 @@ public class TourDAO {
 	public void getTourList(int pageNo, HttpServletRequest req) {
 		String areaCode = req.getParameter("areaCode");
 		String ContentTypeId = req.getParameter("ContentTypeId");
+		String sigunguCode = req.getParameter("sigunguCode");
 		String cafe = "";
 		
-		
-		
-	
 		
 		if(req.getParameter("areaCode")==null) {
 			areaCode = (String) req.getSession().getAttribute("areaCode");
@@ -32,21 +30,30 @@ public class TourDAO {
 		if(req.getParameter("ContentTypeId")==null) {
 			ContentTypeId = (String) req.getSession().getAttribute("ContentTypeId");
 		}
+		if(req.getParameter("sigunguCode")==null) {
+			sigunguCode = (String) req.getSession().getAttribute("sigunguCode");
+		}
+		
+		
 		if(ContentTypeId.equals("39")) {
 			cafe = "&cat1=A05&cat2=A0502&cat3=A05020900";
 		}
-		System.out.println(cafe);
+		/*System.out.println("asd " + sigunguCode);*/
 		//투어 리스트를 가져온다
 		String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList";
-		requrl += "?serviceKey=Aw4T8pItJbg5eFtUT1DD3MgYcrXC7hWdryfz0229tJjcIiZOGGigz6ntR7M3lYTOHTuvSBHWaHqdXHP5mswwUA==";
+		requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
 		requrl += "&areaCode=" + areaCode;
 		requrl += "&contentTypeId=" + ContentTypeId;
 		requrl += "&pageNo=" + pageNo;
+		requrl += "&numOfRows=9";
 		requrl += "&MobileOS=ETC";
 		requrl += "&MobileApp=AppTest";
 		requrl += "&_type=json";
 		if(!cafe.equals("")) {
 			requrl += cafe;
+		}
+		if(!sigunguCode.equals("0")) {
+			requrl += "&sigunguCode=" + sigunguCode;
 		}
 		System.out.println(requrl);
 		
@@ -83,7 +90,7 @@ public class TourDAO {
             allTourListCount =Integer.parseInt(body.get("totalCount").toString());
             System.out.println(allTourListCount);
             
-            int pageCount = (int) Math.ceil(allTourListCount / 10);	//10은 url주소에서 페이지당 10개 보여주는걸로 설정되었기 때문
+            int pageCount = (int) Math.ceil(allTourListCount / 9);	//10은 url주소에서 페이지당 10개 보여주는걸로 설정되었기 때문
 
             
             //페이지 변수값 넘겨주기
@@ -156,6 +163,7 @@ public class TourDAO {
             req.setAttribute("tourList", tourList);
             req.getSession().setAttribute("areaCode", areaCode);
             req.getSession().setAttribute("ContentTypeId", ContentTypeId);
+            req.getSession().setAttribute("sigunguCode", sigunguCode);
             System.out.println(tourList.get(0).getAddr1());
             
 		} catch (Exception e) {
@@ -167,13 +175,15 @@ public class TourDAO {
 		
 	}
 
+	
+	
+	
+	
+	
 	public void getTourDetail_CT12(HttpServletRequest req) {
 		
 		int contentid = Integer.parseInt(req.getParameter("contentid"));
-		
-		
-		
-		
+
 		String parking = "";
         String chkpet = "";
         String infocenter = "";
@@ -186,7 +196,7 @@ public class TourDAO {
 		
 		System.out.println(contentid);
 		String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro";
-		requrl += "?serviceKey=Aw4T8pItJbg5eFtUT1DD3MgYcrXC7hWdryfz0229tJjcIiZOGGigz6ntR7M3lYTOHTuvSBHWaHqdXHP5mswwUA==";
+		requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
 		////////
 		requrl += "&contentTypeId=12";
 		requrl += "&contentId=" + contentid;
@@ -245,7 +255,7 @@ public class TourDAO {
             	chkbabycarriage = item.get("chkbabycarriage").toString();}
             
 
-	        TourDetail tourdetail = new TourDetail(
+	        TourDetailCT12 tourdetail = new TourDetailCT12(
 	        		parking,
 	    	        chkpet,
 	    	        infocenter,
@@ -287,7 +297,7 @@ public class TourDAO {
 		
 		System.out.println(contentid);
 		String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro";
-		requrl += "?serviceKey=Aw4T8pItJbg5eFtUT1DD3MgYcrXC7hWdryfz0229tJjcIiZOGGigz6ntR7M3lYTOHTuvSBHWaHqdXHP5mswwUA==";
+		requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
 		////////
 		requrl += "&contentTypeId=14";
 		requrl += "&contentId=" + contentid;
@@ -409,7 +419,7 @@ public class TourDAO {
 	
 	System.out.println(contentid);
 	String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro";
-	requrl += "?serviceKey=Aw4T8pItJbg5eFtUT1DD3MgYcrXC7hWdryfz0229tJjcIiZOGGigz6ntR7M3lYTOHTuvSBHWaHqdXHP5mswwUA==";
+	requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
 	////////
 	requrl += "&contentTypeId=15";
 	requrl += "&contentId=" + contentid;
@@ -550,7 +560,7 @@ public class TourDAO {
 	
 	System.out.println(contentid);
 	String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro";
-	requrl += "?serviceKey=Aw4T8pItJbg5eFtUT1DD3MgYcrXC7hWdryfz0229tJjcIiZOGGigz6ntR7M3lYTOHTuvSBHWaHqdXHP5mswwUA==";
+	requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
 	////////
 	requrl += "&contentTypeId=28";
 	requrl += "&contentId=" + contentid;
@@ -674,7 +684,7 @@ public class TourDAO {
 		
 		System.out.println(contentid);
 		String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro";
-		requrl += "?serviceKey=Aw4T8pItJbg5eFtUT1DD3MgYcrXC7hWdryfz0229tJjcIiZOGGigz6ntR7M3lYTOHTuvSBHWaHqdXHP5mswwUA==";
+		requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
 		////////
 		requrl += "&contentTypeId=39";
 		requrl += "&contentId=" + contentid;
@@ -794,31 +804,7 @@ public class TourDAO {
 
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	public void getTourDetail2(HttpServletRequest req) {
 		int contentid = Integer.parseInt(req.getParameter("contentid"));
@@ -828,7 +814,7 @@ public class TourDAO {
 
 		System.out.println(contentid);
 		String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailInfo";
-		requrl += "?serviceKey=Aw4T8pItJbg5eFtUT1DD3MgYcrXC7hWdryfz0229tJjcIiZOGGigz6ntR7M3lYTOHTuvSBHWaHqdXHP5mswwUA==";
+		requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
 		requrl += "&contentTypeId=12";
 		requrl += "&contentId=" + contentid;
 		requrl += "&MobileOS=ETC";
@@ -929,7 +915,7 @@ public class TourDAO {
 
 		System.out.println(contentid);
 		String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon";
-		requrl += "?serviceKey=Aw4T8pItJbg5eFtUT1DD3MgYcrXC7hWdryfz0229tJjcIiZOGGigz6ntR7M3lYTOHTuvSBHWaHqdXHP5mswwUA==";
+		requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
 		requrl += "&defaultYN=Y";
 		requrl += "&addrinfoYN=Y";
 		requrl += "&mapinfoYN=Y";
@@ -1005,7 +991,7 @@ public class TourDAO {
             	overview = item.get("overview").toString();}
             
 
-	       TourDetail3 tourdetail3 = new TourDetail3(
+	       TourDetailCommon tourdetailcommon = new TourDetailCommon(
 	    		   createdtime,
 	    		   homepage,
 	    		   modifiedtime,
@@ -1020,7 +1006,7 @@ public class TourDAO {
 	    		   mlevel,
 	    		   overview
 	        		); 
-	        req.setAttribute("tourdetail3", tourdetail3);	
+	        req.setAttribute("tourdetailcommon", tourdetailcommon);	
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
