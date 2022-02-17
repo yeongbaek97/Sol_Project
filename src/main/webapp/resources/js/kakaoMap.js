@@ -64,6 +64,10 @@ $(function() {
 		} else {
 			map.setLevel(level - 1);
 		}
+		//기존 마커 삭제
+		for (var i = 0; i < markers.length; i++) {
+			markers[i].setMap(null);
+		}   
 	    ps2.categorySearch('AD5', placesSearchCB2, {useMapBounds:true}); 
 	});
     
@@ -74,7 +78,10 @@ $(function() {
 		} else {
 			map.setLevel(level + 1)
 		}
-		
+		//기존 마커 삭제
+		for (var i = 0; i < markers.length; i++) {
+			markers[i].setMap(null);
+		}   
 	    ps2.categorySearch('AD5', placesSearchCB2, {useMapBounds:true}); 
 	});
 
@@ -86,23 +93,23 @@ $(function() {
         imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
     	
     	if(category.indexOf("호텔") >= 0) {
-    		imageSrc = 'resources/img/hotel.png';
+    		imageSrc = 'resources/img/markerImage/hotel.png';
     	} else if(category.indexOf("모텔") >= 0) {
-    		imageSrc = 'resources/img/motel.png';
+    		imageSrc = 'resources/img/markerImage/motel.png';
     	} else if(category.indexOf("펜션") >= 0) {
-    		imageSrc = 'resources/img/pension.png';
+    		imageSrc = 'resources/img/markerImage/pension.png';
     	} else if(category.indexOf("리조트") >= 0) {
-    		imageSrc = 'resources/img/resort.png';
+    		imageSrc = 'resources/img/markerImage/resort.png';
     	} else if(category.indexOf("게스트하우스") >= 0) {
-    		imageSrc = 'resources/img/guesthouse.png';
+    		imageSrc = 'resources/img/markerImage/guesthouse.png';
     	} else if(category.indexOf("민박") >= 0) {
-    		imageSrc = 'resources/img/homestay.png';
+    		imageSrc = 'resources/img/markerImage/homestay.png';
     	} else if(category.indexOf("캠핑") >= 0) {
-    		imageSrc = 'resources/img/camping.png';
+    		imageSrc = 'resources/img/markerImage/camping.png';
     	} else if(category.indexOf("유스호스텔") >= 0) {
-    		imageSrc = 'resources/img/youthhostel.png';
+    		imageSrc = 'resources/img/markerImage/youthhostel.png';
     	} else {
-    		imageSrc = 'resources/img/etc.png';
+    		imageSrc = 'resources/img/markerImage/etc.png';
     	}
     	
     	    
@@ -166,14 +173,13 @@ $(function() {
 		if(e.keyCode == 13) {
 			let search = $(this).val();
 			
+			let ps = new kakao.maps.services.Places(map); 
+			ps.keywordSearch(search, placesSearchCB); 
+			
 			//기존 마커 삭제
 			for (var i = 0; i < markers.length; i++) {
 				markers[i].setMap(null);
 			}   
-			
-			
-			let ps = new kakao.maps.services.Places(map); 
-			ps.keywordSearch(search, placesSearchCB); 
 			
 			// 키워드 검색 완료 시 호출되는 콜백함수 입니다
 			function placesSearchCB (data, status, pagination) {
@@ -219,23 +225,23 @@ $(function() {
 				        imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 				    	console.log(category.indexOf("유스호스텔"));
 				    	if(category.indexOf("호텔") >= 0) {
-				    		imageSrc = 'resources/img/hotel.png';
+				    		imageSrc = 'resources/img/markerImage/hotel.png';
 				    	} else if(category.indexOf("모텔") >= 0) {
-				    		imageSrc = 'resources/img/motel.png';
+				    		imageSrc = 'resources/img/markerImage/motel.png';
 				    	} else if(category.indexOf("펜션") >= 0) {
-				    		imageSrc = 'resources/img/pension.png';
+				    		imageSrc = 'resources/img/markerImage/pension.png';
 				    	} else if(category.indexOf("리조트") >= 0) {
-				    		imageSrc = 'resources/img/resort.png';
+				    		imageSrc = 'resources/img/markerImage/resort.png';
 				    	} else if(category.indexOf("게스트하우스") >= 0) {
-				    		imageSrc = 'resources/img/guesthouse.png';
+				    		imageSrc = 'resources/img/markerImage/guesthouse.png';
 				    	} else if(category.indexOf("민박") >= 0) {
-				    		imageSrc = 'resources/img/homestay.png';
+				    		imageSrc = 'resources/img/markerImage/homestay.png';
 				    	} else if(category.indexOf("캠핑") >= 0) {
-				    		imageSrc = 'resources/img/camping.png';
+				    		imageSrc = 'resources/img/markerImage/camping.png';
 				    	} else if(category.indexOf("유스호스텔") >= 0) {
-				    		imageSrc = 'resources/img/youthhostel.png';
+				    		imageSrc = 'resources/img/markerImage/youthhostel.png';
 				    	} else {
-				    		imageSrc = 'resources/img/etc.png';
+				    		imageSrc = 'resources/img/markerImage/etc.png';
 				    	}
 				    	   
 					    // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
