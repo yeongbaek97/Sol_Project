@@ -27,7 +27,6 @@
 
 	<!-- 네비바 -->
 
-
 	<div class="navi_div">
 		<ul class="navi">
 			<li><a href="home.go">홈</a></li>
@@ -49,7 +48,6 @@
 	
 	<div class="contentPage">
 		<jsp:include page="${contentPage }"></jsp:include>
-
 	</div>
 </body>
 </html>

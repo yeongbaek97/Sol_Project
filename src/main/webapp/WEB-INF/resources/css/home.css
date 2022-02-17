@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.navi_div{
+	margin-bottom: 150px;
+}
+
+.navi{
+	
+	background-color: aqua;
+}
+
+.navi>li{
+	
+	list-style-type:none;
+	margin-left: 350px;
+	float: left;
+	
+}
+
+.navi li a{
+	display: block;
+	text-decoration:none;
+
+}
+
+.navi>li ul{
+	display: none;
+}
+
+.navi>li:hover>ul{
+	display: block;
+	
+}

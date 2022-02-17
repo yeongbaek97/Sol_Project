@@ -84,6 +84,19 @@
 		</div>
 	</div>
 
+	<table>
+	<c:forEach var="c" items="${tourList}">
+		<tr>
+			<td>${c.addr1 }</td>
+			<td>${c.contentid }</td>
+			<td>${c.title }</td>
+			<td>${c.mapx }</td>
+			<td>${c.mapy }</td>
+			<td><button onclick="location.href='accom.home?x=${c.mapx}&y=${c.mapy }'">근처숙소보기</button>
+		</tr>
+	</c:forEach>
+	</table>
+	
 	<!-- 페이징 부분 뷰는 추후에 작업예정 -->
 	<div>
 		<c:if test="${curPage != 1 }">
