@@ -38,14 +38,14 @@
 
 	<div class="tour_list_view">
 		<c:forEach var="c" items="${tourList}">
-			<div style="width: 33%;float: left;" id="dd" onclick="location.href='tour.list.detail?contentid=${c.contentid }'">
+			<div style="width: 33%;float: left;" id="dd" onclick="location.href='tour.list.detail?contentid=${c.contentid }&x=${c.mapx }&y=${c.mapy }'">
 				<img src="${c.firstimage2 }"style="width: 300px; height: 150px; object-fit: cover;"><br>
 				${c.title }<br>
 				${c.addr1 }
 			</div>
 		</c:forEach>
 	</div>
-
+	
 <!-- 지역선택 Type2 -->
 	<div class="tour_list_select">
 		<div>
@@ -84,18 +84,7 @@
 		</div>
 	</div>
 
-	<table>
-	<c:forEach var="c" items="${tourList}">
-		<tr>
-			<td>${c.addr1 }</td>
-			<td>${c.contentid }</td>
-			<td>${c.title }</td>
-			<td>${c.mapx }</td>
-			<td>${c.mapy }</td>
-			<td><button onclick="location.href='accom.home?x=${c.mapx}&y=${c.mapy }'">근처숙소보기</button>
-		</tr>
-	</c:forEach>
-	</table>
+
 	
 	<!-- 페이징 부분 뷰는 추후에 작업예정 -->
 	<div>

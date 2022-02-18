@@ -80,6 +80,7 @@ public class TourController {
 			req.setAttribute("contentPage", "tour/detail_View_CT39.jsp");
 		}
 		
+		req.setAttribute("kakaoMap", "kakaoMap.jsp");
 		
 		tdao.getTourDetail2(req);
 		
