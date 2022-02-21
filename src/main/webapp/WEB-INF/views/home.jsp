@@ -7,9 +7,12 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/tourapi.js"></script>
+<script type="text/javascript" src="resources/js/kakaoMap.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f9e56e3f8a09664081781aefaf8493c0&libraries=services"></script>
 <link rel="stylesheet" href="resources/css/home.css">
 <link rel="stylesheet" href="resources/css/accom.css">
 <link rel="stylesheet" href="resources/css/tour.css">
+<link rel="stylesheet" href="resources/css/kakaoMap.css">
 <script type="text/javascript">
 
 

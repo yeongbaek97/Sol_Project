@@ -18,6 +18,6 @@ ${tourdetail.openperiod }
 <hr>
 ${tourdetail3.createdtime }
 
-
+<jsp:include page="${kakaoMap }"></jsp:include>
 </body>
 </html>

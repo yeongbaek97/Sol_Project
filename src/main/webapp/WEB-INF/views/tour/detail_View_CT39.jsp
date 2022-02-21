@@ -23,5 +23,6 @@
 
 </div>
 
+<jsp:include page="${kakaoMap }"></jsp:include>
 </body>
 </html>
