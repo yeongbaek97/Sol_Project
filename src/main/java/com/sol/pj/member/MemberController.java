@@ -16,6 +16,13 @@ public class MemberController {
 	@Autowired
 	private MemberDAO mDAO;
 	
+	// 로그인 페이지 이동
+	@RequestMapping(value = "goto.login", method = RequestMethod.GET)
+	public String gotoLogin() {
+		return "member/Login";
+	}
+	
+	// 로그인
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(HttpServletRequest req, Member m) {
 		
@@ -25,6 +32,7 @@ public class MemberController {
 		return "home";
 	}
 	
+	// 로그아웃
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest req, Member m) {
 		
@@ -34,22 +42,23 @@ public class MemberController {
 		return "home";
 	}
 	
+	// 카카오 로그인
 	@RequestMapping(value = "kakao.login", method = RequestMethod.GET)
 	public String kakaoLogin(@RequestParam String code) {
 		
 		System.out.println(code);
-		
 		 String access_Token = mDAO.getReturnAccessToken(code);
-
 		 HashMap<String, Object> userInfo = mDAO.getUserInfo(access_Token);
 		 
-		 
 		 System.out.println(userInfo.get("nickname"));
-		
-		 
-		 
-		
-		return "member/loginkakao";
+		 System.out.println(userInfo.get("email"));
+		return "home";
+	}
+	
+	// 회원가입 페이지 이동
+	@RequestMapping(value = "goto.Reg", method = RequestMethod.GET)
+	public String gotoReg() {
+		return "member/regMember";
 	}
 	
 }

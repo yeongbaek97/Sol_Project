@@ -16,9 +16,16 @@ public class HomeController {
 	@Autowired
 	private MemberDAO mDAO;
 	
-	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(HttpServletRequest req) {
+		
+		mDAO.logincheck(req);
+		
+		return "home";
+	}
+	
+	@RequestMapping(value = "goto.Index", method = RequestMethod.GET)
+	public String Clickhome(HttpServletRequest req) {
 		
 		mDAO.logincheck(req);
 		
