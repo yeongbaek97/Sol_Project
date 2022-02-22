@@ -17,6 +17,18 @@ $(function() {
 	});
 })
 </script>
+<style type="text/css">
+th{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+td{
+	padding-left: 10px;
+	padding-right: 10px;
+
+}
+</style>
 </head>
 <body>
 
@@ -71,12 +83,18 @@ $(function() {
 	<hr>
 
 	<table>
+		<tr style="text-align: center;">
+			<th>숙소명</th>
+			<th>주소</th>
+			<th>도</th>
+			<th>이미지</th>
+		</tr>
 	<c:forEach var="g" items="${gocamping }">
 		<tr>
 			<td>${g.title }</td>
 			<td>${g.addr }</td>
 			<td>${g.dosi }</td>
-			<td>${g.img }</td>
+			<td><img src="${g.img }" style="width: 250px; height: 150px;"></td>
 		</tr>
 	</c:forEach>
 	</table>
