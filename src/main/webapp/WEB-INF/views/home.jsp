@@ -13,12 +13,18 @@
 <link rel="stylesheet" href="resources/css/accom.css">
 <link rel="stylesheet" href="resources/css/tour.css">
 <link rel="stylesheet" href="resources/css/kakaoMap.css">
+
+<!--  -->
+<link href="css/styles.css" rel="stylesheet" />
+
 <script type="text/javascript">
 
 
 </script>
 </head>
 <body>
+
+        
 	<!-- 로그인 화면 div -->
 	<div style="text-align: center; padding-top: 70px; padding-bottom: 50px;">
 		<input><button>검색(아이콘)</button>

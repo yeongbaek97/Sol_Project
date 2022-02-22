@@ -10,7 +10,7 @@
 <body>
 
 <!-- 지역선택 Type1 -->
-	<div>
+	<!-- <div>
 		<table class="tourtbl">
 			<tr>
 				<td><a href="tour.list.regional?areaCode=1">서울</a></td>
@@ -34,7 +34,7 @@
 				<td><a href="tour.list.regional?areaCode=39">제주도</a></td>
 			</tr>
 		</table>
-	</div>
+	</div> -->
 
 	<div class="tour_list_view">
 		<c:forEach var="c" items="${tourList}">

@@ -60,11 +60,12 @@ public class TourController {
 		//공통 작업
 		mDAO.logincheck(req);
 		tdao.getTourDetail_common(req);	
-		
+		tdao.getdetailImage(req);
 		
 		//이곳에서 contentType 구별후 디테일가져오는 작업
 		if(req.getSession().getAttribute("ContentTypeId").equals("12")) {
 			tdao.getTourDetail_CT12(req);
+			tdao.getTourDetail2(req);
 			req.setAttribute("contentPage", "tour/detail_View_CT12.jsp");
 		}else if(req.getSession().getAttribute("ContentTypeId").equals("14")) {
 			tdao.getTourDetail_CT14(req);
@@ -77,12 +78,13 @@ public class TourController {
 			req.setAttribute("contentPage", "tour/detail_View_CT28.jsp");
 		}else if(req.getSession().getAttribute("ContentTypeId").equals("39")) {
 			tdao.getTourDetail_CT39(req);
+			
 			req.setAttribute("contentPage", "tour/detail_View_CT39.jsp");
 		}
 		
 		req.setAttribute("kakaoMap", "kakaoMap.jsp");
 		
-		tdao.getTourDetail2(req);
+		
 		
 		
 		

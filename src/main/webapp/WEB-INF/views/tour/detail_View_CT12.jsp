@@ -23,6 +23,12 @@ ${tourdetail.chkbabycarriage }
 </c:forEach>
 <hr>
 
+<div>
+			<c:forEach var="c" items="${originimgurl}">
+				<img src="${c }" width="350px" height="200px">
+			</c:forEach>
+		</div>
+
 
 <div>
 등록일 : ${tourdetailcommon.createdtime }

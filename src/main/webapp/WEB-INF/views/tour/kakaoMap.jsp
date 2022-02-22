@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div id="map" style="width:500px;height:400px;"></div>
+<div id="map" style="width:800px;height:300px;"></div>
 <button id="narrow">좁은 구역 보기</button>
 <button id="wide">넓은 구역 보기</button>
 </body>

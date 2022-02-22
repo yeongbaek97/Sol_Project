@@ -120,7 +120,7 @@ public class MemberDAO {
         return access_token;
 	}
 
-	public HashMap<String, Object> getUserInfo (String access_Token) {
+	public HashMap<String, Object> getUserInfo (String access_Token,HttpServletRequest req) {
 
         //    요청하는 클라이언트마다 가진 정보가 다를 수 있기에 HashMap타입으로 선언
         HashMap<String, Object> userInfo = new HashMap<String, Object>();
@@ -161,8 +161,20 @@ public class MemberDAO {
             
             userInfo.put("accessToken", access_Token);
             userInfo.put("nickname", nickname);
-            userInfo.put("nickname", profile_image);
+            userInfo.put("profile_image", profile_image);
            // userInfo.put("email", email);
+            
+            Member dbMember = new Member(
+            		"asd",
+            		access_Token,
+            		nickname,
+            		"asd",
+            		"asd",
+            		profile_image
+            		);
+            
+            req.getSession().setAttribute("loginMember", dbMember);
+			req.getSession().setMaxInactiveInterval(60 * 10);
 
         } catch (IOException e) {
             // TODO Auto-generated catch block

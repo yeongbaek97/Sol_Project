@@ -1014,6 +1014,91 @@ public class TourDAO {
 		}
 		
 	}
+
+
+
+
+
+
+	public void getdetailImage(HttpServletRequest req) {
+		
+		int contentid = Integer.parseInt(req.getParameter("contentid"));
+		
+		/*String createdtime = "";
+		String homepage = "";
+		String modifiedtime = "";
+		String tel = "";
+		String telname = "";
+		String title = "";
+		String addr1 = "";
+		String addr2 = "";
+		String zipcode = "";
+		String mapx = "";
+		String mapy = "";
+		String mlevel = "";
+        String overview = "";*/
+
+		String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailImage";
+		requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
+		requrl += "&MobileOS=ETC";
+		requrl += "&MobileApp=AppTest";
+		requrl += "&_type=json";
+		requrl += "&contentId=" + contentid;
+		requrl += "&imageYN=Y";
+		requrl += "&subImageYN=Y";
+
+		
+		try {
+			URL url = new URL(requrl);
+			
+			//Connection 설정
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			
+	        //파싱구간
+	        InputStream is = conn.getInputStream();
+			InputStreamReader isr = new InputStreamReader(is, "utf-8");
+			
+	        JSONParser parser = new JSONParser();
+	        JSONObject tourData = (JSONObject) parser.parse(isr);
+	        System.out.println(tourData);
+	        //데이터 뽑기
+            JSONObject response = (JSONObject) tourData.get("response");
+            JSONObject body = (JSONObject) response.get("body");
+            System.out.println("1111" + body);
+            JSONObject items = (JSONObject) body.get("items");
+            System.out.println("2" + items);
+            
+            ArrayList<String> originimgurl = new ArrayList<String>();
+            
+            
+            if(body.get("totalCount").toString().equals("1")||body.get("totalCount").toString().equals("0")) {		//1개일때
+            	JSONObject item = (JSONObject) items.get("item");
+
+                 originimgurl.add(item.get("originimgurl").toString());
+
+            	
+            }else {													//여러개일때
+            	 JSONArray item = (JSONArray) items.get("item");
+                 
+                 for(int i=0 ; i < item.size(); i++) {
+                 	
+                 	JSONObject itemObject = (JSONObject) item.get(i);
+
+                 	originimgurl.add(itemObject.get("originimgurl").toString());
+                 }
+
+            }
+            
+            req.setAttribute("originimgurl", originimgurl);
+
+	       
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 	

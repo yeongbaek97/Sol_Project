@@ -16,7 +16,11 @@ ${tourdetail.openperiod }
 <hr>
 
 <hr>
-${tourdetail3.createdtime }
+<div>
+			<c:forEach var="c" items="${originimgurl}">
+				<img src="${c }" width="350px" height="200px">
+			</c:forEach>
+		</div>
 
 <jsp:include page="${kakaoMap }"></jsp:include>
 </body>
