@@ -16,9 +16,14 @@ $(function() {
 	        results = regex.exec(location.search);
 	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 	}
-
+	
 	let newX = getParameterByName("x");
 	let newY = getParameterByName("y");
+	
+	if(newX.length === 0) {
+		newX = 126.98326280022346
+		newY = 37.5700923166043
+	} 
 	
 	// 이동할 위도 경도 위치를 생성합니다 
     var moveLatLon = new kakao.maps.LatLng(newY, newX);
@@ -41,23 +46,24 @@ $(function() {
         yAnchor: 1 
     });
 	
-	var imageSrc2 = 'resources/img/markerImage/destination.png', // 마커이미지의 주소입니다    
-    imageSize2 = new kakao.maps.Size(21, 21), // 마커이미지의 크기입니다
-    imageOption2 = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-      
-    // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-    var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize2, imageOption2),
-        markerPosition2 = new kakao.maps.LatLng(newY, newX); // 마커가 표시될 위치입니다
-
-    // 마커를 생성합니다
-    var marker2 = new kakao.maps.Marker({
-        position: markerPosition2, 
-        image: markerImage2 // 마커이미지 설정 
-    });
-
-    // 마커가 지도 위에 표시되도록 설정합니다
-    marker2.setMap(map); 
+	if(newX > 0) {
+		var imageSrc2 = 'resources/img/markerImage/destination.png', // 마커이미지의 주소입니다    
+	    imageSize2 = new kakao.maps.Size(21, 21), // 마커이미지의 크기입니다
+	    imageOption2 = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+	      
+	    // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+	    var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize2, imageOption2),
+	        markerPosition2 = new kakao.maps.LatLng(newY, newX); // 마커가 표시될 위치입니다
+	    
+	    // 마커를 생성합니다
+	    var marker2 = new kakao.maps.Marker({
+	        position: markerPosition2, 
+	        image: markerImage2 // 마커이미지 설정 
+	    });
 	
+	    // 마커가 지도 위에 표시되도록 설정합니다
+	    marker2.setMap(map); 
+	}
 	
     // 키워드 검색 완료 시 호출되는 콜백함수 입니다
     function placesSearchCB2 (data, status, pagination) {				    	

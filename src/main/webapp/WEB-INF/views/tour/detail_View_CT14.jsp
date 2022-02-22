@@ -8,18 +8,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-${tourdetail.accomcountculture }
-${tourdetail.chkbabycarriageculture }
-${tourdetail.chkpetculture }
-${tourdetail.discountinfo }
-${tourdetail.infocenterculture }
-
-<hr>
-
-<hr>
-${tourdetail3.createdtime }
-
-<jsp:include page="${kakaoMap }"></jsp:include>
+<div style="background-color: #eeeeee; width: 60%; position:absolute;">
+	${tourdetail.accomcountculture }
+	${tourdetail.chkbabycarriageculture }
+	${tourdetail.chkpetculture }
+	${tourdetail.discountinfo }
+	${tourdetail.infocenterculture }
+	
+	<hr>
+	
+	<hr>
+	${tourdetail3.createdtime }
+	
+	<jsp:include page="${kakaoMap }"></jsp:include>
+</div>
 </body>
 </html>

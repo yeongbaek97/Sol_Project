@@ -8,27 +8,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-${tourdetail.parking }
-${tourdetail.chkpet }
-${tourdetail.infocenter }
-${tourdetail.restdate }
-${tourdetail.usetime }
-${tourdetail.expguide }
-${tourdetail.expagerange }
-${tourdetail.chkbabycarriage }
-<hr>
-<c:forEach var="c" items="${tourdetail2}">
-	${c.infoname }
-	${c.infotext }	
-</c:forEach>
-<hr>
-
-
-<div>
-등록일 : ${tourdetailcommon.createdtime }
-전화번호 : ${tourdetailcommon.tel }
+<div style="background-color: #eeeeee; width: 60%; position:absolute;">
+	${tourdetail.parking }
+	${tourdetail.chkpet }
+	${tourdetail.infocenter }
+	${tourdetail.restdate }
+	${tourdetail.usetime }
+	${tourdetail.expguide }
+	${tourdetail.expagerange }
+	${tourdetail.chkbabycarriage }
+	<hr>
+	<c:forEach var="c" items="${tourdetail2}">
+		${c.infoname }
+		${c.infotext }	
+	</c:forEach>
+	<hr>
+	
+	
+	<div>
+	등록일 : ${tourdetailcommon.createdtime }
+	전화번호 : ${tourdetailcommon.tel }
+	</div>
+	
+	<jsp:include page="${kakaoMap }"></jsp:include>
 </div>
-
-<jsp:include page="${kakaoMap }"></jsp:include>
 </body>
 </html>

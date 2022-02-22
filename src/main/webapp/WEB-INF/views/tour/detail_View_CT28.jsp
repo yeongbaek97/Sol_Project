@@ -8,16 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-${tourdetail.accomcountleports }
-${tourdetail.chkbabycarriageleports }
-${tourdetail.openperiod }
-
-<hr>
-
-<hr>
-${tourdetail3.createdtime }
-
-<jsp:include page="${kakaoMap }"></jsp:include>
+<div style="background-color: #ffffff; width: 60%; margin:auto">
+	${tourdetail.accomcountleports }
+	${tourdetail.chkbabycarriageleports }
+	${tourdetail.openperiod }
+	
+	<hr>
+	
+	<hr>
+	${tourdetail3.createdtime }
+	
+	<jsp:include page="${kakaoMap }"></jsp:include>
+</div>
 </body>
 </html>
