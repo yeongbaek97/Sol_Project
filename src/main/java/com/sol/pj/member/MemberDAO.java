@@ -23,8 +23,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-
-
 @Service
 public class MemberDAO {
 	
@@ -53,10 +51,10 @@ public class MemberDAO {
 	public boolean logincheck(HttpServletRequest req) {
 		Member m = (Member) req.getSession().getAttribute("loginMember");
 		if (m != null) {
-			req.setAttribute("loginPage", "member/loginSuccess.jsp");
+			//req.setAttribute("loginPage", "member/loginSuccess.jsp");
 			return true;
 		} else {
-			req.setAttribute("loginPage", "member/login.jsp");
+			//req.setAttribute("loginPage", "member/login.jsp");
 			return false;
 		}
 		
@@ -65,6 +63,7 @@ public class MemberDAO {
 	//로그아웃
 	public void logout(HttpServletRequest req) {
 		req.getSession().setAttribute("loginMember", null);
+		
 	}
 	
 	
@@ -154,13 +153,13 @@ public class MemberDAO {
 
             //가져올 정보 적으면 되는듯
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
-           // String email = kakao_account.getAsJsonObject().get("email").getAsString();
+            String email = kakao_account.getAsJsonObject().get("email").getAsString();
             
             
             
             userInfo.put("accessToken", access_Token);
             userInfo.put("nickname", nickname);
-           // userInfo.put("email", email);
+            userInfo.put("email", email);
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
