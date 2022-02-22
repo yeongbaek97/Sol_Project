@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-카카오 로그인 성공
+
+	<button onclick="location.href='goto.gocamping'">GoCamping</button>
+	<button onclick="location.href='goto.accom'">Accommodation</button>
+
 </body>
 </html>
