@@ -96,13 +96,8 @@
 	</nav>
 
 
-	
-	
-	
-
 	 
 	<div>
-
 		<jsp:include page="${contentPage }"></jsp:include>
 	</div>
 

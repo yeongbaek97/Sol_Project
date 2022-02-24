@@ -38,7 +38,7 @@
 
 	<div class="tour_list_view">
 		<c:forEach var="c" items="${tourList}">
-			<div style="width: 33%;float: left;" id="dd" onclick="location.href='tour.list.detail?contentid=${c.contentid }&x=${c.mapx }&y=${c.mapy }'">
+			<div style="width: 33%;float: left;" id="dd" onclick="location.href='tour.list.detail?contentid=${c.contentid }&x=${c.mapx }&y=${c.mapy }&title=${c.title }'">
 				<img src="${c.firstimage2 }"style="width: 300px; height: 150px; object-fit: cover;"><br>
 				${c.title }<br>
 				${c.addr1 }
