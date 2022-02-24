@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sol.pj.tour.TourRankMapper">
+
+<select id="getTourRank" parameterType="com.sol.pj.tour.TourRank" resultType="java.lang.Integer">
+	select count(*) from tourRank where contentid = #{contentid}
+</select>
+
+<insert id="insertTourRank" parameterType="com.sol.pj.tour.TourRank">
+	insert into tourRank values (#{contentid}, #{title}, 1)
+</insert>
+
+<update id="countTourRank" parameterType="com.sol.pj.tour.TourRank">
+	update tourRank set count = count + 1 where contentid = #{contentid}
+</update>
+
+<select id="getTourRankList" resultType="com.sol.pj.tour.TourRank">
+	select * from tourRank
+</select>
+</mapper>

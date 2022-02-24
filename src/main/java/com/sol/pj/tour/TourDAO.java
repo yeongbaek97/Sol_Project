@@ -5,17 +5,22 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.session.SqlSession;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 @Service
 public class TourDAO {
+	
+	@Autowired
+	private SqlSession ss;
 	
 	public void getTourList(int pageNo, HttpServletRequest req) {
 		String areaCode = req.getParameter("areaCode");
@@ -1099,6 +1104,28 @@ public class TourDAO {
 		}
 		
 	}
+
+	public void insertTourRank(HttpServletRequest req, TourRank tr) {
+		
+		TourRankMapper trm = ss.getMapper(TourRankMapper.class);
+		
+		if(trm.getTourRank(tr) == 1) {
+			trm.countTourRank(tr);
+		} else {
+			trm.insertTourRank(tr);
+		}
+		
+	}
+
+	public void getTourRank(HttpServletRequest req) {
+		
+		TourRankMapper trm = ss.getMapper(TourRankMapper.class);
+		
+		List<TourRank> tourRankList = trm.getTourRankList();
+		req.setAttribute("tourRankList", tourRankList);
+	}
+	
+	
 	
 	
 	

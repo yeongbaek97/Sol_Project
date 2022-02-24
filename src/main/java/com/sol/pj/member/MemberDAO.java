@@ -190,6 +190,11 @@ public class MemberDAO {
 
         return userInfo;
     }
+
+	public void getTourRank(HttpServletRequest req) {
+		System.out.println("2");
+		
+	}
 	
 
 }
