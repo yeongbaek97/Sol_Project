@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sol.pj.member.MemberDAO;
-import com.sol.pj.tour.TourDAO;
-import com.sol.pj.tour.TourRank;
 
 
 @Controller
@@ -18,14 +16,10 @@ public class HomeController {
 	@Autowired
 	private MemberDAO mDAO;
 	
-	@Autowired
-	private TourDAO tDAO;
-	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(HttpServletRequest req) {
 		
 		mDAO.logincheck(req);
-		
 		req.setAttribute("contentPage", "main_view.jsp");
 		return "home";
 	}
@@ -38,13 +32,10 @@ public class HomeController {
 	
 
 	@RequestMapping(value = "goto.Index", method = RequestMethod.GET)
-	public String Clickhome(HttpServletRequest req, TourRank tr) {
+	public String Clickhome(HttpServletRequest req) {
 		
 		mDAO.logincheck(req);
-		System.out.println("1");
-		tDAO.getTourRank(req);
 		
-		req.setAttribute("contentPage", "main_view.jsp");
 		return "home";
 	}
 	

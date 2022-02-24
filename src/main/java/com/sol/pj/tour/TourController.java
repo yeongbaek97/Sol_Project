@@ -56,12 +56,11 @@ public class TourController {
 	}
 	
 	@RequestMapping(value = "tour.list.detail", method = RequestMethod.GET)
-	public String tourlistdetail(HttpServletRequest req, TourRank tr) {
+	public String tourlistdetail(HttpServletRequest req) {
 		//공통 작업
 		mDAO.logincheck(req);
 		tdao.getTourDetail_common(req);	
 		tdao.getdetailImage(req);
-		tdao.insertTourRank(req, tr);
 		
 		//이곳에서 contentType 구별후 디테일가져오는 작업
 		if(req.getSession().getAttribute("ContentTypeId").equals("12")) {

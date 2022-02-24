@@ -24,14 +24,3 @@ create table aboutmember(
 insert into member values('hjj', 'hjj', '효진', 'ad@asd', 'f', 'sdf');
 
 select * from aboutmember
-
-create table tourRank(
-	contentid varchar2(10 char) primary key,
-	title varchar2(50 char) not null,
-	count number not null
-)
-
-select * from tourRank
-delete from tourRank
-select * from tourRank where contentid = 2622715
-update tourRank set count = count + 1 where contentid = 2622715
