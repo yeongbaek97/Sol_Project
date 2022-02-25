@@ -61,7 +61,7 @@ public class TourController {
 		mDAO.logincheck(req);
 		tdao.getTourDetail_common(req);	
 		tdao.getdetailImage(req);
-		tdao.insertTourRank(req, tr);
+		tdao.TourRank(req, tr);
 		
 		//이곳에서 contentType 구별후 디테일가져오는 작업
 		if(req.getSession().getAttribute("ContentTypeId").equals("12")) {
@@ -85,15 +85,18 @@ public class TourController {
 		
 		req.setAttribute("kakaoMap", "kakaoMap.jsp");
 		
-		
-		
-		
-		
-		
-		
 		return "home";
 	}
 	
+	@RequestMapping(value = "tour.list.search", method = RequestMethod.GET)
+	public String tourListSearch(HttpServletRequest req, SearchRank sr) {
+		mDAO.logincheck(req);
+		tdao.searchRank(req, sr);
+		tdao.getSearchRank(req);
+		req.setAttribute("contentPage", "tour/search.jsp");
+		
+		return "home";
+	}
 	
 
 

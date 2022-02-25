@@ -1105,7 +1105,7 @@ public class TourDAO {
 		
 	}
 
-	public void insertTourRank(HttpServletRequest req, TourRank tr) {
+	public void TourRank(HttpServletRequest req, TourRank tr) {
 		
 		TourRankMapper trm = ss.getMapper(TourRankMapper.class);
 		
@@ -1123,6 +1123,27 @@ public class TourDAO {
 		
 		List<TourRank> tourRankList = trm.getTourRankList();
 		req.setAttribute("tourRankList", tourRankList);
+	}
+
+
+	public void searchRank(HttpServletRequest req, SearchRank sr) {
+		
+		SearchRankMapper srm = ss.getMapper(SearchRankMapper.class);
+		
+		if(srm.getSearchRank(sr) == 1) {
+			srm.countSearchRank(sr);
+		} else {
+			srm.insertSearchRank(sr);
+		}
+		
+	}
+
+	public void getSearchRank(HttpServletRequest req) {
+		SearchRankMapper srm = ss.getMapper(SearchRankMapper.class);
+		
+		List<SearchRank> searchRankList = srm.getSearchRankList();
+		req.setAttribute("searchRankList", searchRankList);
+		
 	}
 	
 	

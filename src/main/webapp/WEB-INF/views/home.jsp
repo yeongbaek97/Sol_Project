@@ -10,6 +10,8 @@
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/tourapi.js"></script>
 <script type="text/javascript" src="resources/js/kakaoMap.js"></script>
+<script type="text/javascript" src="resources/js/search.js"></script>
+<script type="text/javascript" src="resources/js/home.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f9e56e3f8a09664081781aefaf8493c0&libraries=services"></script>
 <link rel="stylesheet" href="resources/css/home.css">
 <link rel="stylesheet" href="resources/css/accom.css">
@@ -69,9 +71,17 @@
 					<a class="nav-link text-light text-weight-bold px-5" href="goto.accomIndex">숙소+캠핑</a>
 				</li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0 ml-3 navbar-right">
-				<input class="form-control mr-sm-2 my-2" type="search" placeholder="Search" aria-label="Search">
-				
+			
+			<form class="form-inline my-2 my-lg-0 ml-3 navbar-right" onsubmit="return false;">
+				<div class="block">
+				    <ul id="ticker">
+				    	<c:forEach  var="srl" items="${searchRankList }" varStatus="status">
+				        	<li><a href="#"><span>${status.index + 1}</span> ${srl.word}</a></li>
+				        </c:forEach>
+				    </ul>
+				</div>
+				<input class="form-control mr-sm-2 my-2" id="word" type="search" placeholder="Search" aria-label="Search" onkeypress="if(event.keyCode==13){search();}" onclick="">
+
 				<c:if test="${sessionScope.loginMember.m_id eq null && userInfo.nickname eq null}">
 					<span class="sr-only">(current)</span>
 					<button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="location.href='goto.login'">Sign in</button>
@@ -99,6 +109,7 @@
 	 
 	<div>
 		<jsp:include page="${contentPage }"></jsp:include>
+		${contentPage }
 	</div>
 
 </body>

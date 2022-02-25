@@ -48,6 +48,7 @@
 			<beans:list>
 				<beans:value>classpath:memberMapper.xml</beans:value>
 				<beans:value>classpath:tourRankMapper.xml</beans:value>
+				<beans:value>classpath:searchRankMapper.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>

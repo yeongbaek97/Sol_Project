@@ -43,7 +43,7 @@ public class HomeController {
 		mDAO.logincheck(req);
 		System.out.println("1");
 		tDAO.getTourRank(req);
-		
+		tDAO.getSearchRank(req);
 		req.setAttribute("contentPage", "main_view.jsp");
 		return "home";
 	}

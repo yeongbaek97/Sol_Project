@@ -35,3 +35,10 @@ select * from tourRank
 delete from tourRank
 select * from tourRank where contentid = 2622715
 update tourRank set count = count + 1 where contentid = 2622715
+
+create table searchRank(
+	word varchar2(30 char) primary key,
+	count number not null
+)
+
+select * from searchRank

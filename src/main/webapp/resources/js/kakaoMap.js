@@ -20,6 +20,11 @@ $(function() {
 	let newX = getParameterByName("x");
 	let newY = getParameterByName("y");
 	
+	if(newX.length === 0) {
+		newX = 126.98326280022346
+		newY = 37.5700923166043
+	} 
+	
 	// 이동할 위도 경도 위치를 생성합니다 
     var moveLatLon = new kakao.maps.LatLng(newY, newX);
     // 지도 중심을 이동 시킵니다
