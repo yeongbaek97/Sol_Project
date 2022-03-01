@@ -35,7 +35,7 @@ public class HomeController {
 	public String Clickhome(HttpServletRequest req) {
 		
 		mDAO.logincheck(req);
-		
+		req.setAttribute("contentPage", "main_view.jsp");
 		return "home";
 	}
 	

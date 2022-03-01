@@ -10,6 +10,7 @@
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/tourapi.js"></script>
 <script type="text/javascript" src="resources/js/kakaoMap.js"></script>
+<script type="text/javascript" src="resources/js/move.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f9e56e3f8a09664081781aefaf8493c0&libraries=services"></script>
 <link rel="stylesheet" href="resources/css/home.css">
 <link rel="stylesheet" href="resources/css/accom.css">
@@ -70,7 +71,7 @@
 				</li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0 ml-3 navbar-right">
-				<input class="form-control mr-sm-2 my-2" type="search" placeholder="Search" aria-label="Search">
+				<input class="form-control mr-sm-2 my-2" type="search" placeholder="Search" aria-label="Search" onkeypress="if(event.keyCode == 13) searchEnter();">
 				
 				<c:if test="${sessionScope.loginMember.m_id eq null && userInfo.nickname eq null}">
 					<span class="sr-only">(current)</span>
