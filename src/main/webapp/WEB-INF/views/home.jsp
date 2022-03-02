@@ -12,6 +12,7 @@
 <script type="text/javascript" src="resources/js/kakaoMap.js"></script>
 <script type="text/javascript" src="resources/js/search.js"></script>
 <script type="text/javascript" src="resources/js/home.js"></script>
+<script type="text/javascript" src="resources/js/move.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f9e56e3f8a09664081781aefaf8493c0&libraries=services"></script>
 <link rel="stylesheet" href="resources/css/home.css">
 <link rel="stylesheet" href="resources/css/accom.css">
@@ -81,6 +82,7 @@
 				    </ul>
 				</div>
 				<input class="form-control mr-sm-2 my-2" id="word" type="search" placeholder="Search" aria-label="Search" onkeypress="if(event.keyCode==13){search();}" onclick="">
+
 
 				<c:if test="${sessionScope.loginMember.m_id eq null && userInfo.nickname eq null}">
 					<span class="sr-only">(current)</span>
