@@ -10,7 +10,6 @@
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/tourapi.js"></script>
 <script type="text/javascript" src="resources/js/kakaoMap.js"></script>
-<script type="text/javascript" src="resources/js/search.js"></script>
 <script type="text/javascript" src="resources/js/home.js"></script>
 <script type="text/javascript" src="resources/js/move.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f9e56e3f8a09664081781aefaf8493c0&libraries=services"></script>
@@ -77,13 +76,27 @@
 				<div class="block">
 				    <ul id="ticker">
 				    	<c:forEach  var="srl" items="${searchRankList }" varStatus="status">
-				        	<li><a href="#"><span>${status.index + 1}</span> ${srl.word}</a></li>
+				    		<c:if test="${status.index + 1 <= 10 }">
+				        		<li><a href="#"><span>${status.index + 1}</span> ${srl.word}</a></li>
+				        	</c:if>
 				        </c:forEach>
 				    </ul>
 				</div>
-				<input class="form-control mr-sm-2 my-2" id="word" type="search" placeholder="Search" aria-label="Search" onkeypress="if(event.keyCode==13){search();}" onclick="">
-
-
+				<input class="form-control mr-sm-2 my-2" id="word" type="search" placeholder="Search" aria-label="Search" onkeypress="if(event.keyCode==13){searchEnter();}" onclick="wordVisible();" autocomplete="off">
+				
+				<div class="form-control mr-sm-2 my-2" id="searchWord" style="background-color: efefef; position: absolute; top: 50px; right: 77px; height: 220px; width: 198px; visibility: hidden;">
+					<table style="width:170px;">
+						<c:forEach  var="srl" items="${searchRankList }" varStatus="status">
+							<c:if test="${status.index + 1 <= 10 }">
+								<tr>
+									<td style="width: 20%;">${status.index + 1}</td>
+									<td style="width: 80%;">${srl.word}</td>
+								</tr>
+							</c:if>
+				        </c:forEach>
+					</table>
+				</div>
+				
 				<c:if test="${sessionScope.loginMember.m_id eq null && userInfo.nickname eq null}">
 					<span class="sr-only">(current)</span>
 					<button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="location.href='goto.login'">Sign in</button>
@@ -106,8 +119,7 @@
 			</form>
 		</div>
 	</nav>
-
-
+	
 	 
 	<div>
 		<jsp:include page="${contentPage }"></jsp:include>

@@ -23,3 +23,12 @@ $(function() {
   
 });
 
+function wordVisible() {
+	var searchWord = document.getElementById("searchWord");
+	
+	if(searchWord.style.visibility == "visible") {
+		searchWord.style.visibility = "hidden";
+	} else {
+		searchWord.style.visibility = "visible";
+	}
+}

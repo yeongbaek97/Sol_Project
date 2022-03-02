@@ -1,7 +1,6 @@
 function searchEnter(){
-   
-            alert("엔터키 이벤트");
-  
-
+	let word = document.getElementById('word').value;
+	
+	location.href="tour.list.search?word=" +word;
 };
 
