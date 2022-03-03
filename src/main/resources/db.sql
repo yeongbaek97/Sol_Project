@@ -8,19 +8,15 @@ create table member(
 )
 
 insert into member values('yb', '1234','영백','asd@asdf','m','s')
+insert into member values('hs', '1234','현수','qwer@asdf','m','010-2222-2222')
 
 SELECT *  FROM member;
 
-create table aboutmember(
-	m_id varchar2 (30 char) primary key,
-	m_pw varchar2 (30 char) not null,
-	m_name varchar2 (30 char) not null,
-	m_number varchar2 (30 char) not null,
-	m_email varchar2 (30 char) not null,
-	m_gender varchar2 (20 char) not null,
-	m_photo varchar2 (500 char) not null
-);
+alter table member drop column m_photo;
+ALTER TABLE member ADD(m_number varchar2(50 char));
 
-insert into member values('hjj', 'hjj', '효진', 'ad@asd', 'f', 'sdf');
 
-select * from aboutmember
+UPDATE member SET m_number = '010-0000-0000' WHERE m_name='영백';
+UPDATE member SET m_number = '010-1111-1111' WHERE m_name='효진';
+
+ALTER TABLE member MODIFY (m_number NOT NULL);
