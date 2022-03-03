@@ -16,6 +16,7 @@
 				<td>${status.index + 1}</td>
 				<td>${trl.contentid}</td>
 				<td>${trl.title}</td>
+				<td><img src="${trl.image }"style="width: 300px; height: 150px; object-fit: cover;"></td>
 				<td>${trl.count}</td>
 			</tr>
 		</table>

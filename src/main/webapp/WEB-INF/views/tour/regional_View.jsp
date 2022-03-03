@@ -35,16 +35,23 @@
 			</tr>
 		</table>
 	</div> -->
-
-	<div class="tour_list_view">
-		<c:forEach var="c" items="${tourList}">
-			<div style="width: 33%;float: left;" id="dd" onclick="location.href='tour.list.detail?contentid=${c.contentid }&x=${c.mapx }&y=${c.mapy }&title=${c.title }'">
-				<img src="${c.firstimage2 }"style="width: 300px; height: 150px; object-fit: cover;"><br>
-				${c.title }<br>
-				${c.addr1 }
-			</div>
-		</c:forEach>
-	</div>
+	
+		<div class="tour_list_view">
+			<c:forEach var="c" items="${tourList}" varStatus="status">
+				<form id="list${status.index }" action="tour.list.detail?contentid=${c.contentid }" method="post">
+					<div style="width: 33%;float: left;" id="dd" onclick="document.forms['list${status.index }'].submit();">
+						<img src="${c.firstimage2 }"style="width: 300px; height: 150px; object-fit: cover;"><br>
+						${c.title }<br>
+						${c.addr1 }
+						<input type="hidden" name="x" value="${c.mapx }">
+						<input type="hidden" name="x" value="${c.mapx }">
+						<input type="hidden" name="y" value="${c.mapy }">
+						<input type="hidden" name="title" value="${c.title }">
+						<input type="hidden" name="image" value="${c.firstimage2 }">
+					</div>
+				</form>
+			</c:forEach>
+		</div>
 	
 <!-- 지역선택 Type2 -->
 	<div class="tour_list_select">

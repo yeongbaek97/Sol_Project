@@ -28,9 +28,11 @@ select * from aboutmember
 create table tourRank(
 	contentid varchar2(10 char) primary key,
 	title varchar2(50 char) not null,
+	image varchar2(300 char) not null,
 	count number not null
 )
 
+drop table tourRank
 select * from tourRank
 delete from tourRank
 select * from tourRank where contentid = 2622715

@@ -55,7 +55,7 @@ public class TourController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "tour.list.detail", method = RequestMethod.GET)
+	@RequestMapping(value = "tour.list.detail", method = RequestMethod.POST)
 	public String tourlistdetail(HttpServletRequest req, TourRank tr) {
 		//공통 작업
 		mDAO.logincheck(req);

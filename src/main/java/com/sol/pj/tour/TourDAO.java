@@ -16,6 +16,8 @@ import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sol.pj.accom.Accom;
+
 @Service
 public class TourDAO {
 	
@@ -1142,19 +1144,9 @@ public class TourDAO {
 		SearchRankMapper srm = ss.getMapper(SearchRankMapper.class);
 		
 		List<SearchRank> searchRankList = srm.getSearchRankList();
-		req.setAttribute("searchRankList", searchRankList);
-		
+		//req.setAttribute("searchRankList", searchRankList);
+		req.getSession().setAttribute("searchRankList", searchRankList);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 

@@ -9,7 +9,6 @@
 
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/tourapi.js"></script>
-<script type="text/javascript" src="resources/js/kakaoMap.js"></script>
 <script type="text/javascript" src="resources/js/home.js"></script>
 <script type="text/javascript" src="resources/js/move.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f9e56e3f8a09664081781aefaf8493c0&libraries=services"></script>
@@ -106,7 +105,7 @@
 					<span class="sr-only">(current)</span>
 					<a class="nav-link disabled my-2 text-light" tabindex="-1" aria-disabled="true">${sessionScope.loginMember.m_name }(${sessionScope.loginMember.m_id })</a>
 					<span class="sr-only">(current)</span>
-					<button class="btn btn-outline-success my-2 my-sm-0 mb-n1" type="button" onclick="">내 정보</button>
+					<button class="btn btn-outline-success my-2 my-sm-0 mb-n1" type="button" onclick="location.href='mypage'">내 정보</button>
 					<button class="btn btn-outline-success my-2 my-sm-0 mb-n1" type="button" onclick="location.href='logout'">로그아웃</button>
 				</c:if>
 				
@@ -123,7 +122,6 @@
 	 
 	<div>
 		<jsp:include page="${contentPage }"></jsp:include>
-		${contentPage }
 	</div>
 
 </body>

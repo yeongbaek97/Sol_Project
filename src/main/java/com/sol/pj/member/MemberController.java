@@ -69,4 +69,15 @@ public class MemberController {
 
 	}
 	
+	//마이페이지
+	@RequestMapping(value = "mypage", method = RequestMethod.GET)
+	public String myPage(HttpServletRequest req, Member m) {
+		
+		mDAO.logincheck(req);
+		
+		req.setAttribute("contentPage", "member/myPage.jsp");
+		
+		return "home";
+	}
+	
 }

@@ -8,17 +8,9 @@ $(function() {
 	//37.5700923166043, 126.98326280022346 종각
 	
 	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-	
-	
-	function getParameterByName(name) {
-	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-	        results = regex.exec(location.search);
-	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-	}
 
-	let newX = getParameterByName("x");
-	let newY = getParameterByName("y");
+	let newX = document.getElementById('x').value;
+	let newY = document.getElementById('y').value;
 	
 	if(newX.length === 0) {
 		newX = 126.98326280022346
