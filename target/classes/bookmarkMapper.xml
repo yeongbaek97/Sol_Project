@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sol.pj.tour.BookmarkMapper">
+
+<select id="getMarkByID" parameterType="com.sol.pj.tour.Bookmark" resultType="com.sol.pj.tour.Bookmark">
+	select * from bookmark where b_id = #{b_id}
+</select>
+	
+<insert id="setMark" parameterType="com.sol.pj.tour.Bookmark">
+	insert into bookmark values(bookmark_seq.nextval, #{b_id}, #{b_mapx}, #{b_mapy}, #{b_contentid},#{b_title})
+</insert>
+
+<delete id="deleteMark" parameterType="com.sol.pj.tour.Bookmark">
+	delete from bookmark where b_id = #{b_id} and b_contentid=#{b_contentid}
+</delete>
+
+</mapper>

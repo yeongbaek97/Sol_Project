@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sol.pj.member.MemberDAO;
 
@@ -55,8 +56,26 @@ public class TourController {
 		return "home";
 	}
 	
+<<<<<<< HEAD
+	@RequestMapping(value = "tour.list.search", method = RequestMethod.GET)
+	public String tourlistsearch(HttpServletRequest req) {
+		
+		mDAO.logincheck(req);
+		
+		tdao.getsearch(req);
+		
+		
+		req.setAttribute("contentPage", "tour/regional_View.jsp");
+		
+		return "home";
+	}
+	
+	@RequestMapping(value = "tour.list.detail", method = RequestMethod.GET)
+	public String tourlistdetail(HttpServletRequest req) {
+=======
 	@RequestMapping(value = "tour.list.detail", method = RequestMethod.POST)
 	public String tourlistdetail(HttpServletRequest req, TourRank tr) {
+>>>>>>> fd3975503d89891ca997fbb401880048e6fbd571
 		//공통 작업
 		mDAO.logincheck(req);
 		tdao.getTourDetail_common(req);	
@@ -98,6 +117,23 @@ public class TourController {
 		return "home";
 	}
 	
+<<<<<<< HEAD
+	
+	@RequestMapping(value = "tour.mark", method = RequestMethod.GET, produces= "application/json; charset=utf-8")
+	public @ResponseBody int bookmark(Bookmark b, HttpServletRequest req) {
+
+		return tdao.getmark(b,req);
+	}
+	
+	@RequestMapping(value = "tour.mark.change", method = RequestMethod.GET, produces= "application/json; charset=utf-8")
+	public @ResponseBody int bookmarkchange(Bookmark b, HttpServletRequest req) {
+
+		return tdao.getmark_change(b,req);
+	}
+	
+	
+=======
+>>>>>>> fd3975503d89891ca997fbb401880048e6fbd571
 
 
 }

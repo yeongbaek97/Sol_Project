@@ -11,11 +11,12 @@ public class TourDetailCT12 {
 	private String expagerange;		// 체험가능 연령
 	private String chkbabycarriage;	// 유모차대여 정보
 	//개장일, 이용시기
+	private String contentid;
 	public TourDetailCT12() {
 		// TODO Auto-generated constructor stub
 	}
 	public TourDetailCT12(String parking, String chkpet, String infocenter, String restdate, String usetime,
-			String expguide, String expagerange, String chkbabycarriage) {
+			String expguide, String expagerange, String chkbabycarriage, String contentid) {
 		super();
 		this.parking = parking;
 		this.chkpet = chkpet;
@@ -25,6 +26,7 @@ public class TourDetailCT12 {
 		this.expguide = expguide;
 		this.expagerange = expagerange;
 		this.chkbabycarriage = chkbabycarriage;
+		this.contentid = contentid;
 	}
 	public String getParking() {
 		return parking;
@@ -74,6 +76,13 @@ public class TourDetailCT12 {
 	public void setChkbabycarriage(String chkbabycarriage) {
 		this.chkbabycarriage = chkbabycarriage;
 	}
+	public String getContentid() {
+		return contentid;
+	}
+	public void setContentid(String contentid) {
+		this.contentid = contentid;
+	}
+	
 
 	
 	

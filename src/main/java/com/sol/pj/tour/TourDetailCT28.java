@@ -14,6 +14,7 @@ public class TourDetailCT28 {
 	private String scaleleports;
 	private String usefeeleports;
 	private String usetimeleports;
+	private String contentid;
 
 	
 	public TourDetailCT28() {
@@ -24,7 +25,7 @@ public class TourDetailCT28 {
 	public TourDetailCT28(String accomcountleports, String chkbabycarriageleports, String chkpetleports,
 			String expagerangeleports, String infocenterleports, String openperiod, String parkingfeeleports,
 			String parkingleports, String reservation, String restdateleports, String scaleleports,
-			String usefeeleports, String usetimeleports) {
+			String usefeeleports, String usetimeleports, String contentid) {
 		super();
 		this.accomcountleports = accomcountleports;
 		this.chkbabycarriageleports = chkbabycarriageleports;
@@ -39,6 +40,7 @@ public class TourDetailCT28 {
 		this.scaleleports = scaleleports;
 		this.usefeeleports = usefeeleports;
 		this.usetimeleports = usetimeleports;
+		this.contentid = contentid;
 	}
 
 
@@ -170,5 +172,18 @@ public class TourDetailCT28 {
 	public void setUsetimeleports(String usetimeleports) {
 		this.usetimeleports = usetimeleports;
 	}
+
+
+	public String getContentid() {
+		return contentid;
+	}
+
+
+	public void setContentid(String contentid) {
+		this.contentid = contentid;
+	}
+
+
+	
 	
 }
