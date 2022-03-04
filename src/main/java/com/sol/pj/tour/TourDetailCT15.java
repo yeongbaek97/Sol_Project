@@ -19,6 +19,7 @@ public class TourDetailCT15 {
 	private String sponsor2tel;				//주관사 연락처
 	private String subevent;				//부대행사
 	private String usetimefestival;			//이용요금
+	private String contentid;
 	
 	public TourDetailCT15() {
 		// TODO Auto-generated constructor stub
@@ -27,7 +28,7 @@ public class TourDetailCT15 {
 	public TourDetailCT15(String agelimit, String bookingplace, String discountinfofestival, String eventenddate,
 			String eventhomepage, String eventplace, String eventstartdate, String festivalgrade, String placeinfo,
 			String playtime, String program, String spendtimefestival, String sponsor1, String sponsor1tel,
-			String sponsor2, String sponsor2tel, String subevent, String usetimefestival) {
+			String sponsor2, String sponsor2tel, String subevent, String usetimefestival, String contentid) {
 		super();
 		this.agelimit = agelimit;
 		this.bookingplace = bookingplace;
@@ -47,6 +48,7 @@ public class TourDetailCT15 {
 		this.sponsor2tel = sponsor2tel;
 		this.subevent = subevent;
 		this.usetimefestival = usetimefestival;
+		this.contentid = contentid;
 	}
 
 	public String getAgelimit() {
@@ -192,6 +194,16 @@ public class TourDetailCT15 {
 	public void setUsetimefestival(String usetimefestival) {
 		this.usetimefestival = usetimefestival;
 	}
+
+	public String getContentid() {
+		return contentid;
+	}
+
+	public void setContentid(String contentid) {
+		this.contentid = contentid;
+	}
+
+	
 	
 	
 }

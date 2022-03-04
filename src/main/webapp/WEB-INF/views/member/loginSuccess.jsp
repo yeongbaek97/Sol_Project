@@ -17,7 +17,7 @@
 		<tr>
 			<td colspan="2" align="center">
 				<button onclick="goMemberInfo()">내 정보</button>
-				<button onclick="logout()">로그아웃</button>
+				<button onclick="location.href='logout'">로그아웃</button>
 			</td>
 		<tr>
 	</table>

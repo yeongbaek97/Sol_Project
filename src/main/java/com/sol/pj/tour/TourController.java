@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sol.pj.member.MemberDAO;
 
@@ -55,16 +56,30 @@ public class TourController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "tour.list.search", method = RequestMethod.GET)
+	public String tourlistsearch(HttpServletRequest req) {
+		
+		mDAO.logincheck(req);
+		
+		tdao.getsearch(req);
+		
+		
+		req.setAttribute("contentPage", "tour/regional_View.jsp");
+		
+		return "home";
+	}
+	
 	@RequestMapping(value = "tour.list.detail", method = RequestMethod.GET)
 	public String tourlistdetail(HttpServletRequest req) {
 		//공통 작업
 		mDAO.logincheck(req);
 		tdao.getTourDetail_common(req);	
-		
+		tdao.getdetailImage(req);
 		
 		//이곳에서 contentType 구별후 디테일가져오는 작업
 		if(req.getSession().getAttribute("ContentTypeId").equals("12")) {
 			tdao.getTourDetail_CT12(req);
+			tdao.getTourDetail2(req);
 			req.setAttribute("contentPage", "tour/detail_View_CT12.jsp");
 		}else if(req.getSession().getAttribute("ContentTypeId").equals("14")) {
 			tdao.getTourDetail_CT14(req);
@@ -77,17 +92,32 @@ public class TourController {
 			req.setAttribute("contentPage", "tour/detail_View_CT28.jsp");
 		}else if(req.getSession().getAttribute("ContentTypeId").equals("39")) {
 			tdao.getTourDetail_CT39(req);
+			
 			req.setAttribute("contentPage", "tour/detail_View_CT39.jsp");
 		}
 		
+		req.setAttribute("kakaoMap", "kakaoMap.jsp");
 		
-		tdao.getTourDetail2(req);
+		
 		
 		
 		
 		
 		
 		return "home";
+	}
+	
+	
+	@RequestMapping(value = "tour.mark", method = RequestMethod.GET, produces= "application/json; charset=utf-8")
+	public @ResponseBody int bookmark(Bookmark b, HttpServletRequest req) {
+
+		return tdao.getmark(b,req);
+	}
+	
+	@RequestMapping(value = "tour.mark.change", method = RequestMethod.GET, produces= "application/json; charset=utf-8")
+	public @ResponseBody int bookmarkchange(Bookmark b, HttpServletRequest req) {
+
+		return tdao.getmark_change(b,req);
 	}
 	
 	

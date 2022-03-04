@@ -23,8 +23,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-
-
 @Service
 public class MemberDAO {
 	
@@ -53,10 +51,10 @@ public class MemberDAO {
 	public boolean logincheck(HttpServletRequest req) {
 		Member m = (Member) req.getSession().getAttribute("loginMember");
 		if (m != null) {
-			req.setAttribute("loginPage", "member/loginSuccess.jsp");
+			//req.setAttribute("loginPage", "member/loginSuccess.jsp");
 			return true;
 		} else {
-			req.setAttribute("loginPage", "member/login.jsp");
+			//req.setAttribute("loginPage", "member/login.jsp");
 			return false;
 		}
 		
@@ -65,6 +63,7 @@ public class MemberDAO {
 	//로그아웃
 	public void logout(HttpServletRequest req) {
 		req.getSession().setAttribute("loginMember", null);
+		
 	}
 	
 	
@@ -120,7 +119,7 @@ public class MemberDAO {
         return access_token;
 	}
 
-	public HashMap<String, Object> getUserInfo (String access_Token) {
+	public HashMap<String, Object> getUserInfo (String access_Token,HttpServletRequest req) {
 
         //    요청하는 클라이언트마다 가진 정보가 다를 수 있기에 HashMap타입으로 선언
         HashMap<String, Object> userInfo = new HashMap<String, Object>();
@@ -154,15 +153,35 @@ public class MemberDAO {
 
             //가져올 정보 적으면 되는듯
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
+
             String profile_image = properties.getAsJsonObject().get("profile_image").getAsString();
-           // String email = kakao_account.getAsJsonObject().get("email").getAsString();
+
+
+            //String email = kakao_account.getAsJsonObject().get("email").getAsString();
+
             
             
             
             userInfo.put("accessToken", access_Token);
             userInfo.put("nickname", nickname);
-            userInfo.put("nickname", profile_image);
+
+            userInfo.put("profile_image", profile_image);
            // userInfo.put("email", email);
+            
+            Member dbMember = new Member(
+            		"asd",
+            		access_Token,
+            		nickname,
+            		"asd",
+            		"asd",
+            		profile_image
+            		);
+            
+            req.getSession().setAttribute("loginMember", dbMember);
+			req.getSession().setMaxInactiveInterval(60 * 10);
+
+            //userInfo.put("email", email);
+
 
         } catch (IOException e) {
             // TODO Auto-generated catch block

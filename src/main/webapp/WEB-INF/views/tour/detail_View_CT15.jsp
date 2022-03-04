@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<button id="mark_btn">즐겨찾기</button>
 
 ${tourdetail.agelimit }
 ${tourdetail.bookingplace }
@@ -17,6 +18,7 @@ ${tourdetail.bookingplace }
 <hr>
 ${tourdetail3.createdtime }
 
+<jsp:include page="${kakaoMap }"></jsp:include>
 
 </body>
 </html>

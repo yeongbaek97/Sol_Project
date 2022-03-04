@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<button id="mark_btn">즐겨찾기</button>
 
 ${tourdetail.accomcountleports }
 ${tourdetail.chkbabycarriageleports }
@@ -16,8 +17,12 @@ ${tourdetail.openperiod }
 <hr>
 
 <hr>
-${tourdetail3.createdtime }
+<div>
+			<c:forEach var="c" items="${originimgurl}">
+				<img src="${c }" width="350px" height="200px">
+			</c:forEach>
+		</div>
 
-
+<jsp:include page="${kakaoMap }"></jsp:include>
 </body>
 </html>

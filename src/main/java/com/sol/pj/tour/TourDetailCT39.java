@@ -17,6 +17,7 @@ public class TourDetailCT39 {
 	private String smoking;
 	private String treatmenu;
 	private String lcnsno;
+	private String contentid;
 	
 	
 	public TourDetailCT39() {
@@ -26,7 +27,8 @@ public class TourDetailCT39 {
 
 	public TourDetailCT39(String discountinfofood, String firstmenu, String infocenterfood, String kidsfacility,
 			String opendatefood, String opentimefood, String packing, String parkingfood, String reservationfood,
-			String restdatefood, String scalefood, String seat, String smoking, String treatmenu, String lcnsno) {
+			String restdatefood, String scalefood, String seat, String smoking, String treatmenu, String lcnsno,
+			String contentid) {
 		super();
 		this.discountinfofood = discountinfofood;
 		this.firstmenu = firstmenu;
@@ -43,6 +45,7 @@ public class TourDetailCT39 {
 		this.smoking = smoking;
 		this.treatmenu = treatmenu;
 		this.lcnsno = lcnsno;
+		this.contentid = contentid;
 	}
 
 
@@ -194,6 +197,19 @@ public class TourDetailCT39 {
 	public void setLcnsno(String lcnsno) {
 		this.lcnsno = lcnsno;
 	}
+
+
+	public String getContentid() {
+		return contentid;
+	}
+
+
+	public void setContentid(String contentid) {
+		this.contentid = contentid;
+	}
+
+
+	
 	
 	
 }

@@ -20,11 +20,11 @@ function guEvent() {
 	});
 
 }
-/*
- * http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaCode?ServiceKey=인증키&areaCode=1&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest
- */
-function GuOfficeEvent(areaCode) {
 
+
+function GuOfficeEvent() {
+
+	var areaCode = document.getElementById("areaCode").value;
 	var url = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaCode?ServiceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==&areaCode="+areaCode+"&numOfRows=35&MobileOS=ETC&MobileApp=AppTest&_type=json";
 	var Gu_office = document.getElementById("Gu_office");
 	console.log(areaCode);
@@ -58,36 +58,63 @@ function GuOfficeEvent(areaCode) {
 	});
 }
 
+function bookmark(){
+	//처음에 확인
+	var b_id = $("#check_id").val();
+	var b_mapx = $("#check_mapx").val();
+	var b_mapy = $("#check_mapy").val();
+	var b_contentid = $("#check_contentid").val();
+	var b_title = $("#check_title").val();
+		$.ajax({
+			url : "tour.mark",
+			data: {
+				"b_id" : b_id,
+				"b_contentid" : b_contentid
+			},
+			success : function(data) {
+				console.log(data);
+				if(data == 1){
+					$("#mark_btn").css("background-color", "red");
+				}else{
+					$("#mark_btn").css("background-color", "white");
+				}
+			}
+			
+		});
+		
+	//클릭했을 때 적용
+	$("#mark_btn").click(function() {
+		$.ajax({
+			url : "tour.mark.change",
+			data: {
+				"b_id" : b_id,
+				"b_mapx" : b_mapx,
+				"b_mapy" : b_mapy,
+				"b_contentid" : b_contentid,
+				"b_title" : b_title
+			},
+			success : function(data) {
+				console.log(data);
+				if(data == 1){
+					$("#mark_btn").css("background-color", "red");
+				}else{
+					$("#mark_btn").css("background-color", "white");
+				}
+			}
+			
+		});
+	})
 
-
-/*function getURLParams(url) {
-    var result = {};
-    url.replace(/[?&]{1}([^=&#]+)=([^&#]*)/g, function(s, k, v) { result[k] = decodeURIComponent(v); });
-    return result;
-}*/
-
-
-
-//url 파라미터 가져오기
-/*function getParameterByName(name) {
-
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-
-            results = regex.exec(location.search);
-
-    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-
-}*/
+}
 
 
 
 
 $(function() {
-	//var areaCode = getParameterByName('areaCode');
-	var areaCode = document.getElementById("areaCode").value;
+	bookmark();
 	areaEvent();
-	GuOfficeEvent(areaCode);
+	GuOfficeEvent();
 	guEvent();
+	
+	
 });
