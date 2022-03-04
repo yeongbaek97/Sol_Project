@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sol.pj.tour.SearchRankMapper">
+
+<select id="getSearchRank" parameterType="com.sol.pj.tour.SearchRank" resultType="java.lang.Integer">
+	select count(*) from searchRank where word = #{word}
+</select>
+
+<insert id="insertSearchRank" parameterType="com.sol.pj.tour.SearchRank">
+	insert into searchRank values (#{word}, 1)
+</insert>
+
+<update id="countSearchRank" parameterType="com.sol.pj.tour.SearchRank">
+	update searchRank set count = count + 1 where word = #{word}
+</update>
+
+<select id="getSearchRankList" resultType="com.sol.pj.tour.SearchRank">
+	select * from searchRank order by count desc
+</select>
+</mapper>

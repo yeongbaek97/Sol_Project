@@ -44,14 +44,15 @@ public class MemberController {
 	
 	// 카카오 로그인
 	@RequestMapping(value = "kakao.login", method = RequestMethod.GET)
-	public String kakaoLogin(@RequestParam String code) {
+	public String kakaoLogin(@RequestParam String code,HttpServletRequest req ) {
 		
 		System.out.println(code);
 		 String access_Token = mDAO.getReturnAccessToken(code);
-		 HashMap<String, Object> userInfo = mDAO.getUserInfo(access_Token);
-		 
+
+		 HashMap<String, Object> userInfo = mDAO.getUserInfo(access_Token,req);
+ 
 		 System.out.println(userInfo.get("nickname"));
-		 System.out.println(userInfo.get("email"));
+
 		return "home";
 	}
 	
@@ -68,6 +69,18 @@ public class MemberController {
 		mDAO.regMember(m, req);
 		mDAO.logincheck(req);
 			
+		return "member/regMember";
+
+	}
+	
+	//마이페이지
+	@RequestMapping(value = "mypage", method = RequestMethod.GET)
+	public String myPage(HttpServletRequest req, Member m) {
+		
+		mDAO.logincheck(req);
+		
+		req.setAttribute("contentPage", "member/myPage.jsp");
+		
 		return "home";
 	}
 	

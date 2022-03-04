@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+.tourtbl{
+	width: 60%;
+	margin: auto;
+}
+
+.tourtbl tr{
+	
+
+	
+}
+
+.tourtbl td{
+	width: 40px;
+	height:27px;
+	padding: 5px;
+	border: 1px solid black;
+	text-align: center;
+}
+
+.tourtbl a{
+	text-decoration:none;
+}
+
+.tour_list_view{
+	float:left;
+	width: 60%;
+	margin-left: 20%;
+
+}
+
+.tour_list_select{
+	float:left;
+	width: 20%;
+	height: auto;
+
+}
+
+.tour_list_select ul{
+	width:50%;
+	list-style: none;
+	float: left;
+}
+
+.tour_list_select ul>li{
+	width:25%;
+	margin-bottom:5px;
+	list-style-type:none;
+	float: left;
+}
+
+.gu_select{
+	color: red;
+}
