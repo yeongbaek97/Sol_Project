@@ -58,7 +58,17 @@ public class MemberController {
 	// 회원가입 페이지 이동
 	@RequestMapping(value = "goto.Reg", method = RequestMethod.GET)
 	public String gotoReg() {
-		return "member/regMember";
+		return "member/regUser";
+	}
+	
+	// 회원가입
+	@RequestMapping(value = "goto.RegUser", method = RequestMethod.POST)
+	public String regMember(HttpServletRequest req, Member m) {
+			
+		mDAO.regMember(m, req);
+		mDAO.logincheck(req);
+			
+		return "home";
 	}
 	
 }
