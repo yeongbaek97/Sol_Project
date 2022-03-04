@@ -7,20 +7,20 @@ public class Member {
 	private String m_name;
 	private String m_email;
 	private String m_gender;
-	private String m_photo;
+	private String m_number;
 	
 	public Member() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Member(String m_id, String m_pw, String m_name, String m_email, String m_gender, String m_photo) {
+	public Member(String m_id, String m_pw, String m_name, String m_email, String m_gender, String m_number) {
 		super();
 		this.m_id = m_id;
 		this.m_pw = m_pw;
 		this.m_name = m_name;
 		this.m_email = m_email;
 		this.m_gender = m_gender;
-		this.m_photo = m_photo;
+		this.m_number = m_number;
 	}
 
 	public String getM_id() {
@@ -63,12 +63,12 @@ public class Member {
 		this.m_gender = m_gender;
 	}
 
-	public String getM_photo() {
-		return m_photo;
+	public String getM_number() {
+		return m_number;
 	}
 
-	public void setM_photo(String m_photo) {
-		this.m_photo = m_photo;
+	public void setM_number(String m_number) {
+		this.m_number = m_number;
 	}
 	
 	
