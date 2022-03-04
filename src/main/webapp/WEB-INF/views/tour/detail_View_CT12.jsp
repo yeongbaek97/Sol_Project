@@ -8,6 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<!--if 세선.id == book 테이블 id + 디테일 페이지 con_id == book con id  
+	버튼 다른색
+	
+	버튼 클릭 -> map x,y id .... 테이블 저장
+	버튼 해제 -> 저장된 값 제거
+-->
+<button id="mark_btn">즐겨찾기</button>
+
+
+
 ${tourdetail.parking }
 ${tourdetail.chkpet }
 ${tourdetail.infocenter }

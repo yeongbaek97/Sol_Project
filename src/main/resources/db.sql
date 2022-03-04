@@ -9,7 +9,7 @@ create table member(
 
 insert into member values('yb', '1234','영백','asd@asdf','m','s')
 
-SELECT *  FROM member;
+SELECT *  FROM bookmark;
 
 create table aboutmember(
 	m_id varchar2 (30 char) primary key,
@@ -21,6 +21,20 @@ create table aboutmember(
 	m_photo varchar2 (500 char) not null
 );
 
+create table bookmark(
+	b_no varchar2 (30 char) primary key,
+	b_id varchar2 (30 char) not null,
+	b_mapx varchar2 (30 char) not null,
+	b_mapy varchar2 (30 char) not null,
+	b_contentid varchar2 (30 char) not null,
+	b_title varchar2 (30 char) not null
+);
+create sequence bookmark_seq;
+
+
+
 insert into member values('hjj', 'hjj', '효진', 'ad@asd', 'f', 'sdf');
+
+
 
 select * from aboutmember

@@ -2,20 +2,29 @@ package com.sol.pj.tour;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.session.SqlSession;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class TourDAO {
+	
+	@Autowired
+	private SqlSession ss;
+	
 	
 	public void getTourList(int pageNo, HttpServletRequest req) {
 		String areaCode = req.getParameter("areaCode");
@@ -182,7 +191,7 @@ public class TourDAO {
 	
 	public void getTourDetail_CT12(HttpServletRequest req) {
 		
-		int contentid = Integer.parseInt(req.getParameter("contentid"));
+		String contentid = req.getParameter("contentid");
 
 		String parking = "";
         String chkpet = "";
@@ -263,7 +272,8 @@ public class TourDAO {
 	    	        usetime,
 	    	        expguide,
 	    	        expagerange,
-	    	        chkbabycarriage
+	    	        chkbabycarriage,
+	    	        contentid
 	        		); 
 	        req.setAttribute("tourdetail", tourdetail);
 			
@@ -276,7 +286,7 @@ public class TourDAO {
 	}
 	public void getTourDetail_CT14(HttpServletRequest req) {
 		
-		int contentid = Integer.parseInt(req.getParameter("contentid"));
+		String contentid =req.getParameter("contentid");
 		
 		
 		
@@ -379,7 +389,8 @@ public class TourDAO {
 	                usefee,
 	                usetimeculture,
 	                scale,
-	                spendtime
+	                spendtime,
+	                contentid
 	        		); 
 	        req.setAttribute("tourdetail", tourdetail);
 			
@@ -392,7 +403,7 @@ public class TourDAO {
 	}
 	public void getTourDetail_CT15(HttpServletRequest req) {
 	
-	int contentid = Integer.parseInt(req.getParameter("contentid"));
+		String contentid =req.getParameter("contentid");
 	
 	
 	
@@ -525,7 +536,8 @@ public class TourDAO {
         	     sponsor2,
         	     sponsor2tel,
         	     subevent,
-        	     usetimefestival
+        	     usetimefestival,
+        	     contentid
         		); 
         req.setAttribute("tourdetail", tourdetail);
 		
@@ -538,7 +550,7 @@ public class TourDAO {
 }
 	public void getTourDetail_CT28(HttpServletRequest req) {
 	
-	int contentid = Integer.parseInt(req.getParameter("contentid"));
+		String contentid =req.getParameter("contentid");
 	
 	
 	
@@ -649,7 +661,8 @@ public class TourDAO {
                  restdateleports,
                  scaleleports,
                  usefeeleports,
-                 usetimeleports
+                 usetimeleports,
+                 contentid
         		); 
         req.setAttribute("tourdetail", tourdetail);
 		
@@ -662,7 +675,7 @@ public class TourDAO {
 }
 	public void getTourDetail_CT39(HttpServletRequest req) {
 		
-		int contentid = Integer.parseInt(req.getParameter("contentid"));
+		String contentid =req.getParameter("contentid");
 
 		String discountinfofood = "";
 	    String firstmenu = "";
@@ -792,7 +805,8 @@ public class TourDAO {
 	    		     seat,
 	    		     smoking,
 	    		     treatmenu,
-	    		     lcnsno
+	    		     lcnsno,
+	    		     contentid
 	        		); 
 	        req.setAttribute("tourdetail", tourdetail);
 			
@@ -807,7 +821,7 @@ public class TourDAO {
 
 	
 	public void getTourDetail2(HttpServletRequest req) {
-		int contentid = Integer.parseInt(req.getParameter("contentid"));
+		String contentid =req.getParameter("contentid");
 		
 		String infoname = "";
         String infotext = "";
@@ -1099,6 +1113,109 @@ public class TourDAO {
 		}
 		
 	}
+	
+	
+	
+public void getsearch(HttpServletRequest req) {
+
+		try {
+			
+			String keyword = req.getParameter("keyword");
+			
+
+			String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword";
+			requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
+			requrl += "&MobileOS=ETC";
+			requrl += "&MobileApp=AppTest";
+			requrl += "&_type=json";
+			requrl += "&keyword="+URLEncoder.encode(keyword, "UTF-8");
+			
+			System.out.println(requrl);
+			
+			URL url = new URL(requrl);
+			
+			//Connection 설정
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			
+	        //파싱구간
+	        InputStream is = conn.getInputStream();
+			InputStreamReader isr = new InputStreamReader(is, "utf-8");
+			
+	        JSONParser parser = new JSONParser();
+	        JSONObject tourData = (JSONObject) parser.parse(isr);
+	        System.out.println(tourData);
+	        
+	        //데이터 뽑기
+            JSONObject response = (JSONObject) tourData.get("response");
+            JSONObject body = (JSONObject) response.get("body");
+            System.out.println("1111" + body);
+            JSONObject items = (JSONObject) body.get("items");
+            System.out.println("2" + items);
+
+            
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
+	}
+
+
+
+
+
+
+public int getmark(Bookmark b,HttpServletRequest req) {
+	
+	List<Bookmark> bookmark = ss.getMapper(BookmarkMapper.class).getMarkByID(b);
+
+	if(bookmark.size() !=0) {
+		for(Bookmark list: bookmark) {
+			
+			if(req.getParameter("b_contentid").equals(list.getB_contentid())) {
+
+				return 1;
+			}
+			
+		}
+	}
+	
+	
+	return 0;
+}
+
+public int getmark_change(Bookmark b,HttpServletRequest req) {
+	
+	List<Bookmark> bookmark = ss.getMapper(BookmarkMapper.class).getMarkByID(b);
+	//conid랑 비교해서 같은게 있으면 리턴값 보내고
+	
+	//없으면 데이터 저장해서 리턴값 다른거 보내고
+	
+	System.out.println(bookmark.size());
+	//System.out.println(bookmark.get(0).getB_contentid());
+	//System.out.println(req.getParameter("b_contentid"));
+	
+	
+	if(bookmark.size() !=0) {
+		for(Bookmark list: bookmark) {
+			
+			if(req.getParameter("b_contentid").equals(list.getB_contentid())) {
+				//제거
+				ss.getMapper(BookmarkMapper.class).deleteMark(b);
+				System.out.println("제거됨");
+				return 0;
+			}
+			
+		}
+	}
+	
+	//추가
+	ss.getMapper(BookmarkMapper.class).setMark(b);
+	System.out.println("추가됨");
+	return 1;
+}
+	
 	
 	
 	

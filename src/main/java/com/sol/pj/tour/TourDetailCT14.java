@@ -13,6 +13,7 @@ public class TourDetailCT14 {
 	private String usetimeculture;				// 이용시간
 	private String scale;						// 규모
 	private String spendtime;					// 관람 소요시간
+	private String contentid;
 
 	
 	public TourDetailCT14() {
@@ -22,7 +23,8 @@ public class TourDetailCT14 {
 
 	public TourDetailCT14(String accomcountculture, String chkbabycarriageculture, String chkpetculture,
 			String discountinfo, String infocenterculture, String parkingculture, String parkingfee,
-			String restdateculture, String usefee, String usetimeculture, String scale, String spendtime) {
+			String restdateculture, String usefee, String usetimeculture, String scale, String spendtime,
+			String contentid) {
 		super();
 		this.accomcountculture = accomcountculture;
 		this.chkbabycarriageculture = chkbabycarriageculture;
@@ -36,6 +38,7 @@ public class TourDetailCT14 {
 		this.usetimeculture = usetimeculture;
 		this.scale = scale;
 		this.spendtime = spendtime;
+		this.contentid = contentid;
 	}
 
 
@@ -157,6 +160,19 @@ public class TourDetailCT14 {
 	public void setSpendtime(String spendtime) {
 		this.spendtime = spendtime;
 	}
+
+
+	public String getContentid() {
+		return contentid;
+	}
+
+
+	public void setContentid(String contentid) {
+		this.contentid = contentid;
+	}
+
+
+	
 	
 	
 }

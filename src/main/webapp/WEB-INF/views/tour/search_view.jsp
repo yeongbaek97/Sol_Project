@@ -5,10 +5,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<script type="text/javascript" src="resources/js/move.js"></script>
 </head>
 <body>
-	<h1>메인(홈)화면입니다</h1>
+<div>
+카페
+</div>
+
+
+<hr>
+<div>
+
+</div>
+<hr>
+<div>
+
+</div>
+<hr>
+<div>
+
+</div>
+<hr>
+<div>
+
+</div>
+
+
+
+
+
 </body>
 </html>
