@@ -30,6 +30,7 @@ create sequence bookmark_seq;
 
 insert into member values('hjj', 'hjj', '효진', 'ad@asd', 'f', 'sdf');
 
+<<<<<<< HEAD
 
 
 select * from aboutmember
@@ -40,3 +41,26 @@ UPDATE member SET m_number = '010-1111-1111' WHERE m_name='효진';
 
 ALTER TABLE member MODIFY (m_number NOT NULL);
 >>>>>>> 17c75fa095d344a4053bb7f9ef4ac5a7b5a08f25
+=======
+select * from aboutmember
+
+create table tourRank(
+	contentid varchar2(10 char) primary key,
+	title varchar2(50 char) not null,
+	image varchar2(300 char) not null,
+	count number not null
+)
+
+drop table tourRank
+select * from tourRank
+delete from tourRank
+select * from tourRank where contentid = 2622715
+update tourRank set count = count + 1 where contentid = 2622715
+
+create table searchRank(
+	word varchar2(30 char) primary key,
+	count number not null
+)
+
+select * from searchRank
+>>>>>>> fd3975503d89891ca997fbb401880048e6fbd571

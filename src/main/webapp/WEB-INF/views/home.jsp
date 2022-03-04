@@ -8,7 +8,12 @@
 <title>Insert title here</title>
 
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
+<<<<<<< HEAD
 <script type="text/javascript" src="resources/js/kakaoMap.js"></script>
+=======
+<script type="text/javascript" src="resources/js/tourapi.js"></script>
+<script type="text/javascript" src="resources/js/home.js"></script>
+>>>>>>> fd3975503d89891ca997fbb401880048e6fbd571
 <script type="text/javascript" src="resources/js/move.js"></script>
 <script type="text/javascript" src="resources/js/tourapi.js"></script>
 
@@ -78,7 +83,35 @@
 					<a class="nav-link text-light text-weight-bold px-5" href="goto.accomIndex">숙소+캠핑</a>
 				</li>
 			</ul>
+<<<<<<< HEAD
 			<input id="search_input" class="form-control mr-sm-2 my-2" type="search" placeholder="Search" aria-label="Search" onkeypress="searchEnter(event)">
+=======
+			
+			<form class="form-inline my-2 my-lg-0 ml-3 navbar-right" onsubmit="return false;">
+				<div class="block">
+				    <ul id="ticker">
+				    	<c:forEach  var="srl" items="${searchRankList }" varStatus="status">
+				    		<c:if test="${status.index + 1 <= 10 }">
+				        		<li><a href="#"><span>${status.index + 1}</span> ${srl.word}</a></li>
+				        	</c:if>
+				        </c:forEach>
+				    </ul>
+				</div>
+				<input class="form-control mr-sm-2 my-2" id="word" type="search" placeholder="Search" aria-label="Search" onkeypress="if(event.keyCode==13){searchEnter();}" onclick="wordVisible();" autocomplete="off">
+				
+				<div class="form-control mr-sm-2 my-2" id="searchWord" style="background-color: efefef; position: absolute; top: 50px; right: 77px; height: 220px; width: 198px; visibility: hidden;">
+					<table style="width:170px;">
+						<c:forEach  var="srl" items="${searchRankList }" varStatus="status">
+							<c:if test="${status.index + 1 <= 10 }">
+								<tr>
+									<td style="width: 20%;">${status.index + 1}</td>
+									<td style="width: 80%;">${srl.word}</td>
+								</tr>
+							</c:if>
+				        </c:forEach>
+					</table>
+				</div>
+>>>>>>> fd3975503d89891ca997fbb401880048e6fbd571
 				
 			<form class="form-inline my-2 my-lg-0 ml-3 navbar-right">
 			
@@ -91,7 +124,7 @@
 					<span class="sr-only">(current)</span>
 					<a class="nav-link disabled my-2 text-light" tabindex="-1" aria-disabled="true">${sessionScope.loginMember.m_name }(${sessionScope.loginMember.m_id })</a>
 					<span class="sr-only">(current)</span>
-					<button class="btn btn-outline-success my-2 my-sm-0 mb-n1" type="button" onclick="">내 정보</button>
+					<button class="btn btn-outline-success my-2 my-sm-0 mb-n1" type="button" onclick="location.href='mypage'">내 정보</button>
 					<button class="btn btn-outline-success my-2 my-sm-0 mb-n1" type="button" onclick="location.href='logout'">로그아웃</button>
 				</c:if>
 				
@@ -104,15 +137,9 @@
 			</form>
 		</div>
 	</nav>
-
-
 	
-	
-	
-
 	 
 	<div>
-
 		<jsp:include page="${contentPage }"></jsp:include>
 	</div>
 

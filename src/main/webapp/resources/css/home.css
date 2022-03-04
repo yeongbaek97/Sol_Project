@@ -31,3 +31,39 @@
 	display: block;
 	
 }
+
+<!-- 인기검색어 -->
+#ticker{
+	float:left;
+	width:100px;
+}
+
+.block {
+	border:2px  padding:0 5px; 
+	height:20px; 
+	overflow:hidden; 
+	width:350px; 
+	font-family:Gulim; 
+	font-size:12px;
+	float:left; 
+	color: white;
+}
+
+.block ul, .block li {
+	margin:0; 
+	padding:0; 
+	list-style:none;
+}
+
+.block li a {
+	display:block; 
+	height:20px; 
+	line-height:20px; 
+	color:#555; 
+	text-decoration:none;
+}
+
+.block:hover {
+	background-color: silver;
+}
+

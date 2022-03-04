@@ -18,6 +18,7 @@ import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sol.pj.accom.Accom;
 
 @Service
 public class TourDAO {
@@ -25,7 +26,10 @@ public class TourDAO {
 	@Autowired
 	private SqlSession ss;
 	
+<<<<<<< HEAD
 	
+=======
+>>>>>>> fd3975503d89891ca997fbb401880048e6fbd571
 	public void getTourList(int pageNo, HttpServletRequest req) {
 		String areaCode = req.getParameter("areaCode");
 		String ContentTypeId = req.getParameter("ContentTypeId");
@@ -1113,6 +1117,7 @@ public class TourDAO {
 		}
 		
 	}
+<<<<<<< HEAD
 	
 	
 	
@@ -1224,6 +1229,49 @@ public int getmark_change(Bookmark b,HttpServletRequest req) {
 	
 	
 	
+=======
+
+	public void TourRank(HttpServletRequest req, TourRank tr) {
+		
+		TourRankMapper trm = ss.getMapper(TourRankMapper.class);
+		
+		if(trm.getTourRank(tr) == 1) {
+			trm.countTourRank(tr);
+		} else {
+			trm.insertTourRank(tr);
+		}
+		
+	}
+
+	public void getTourRank(HttpServletRequest req) {
+		
+		TourRankMapper trm = ss.getMapper(TourRankMapper.class);
+		
+		List<TourRank> tourRankList = trm.getTourRankList();
+		req.setAttribute("tourRankList", tourRankList);
+	}
+
+
+	public void searchRank(HttpServletRequest req, SearchRank sr) {
+		
+		SearchRankMapper srm = ss.getMapper(SearchRankMapper.class);
+		
+		if(srm.getSearchRank(sr) == 1) {
+			srm.countSearchRank(sr);
+		} else {
+			srm.insertSearchRank(sr);
+		}
+		
+	}
+
+	public void getSearchRank(HttpServletRequest req) {
+		SearchRankMapper srm = ss.getMapper(SearchRankMapper.class);
+		
+		List<SearchRank> searchRankList = srm.getSearchRankList();
+		//req.setAttribute("searchRankList", searchRankList);
+		req.getSession().setAttribute("searchRankList", searchRankList);
+	}
+>>>>>>> fd3975503d89891ca997fbb401880048e6fbd571
 	
 	
 

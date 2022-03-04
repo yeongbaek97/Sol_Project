@@ -56,6 +56,7 @@ public class TourController {
 		return "home";
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping(value = "tour.list.search", method = RequestMethod.GET)
 	public String tourlistsearch(HttpServletRequest req) {
 		
@@ -71,10 +72,15 @@ public class TourController {
 	
 	@RequestMapping(value = "tour.list.detail", method = RequestMethod.GET)
 	public String tourlistdetail(HttpServletRequest req) {
+=======
+	@RequestMapping(value = "tour.list.detail", method = RequestMethod.POST)
+	public String tourlistdetail(HttpServletRequest req, TourRank tr) {
+>>>>>>> fd3975503d89891ca997fbb401880048e6fbd571
 		//공통 작업
 		mDAO.logincheck(req);
 		tdao.getTourDetail_common(req);	
 		tdao.getdetailImage(req);
+		tdao.TourRank(req, tr);
 		
 		//이곳에서 contentType 구별후 디테일가져오는 작업
 		if(req.getSession().getAttribute("ContentTypeId").equals("12")) {
@@ -98,15 +104,20 @@ public class TourController {
 		
 		req.setAttribute("kakaoMap", "kakaoMap.jsp");
 		
-		
-		
-		
-		
-		
+		return "home";
+	}
+	
+	@RequestMapping(value = "tour.list.search", method = RequestMethod.GET)
+	public String tourListSearch(HttpServletRequest req, SearchRank sr) {
+		mDAO.logincheck(req);
+		tdao.searchRank(req, sr);
+		tdao.getSearchRank(req);
+		req.setAttribute("contentPage", "tour/search.jsp");
 		
 		return "home";
 	}
 	
+<<<<<<< HEAD
 	
 	@RequestMapping(value = "tour.mark", method = RequestMethod.GET, produces= "application/json; charset=utf-8")
 	public @ResponseBody int bookmark(Bookmark b, HttpServletRequest req) {
@@ -121,6 +132,8 @@ public class TourController {
 	}
 	
 	
+=======
+>>>>>>> fd3975503d89891ca997fbb401880048e6fbd571
 
 
 }

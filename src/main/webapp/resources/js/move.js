@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function searchEnter(e) {
 
 	var value = document.getElementById('search_input').value;
@@ -6,5 +7,11 @@ function searchEnter(e) {
 	}
 	;
 
+=======
+function searchEnter(){
+	let word = document.getElementById('word').value;
+	
+	location.href="tour.list.search?word=" +word;
+>>>>>>> fd3975503d89891ca997fbb401880048e6fbd571
 };
 
