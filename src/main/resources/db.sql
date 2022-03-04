@@ -9,13 +9,15 @@ create table member(
 
 insert into member values('yb', '1234','영백','asd@asdf','m','s')
 insert into member values('hs', '1234','현수','qwer@asdf','m','010-2222-2222')
+insert into member values('hjj', 'hjj', '효진', 'ad@asd', 'f', 'sdf');
+
 
 SELECT *  FROM bookmark;
 
 alter table member drop column m_photo;
 ALTER TABLE member ADD(m_number varchar2(50 char));
+ALTER TABLE member MODIFY (m_number NOT NULL);
 
-<<<<<<< HEAD
 create table bookmark(
 	b_no varchar2 (30 char) primary key,
 	b_id varchar2 (30 char) not null,
@@ -24,29 +26,13 @@ create table bookmark(
 	b_contentid varchar2 (30 char) not null,
 	b_title varchar2 (30 char) not null
 );
+
 create sequence bookmark_seq;
 
-
-
-insert into member values('hjj', 'hjj', '효진', 'ad@asd', 'f', 'sdf');
-
-<<<<<<< HEAD
-
-
-select * from aboutmember
-=======
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 UPDATE member SET m_number = '010-0000-0000' WHERE m_name='영백';
 UPDATE member SET m_number = '010-1111-1111' WHERE m_name='효진';
 
-ALTER TABLE member MODIFY (m_number NOT NULL);
->>>>>>> 17c75fa095d344a4053bb7f9ef4ac5a7b5a08f25
-=======
->>>>>>> 02b3b54047e110ca3b65672cb376674f1612c807
-select * from aboutmember
+
 
 create table tourRank(
 	contentid varchar2(10 char) primary key,
@@ -67,13 +53,8 @@ create table searchRank(
 )
 
 select * from searchRank
-<<<<<<< HEAD
-=======
+
 UPDATE member SET m_number = '010-0000-0000' WHERE m_name='영백';
 UPDATE member SET m_number = '010-1111-1111' WHERE m_name='효진';
 
-ALTER TABLE member MODIFY (m_number NOT NULL);
->>>>>>> 17c75fa095d344a4053bb7f9ef4ac5a7b5a08f25
-=======
->>>>>>> fd3975503d89891ca997fbb401880048e6fbd571
->>>>>>> 02b3b54047e110ca3b65672cb376674f1612c807
+

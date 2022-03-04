@@ -111,7 +111,6 @@
 				        </c:forEach>
 					</table>
 				</div>
->>>>>>> fd3975503d89891ca997fbb401880048e6fbd571
 				
 			<form class="form-inline my-2 my-lg-0 ml-3 navbar-right">
 			

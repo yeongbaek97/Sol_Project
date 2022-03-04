@@ -26,10 +26,6 @@ public class TourDAO {
 	@Autowired
 	private SqlSession ss;
 	
-<<<<<<< HEAD
-	
-=======
->>>>>>> fd3975503d89891ca997fbb401880048e6fbd571
 	public void getTourList(int pageNo, HttpServletRequest req) {
 		String areaCode = req.getParameter("areaCode");
 		String ContentTypeId = req.getParameter("ContentTypeId");
@@ -1117,7 +1113,6 @@ public class TourDAO {
 		}
 		
 	}
-<<<<<<< HEAD
 	
 	
 	
@@ -1221,15 +1216,7 @@ public int getmark_change(Bookmark b,HttpServletRequest req) {
 	return 1;
 }
 	
-	
-	
-	
-	
-	
-	
-	
-	
-=======
+
 
 	public void TourRank(HttpServletRequest req, TourRank tr) {
 		
@@ -1271,8 +1258,6 @@ public int getmark_change(Bookmark b,HttpServletRequest req) {
 		//req.setAttribute("searchRankList", searchRankList);
 		req.getSession().setAttribute("searchRankList", searchRankList);
 	}
->>>>>>> fd3975503d89891ca997fbb401880048e6fbd571
-	
 	
 
 }
