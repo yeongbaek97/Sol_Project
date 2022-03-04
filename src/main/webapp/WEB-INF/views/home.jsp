@@ -8,14 +8,14 @@
 <title>Insert title here</title>
 
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
-<<<<<<< HEAD
+
 <script type="text/javascript" src="resources/js/kakaoMap.js"></script>
-=======
+
 <script type="text/javascript" src="resources/js/tourapi.js"></script>
 <script type="text/javascript" src="resources/js/home.js"></script>
->>>>>>> fd3975503d89891ca997fbb401880048e6fbd571
+
 <script type="text/javascript" src="resources/js/move.js"></script>
-<script type="text/javascript" src="resources/js/tourapi.js"></script>
+<script type="text/javascript" src="resources/js/myPage.js"></script>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f9e56e3f8a09664081781aefaf8493c0&libraries=services"></script>
 <link rel="stylesheet" href="resources/css/home.css">
@@ -49,6 +49,8 @@
 <input id="check_mapy" type="hidden" value="${tourdetailcommon.mapy }">
 <input id="check_contentid" type="hidden" value="${tourdetail.contentid }">
 <input id="check_title" type="hidden" value="${tourdetailcommon.title }">
+
+
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
 		<a class="navbar-brand text-light text-weight-bold px-5" href="goto.Index">Tour</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,9 +85,6 @@
 					<a class="nav-link text-light text-weight-bold px-5" href="goto.accomIndex">숙소+캠핑</a>
 				</li>
 			</ul>
-<<<<<<< HEAD
-			<input id="search_input" class="form-control mr-sm-2 my-2" type="search" placeholder="Search" aria-label="Search" onkeypress="searchEnter(event)">
-=======
 			
 			<form class="form-inline my-2 my-lg-0 ml-3 navbar-right" onsubmit="return false;">
 				<div class="block">
@@ -112,8 +111,6 @@
 					</table>
 				</div>
 				
-			<form class="form-inline my-2 my-lg-0 ml-3 navbar-right">
-			
 				<c:if test="${sessionScope.loginMember.m_id eq null && userInfo.nickname eq null}">
 					<span class="sr-only">(current)</span>
 					<button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="location.href='goto.login'">Sign in</button>

@@ -74,6 +74,18 @@ public class MemberController {
 	public String myPage(HttpServletRequest req, Member m) {
 		
 		mDAO.logincheck(req);
+		mDAO.myPage(req);
+		
+		req.setAttribute("contentPage", "member/myPage.jsp");
+		
+		return "home";
+	}
+	
+	@RequestMapping(value = "modifyInfo", method = RequestMethod.POST)
+	public String modifyId(HttpServletRequest req) {
+		
+		mDAO.logincheck(req);
+		mDAO.modifyInfo(req);
 		
 		req.setAttribute("contentPage", "member/myPage.jsp");
 		

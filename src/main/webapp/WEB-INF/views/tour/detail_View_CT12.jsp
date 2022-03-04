@@ -16,7 +16,7 @@
 	버튼 해제 -> 저장된 값 제거
 -->
 <button id="mark_btn">즐겨찾기</button>
-
+<input id="check_image" type="hidden" value="${param.image }">
 
 
 ${tourdetail.parking }

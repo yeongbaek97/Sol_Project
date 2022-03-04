@@ -25,7 +25,7 @@ public class TourDAO {
 	
 	@Autowired
 	private SqlSession ss;
-	
+
 	public void getTourList(int pageNo, HttpServletRequest req) {
 		String areaCode = req.getParameter("areaCode");
 		String ContentTypeId = req.getParameter("ContentTypeId");
@@ -1113,6 +1113,7 @@ public class TourDAO {
 		}
 		
 	}
+
 	
 	
 	
@@ -1195,7 +1196,9 @@ public int getmark_change(Bookmark b,HttpServletRequest req) {
 	System.out.println(bookmark.size());
 	//System.out.println(bookmark.get(0).getB_contentid());
 	//System.out.println(req.getParameter("b_contentid"));
-	
+	System.out.println(b);
+	System.out.println(b.getB_image());
+	System.out.println(b.getB_title());
 	
 	if(bookmark.size() !=0) {
 		for(Bookmark list: bookmark) {
@@ -1215,6 +1218,14 @@ public int getmark_change(Bookmark b,HttpServletRequest req) {
 	System.out.println("추가됨");
 	return 1;
 }
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 
@@ -1258,6 +1269,8 @@ public int getmark_change(Bookmark b,HttpServletRequest req) {
 		//req.setAttribute("searchRankList", searchRankList);
 		req.getSession().setAttribute("searchRankList", searchRankList);
 	}
+
+	
 	
 
 }

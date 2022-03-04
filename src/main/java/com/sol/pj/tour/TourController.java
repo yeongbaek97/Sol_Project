@@ -56,7 +56,8 @@ public class TourController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "tour.list.search", method = RequestMethod.GET)
+
+/*	@RequestMapping(value = "tour.list.search", method = RequestMethod.GET)
 	public String tourlistsearch(HttpServletRequest req) {
 		
 		mDAO.logincheck(req);
@@ -67,8 +68,10 @@ public class TourController {
 		req.setAttribute("contentPage", "tour/regional_View.jsp");
 		
 		return "home";
-	}
+	}*/
 	
+
+
 	@RequestMapping(value = "tour.list.detail", method = RequestMethod.POST)
 	public String tourlistdetail(HttpServletRequest req, TourRank tr) {
 
@@ -113,6 +116,8 @@ public class TourController {
 		return "home";
 	}
 	
+
+	
 	@RequestMapping(value = "tour.mark", method = RequestMethod.GET, produces= "application/json; charset=utf-8")
 	public @ResponseBody int bookmark(Bookmark b, HttpServletRequest req) {
 
@@ -125,6 +130,7 @@ public class TourController {
 		return tdao.getmark_change(b,req);
 	}
 	
-	
+
+
 
 }

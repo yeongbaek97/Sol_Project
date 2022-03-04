@@ -65,6 +65,9 @@ function bookmark(){
 	var b_mapy = $("#check_mapy").val();
 	var b_contentid = $("#check_contentid").val();
 	var b_title = $("#check_title").val();
+	var b_image = $("#check_image").val();
+	
+	console.log(b_image);
 		$.ajax({
 			url : "tour.mark",
 			data: {
@@ -81,7 +84,7 @@ function bookmark(){
 			}
 			
 		});
-		
+		 
 	//클릭했을 때 적용
 	$("#mark_btn").click(function() {
 		$.ajax({
@@ -91,7 +94,8 @@ function bookmark(){
 				"b_mapx" : b_mapx,
 				"b_mapy" : b_mapy,
 				"b_contentid" : b_contentid,
-				"b_title" : b_title
+				"b_title" : b_title,
+				"b_image" : b_image
 			},
 			success : function(data) {
 				console.log(data);

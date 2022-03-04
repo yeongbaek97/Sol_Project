@@ -45,7 +45,6 @@
 						${c.title }<br>
 						${c.addr1 }
 						<input type="hidden" name="x" value="${c.mapx }">
-						<input type="hidden" name="x" value="${c.mapx }">
 						<input type="hidden" name="y" value="${c.mapy }">
 						<input type="hidden" name="title" value="${c.title }">
 						<input type="hidden" name="image" value="${c.firstimage2 }">
