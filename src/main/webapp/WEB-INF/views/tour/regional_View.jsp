@@ -20,6 +20,7 @@
 
 <div style="margin-top: 100px;margin-left: 10%;margin-right:10%; border-bottom: 1px solid #d8d8d8;">
 	<strong style="font-size: 40px;">여행지</strong>
+
 	
 	<c:choose>
 		<c:when test="${ContentTypeId == 12}">
@@ -43,6 +44,7 @@
 			<p>카페</p>
 		</c:when>
 	</c:choose>
+
 </div>
 <div class="tour_list_view">
 	<c:forEach var="c" items="${tourList}" varStatus="status">
@@ -53,6 +55,7 @@
 					
 					<div class="item_title">
 						<div class="mark_btn" style="float: right; margin-right: 5px;z-index: 4;"><span>★</span></div>
+
 						<div><img src="resources/img/neogul.png" style="position:absolute; width: 100px;height: 80px;left:-50px;top: -18px"></div>
 						<div class="list_title">${c.title }</div>
 						
@@ -63,6 +66,7 @@
 						<input type="hidden" class="check_title" name="title" value="${c.title }">
 						<input type="hidden" class="check_contentid" value="${c.contentid }">
 						<input type="hidden" class="check_image" value="${c.firstimage2 }">
+
 					</div>		
 				</div>
 			</form>

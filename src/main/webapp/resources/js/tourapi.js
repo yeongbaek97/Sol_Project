@@ -59,6 +59,7 @@ function GuOfficeEvent() {
 }
 
 function bookmark(){
+
 	//로드가 완료 됐을때
 	
 	$(".item_title").each(function(i,c){
@@ -76,6 +77,7 @@ function bookmark(){
 
 
 
+
 		$.ajax({
 			url : "tour.mark",
 			data: {
@@ -83,12 +85,14 @@ function bookmark(){
 				"b_contentid" : b_contentid
 			},
 			success : function(data) {
+
 				
 					if(data == 1){
 						mark_btn.css("color", "green");
 					}else{
 						mark_btn.css("color", "red");
 					}
+
 
 			
 				
@@ -147,6 +151,25 @@ function bookmark(){
 		 
 	
 
+}
+
+function sidebar(){
+	
+		var duration = 300;
+
+		var $side = $('#sidebar');
+		var $sidebt = $side.find('button').on('click', function(){
+			$side.toggleClass('open');
+
+			if($side.hasClass('open')) {
+				$side.stop(true).animate({right:'0px'}, duration);
+				$sidebt.find('span').text('지역 필터');
+			}else{
+				$side.stop(true).animate({right:'-300px'}, duration);
+				$sidebt.find('span').text('지역 필터');
+			};
+		});
+	
 }
 
 function sidebar(){
