@@ -19,6 +19,7 @@
 <div style="margin-top: 100px;margin-left: 10%;margin-right:10%; border-bottom: 1px solid #d8d8d8;">
 	<strong style="font-size: 40px;">여행지</strong>
 	
+<<<<<<< HEAD
 	<c:if test="${sessionScope.ContentTypeId ==12 }">
 			<p>관광지</p>
 	</c:if>
@@ -34,6 +35,40 @@
 	<c:if test="${sessionScope.ContentTypeId ==39 }">
 			<p>카페</p>
 	</c:if>
+=======
+		<div class="tour_list_view">
+			<c:forEach var="c" items="${tourList}" varStatus="status">
+				<form id="list${status.index }" action="tour.list.detail?contentid=${c.contentid }" method="post">
+					<div style="width: 33%;float: left;" id="dd" onclick="document.forms['list${status.index }'].submit();">
+						<img src="${c.firstimage2 }"style="width: 300px; height: 150px; object-fit: cover;"><br>
+						${c.title }<br>
+						${c.addr1 }
+						<input type="hidden" name="x" value="${c.mapx }">
+						<input type="hidden" name="y" value="${c.mapy }">
+						<input type="hidden" name="title" value="${c.title }">
+						<input type="hidden" name="image" value="${c.firstimage2 }">
+						<c:choose>
+							<c:when test="${ContentTypeId == 12}">
+								<input type="hidden" name="contentTypeId" value="관광지">
+							</c:when>
+							<c:when test="${ContentTypeId == 15}">
+								<input type="hidden" name="contentTypeId" value="행사/공연/축제">
+							</c:when>
+							<c:when test="${ContentTypeId == 14}">
+								<input type="hidden" name="contentTypeId" value="문화시설">
+							</c:when>
+							<c:when test="${ContentTypeId == 28}">
+								<input type="hidden" name="contentTypeId" value="레포츠">
+							</c:when>
+							<c:when test="${ContentTypeId == 39}">
+								<input type="hidden" name="contentTypeId" value="카페">
+							</c:when>
+						</c:choose>
+					</div>
+				</form>
+			</c:forEach>
+		</div>
+>>>>>>> f268fa98c2baa3ccdaf46f68c4995110005ff6f9
 	
 </div>
 

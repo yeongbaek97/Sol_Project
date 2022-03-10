@@ -12,4 +12,19 @@ function searchEnter(){
 	
 	location.href="tour.list.search?word=" +word;
 
+<<<<<<< HEAD
+=======
+}
+
+function logout() {
+	$.ajax({
+		type: "GET",
+		url : "logout",
+		data: {
+		},
+		success: function(data) {
+			window.location.reload();
+		}
+	})
+>>>>>>> f268fa98c2baa3ccdaf46f68c4995110005ff6f9
 }

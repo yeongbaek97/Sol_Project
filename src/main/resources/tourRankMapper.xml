@@ -7,7 +7,7 @@
 </select>
 
 <insert id="insertTourRank" parameterType="com.sol.pj.tour.TourRank">
-	insert into tourRank values (#{contentid}, #{title}, #{image}, 1)
+	insert into tourRank values (#{contentid}, #{title}, #{image}, 1, #{contentTypeId})
 </insert>
 
 <update id="countTourRank" parameterType="com.sol.pj.tour.TourRank">

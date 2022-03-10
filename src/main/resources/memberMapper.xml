@@ -6,4 +6,7 @@
 		select * from member where m_id = #{m_id}
 	</select>
 
+	<update id="modifyInfo" parameterType="com.sol.pj.member.Member">
+		update member set m_pw = #{m_pw}, m_name = #{m_name}, m_email = #{m_email}, m_number = #{m_number} where m_id = #{m_id}
+	</update>
 </mapper>

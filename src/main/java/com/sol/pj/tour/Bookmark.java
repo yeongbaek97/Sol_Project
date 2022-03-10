@@ -7,12 +7,14 @@ public class Bookmark {
 	private String b_mapy;
 	private String b_contentid;
 	private String b_title;
+	private String b_image;
 	
 	public Bookmark() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Bookmark(int b_no, String b_id, String b_mapx, String b_mapy, String b_contentid, String b_title) {
+	public Bookmark(int b_no, String b_id, String b_mapx, String b_mapy, String b_contentid, String b_title,
+			String b_image) {
 		super();
 		this.b_no = b_no;
 		this.b_id = b_id;
@@ -20,6 +22,7 @@ public class Bookmark {
 		this.b_mapy = b_mapy;
 		this.b_contentid = b_contentid;
 		this.b_title = b_title;
+		this.b_image = b_image;
 	}
 
 	public int getB_no() {
@@ -69,7 +72,14 @@ public class Bookmark {
 	public void setB_title(String b_title) {
 		this.b_title = b_title;
 	}
-	
-	
+
+	public String getB_image() {
+		return b_image;
+	}
+
+	public void setB_image(String b_image) {
+		this.b_image = b_image;
+	}
+
 	
 }

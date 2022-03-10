@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.sol.pj.tour.Bookmark;
+
 @Controller
 public class MemberController {
 
@@ -74,6 +76,31 @@ public class MemberController {
 	public String myPage(HttpServletRequest req, Member m) {
 		
 		mDAO.logincheck(req);
+		mDAO.myPage(req);
+		
+		req.setAttribute("contentPage", "member/myPage.jsp");
+		
+		return "home";
+	}
+	
+	@RequestMapping(value = "modifyInfo", method = RequestMethod.GET)
+	public String modifyId(HttpServletRequest req) {
+		
+		mDAO.logincheck(req);
+		mDAO.modifyInfo(req);
+		mDAO.myPage(req);
+		
+		req.setAttribute("contentPage", "member/myPage.jsp");
+		
+		return "home";
+	}
+	
+	@RequestMapping(value = "deleteBookmark", method = RequestMethod.GET)
+	public String deleteBookmark(HttpServletRequest req, Bookmark b) {
+		
+		mDAO.logincheck(req);
+		mDAO.deleteBookmark(req, b);
+		mDAO.myPage(req);
 		
 		req.setAttribute("contentPage", "member/myPage.jsp");
 		

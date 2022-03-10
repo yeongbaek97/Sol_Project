@@ -940,7 +940,6 @@ public class TourDAO {
 		String mlevel = "";
         String overview = "";
 
-		System.out.println(contentid);
 		String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon";
 		requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
 		requrl += "&defaultYN=Y";
@@ -952,7 +951,7 @@ public class TourDAO {
 		requrl += "&MobileApp=AppTest";
 		requrl += "&_type=json";
 		
-
+		System.out.println(requrl);
 		
 		try {
 			URL url = new URL(requrl);
@@ -1209,7 +1208,9 @@ public int getmark_change(Bookmark b,HttpServletRequest req) {
 	System.out.println(bookmark.size());
 	//System.out.println(bookmark.get(0).getB_contentid());
 	//System.out.println(req.getParameter("b_contentid"));
-	
+	System.out.println(b);
+	System.out.println(b.getB_image());
+	System.out.println(b.getB_title());
 	
 	if(bookmark.size() !=0) {
 		for(Bookmark list: bookmark) {
