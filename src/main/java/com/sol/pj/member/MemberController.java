@@ -21,7 +21,7 @@ public class MemberController {
 	// 로그인 페이지 이동
 	@RequestMapping(value = "goto.login", method = RequestMethod.GET)
 	public String gotoLogin() {
-		return "member/Login";
+		return "member/login";
 	}
 	
 	// 로그인
@@ -80,7 +80,7 @@ public class MemberController {
 	public String myPage(HttpServletRequest req, Member m) {
 		
 		mDAO.logincheck(req);
-		mDAO.myPage(req);
+
 		
 		req.setAttribute("contentPage", "member/myPage.jsp");
 		
@@ -92,7 +92,7 @@ public class MemberController {
 		
 		mDAO.logincheck(req);
 		mDAO.modifyInfo(req);
-		mDAO.myPage(req);
+
 		
 		req.setAttribute("contentPage", "member/myPage.jsp");
 		
@@ -103,8 +103,7 @@ public class MemberController {
 	public String deleteBookmark(HttpServletRequest req, Bookmark b) {
 		
 		mDAO.logincheck(req);
-		mDAO.deleteBookmark(req, b);
-		mDAO.myPage(req);
+
 		
 		req.setAttribute("contentPage", "member/myPage.jsp");
 		

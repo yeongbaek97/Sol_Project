@@ -82,17 +82,6 @@
 		</tr>
 	</table>
 	
-	북마크
-	<table>
-		<c:forEach var="b" items="${bml }">
-			<tr>
-				<td>${b.b_title }</td>
-				<td><img src="${b.b_image }"style="width: 300px; height: 150px; object-fit: cover;"></td>
-				<td><button onclick="deleteBookmark();">삭제</button></td>
-				<td><input id="b_id" type="hidden" value="${sessionScope.loginMember.m_id}"></td>
-				<td><input id="b_contentid" type="hidden" value="${b.b_contentid}"></td>
-			</tr>
-		</c:forEach>
-	</table>
+	
 </body>
 </html>

@@ -58,18 +58,16 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form action="javascript:login();" class="login100-form validate-form p-l-55 p-r-55 p-t-178" method="post">
+				<form action="login" class="login100-form validate-form p-l-55 p-r-55 p-t-178" method="post">
 					<span class="login100-form-title">
 						SIGN IN
 					</span>
 
-<<<<<<< HEAD
-					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter userID">
-						<input class="input100" type="text" id="m_id" name="m_id"placeholder="UserID">
-=======
+
+
 					<div class="wrap-input100 validate-input m-t-16 m-b-16" data-validate="Please enter userID">
 						<input class="input100" type="text" name="m_id"placeholder="UserID">
->>>>>>> f0e9f9a16306f33d46bc5246f979e11aea68ef80
+
 						<span class="focus-input100"></span>
 					</div>
 
