@@ -84,23 +84,34 @@ public class TourController {
 		tdao.TourRank(req, tr);
 		
 		String cti = req.getParameter("contentTypeId");
-		System.out.println(cti);
+		
+		if(cti.equals("카페")) {
+			req.getSession().setAttribute("ContentTypeId", "39");
+		} else if(cti.equals("관광지")) {
+			req.getSession().setAttribute("ContentTypeId", "12");
+		} else if(cti.equals("행사/공연/축제")) {
+			req.getSession().setAttribute("ContentTypeId", "15");
+		} else if(cti.equals("문화시설")) {
+			req.getSession().setAttribute("ContentTypeId", "14");
+		} else if(cti.equals("레포츠")) {
+			req.getSession().setAttribute("ContentTypeId", "28");
+		}
 		
 		//이곳에서 contentType 구별후 디테일가져오는 작업
-		if(req.getSession().getAttribute("ContentTypeId").equals("12") || cti.equals("관광지")) {
+		if(req.getSession().getAttribute("ContentTypeId").equals("12")) {
 			tdao.getTourDetail_CT12(req);
 			tdao.getTourDetail2(req);
 			req.setAttribute("contentPage", "tour/detail_View_CT12.jsp");
-		}else if(req.getSession().getAttribute("ContentTypeId").equals("14") || cti.equals("행사/공연/축제")) {
+		}else if(req.getSession().getAttribute("ContentTypeId").equals("14")) {
 			tdao.getTourDetail_CT14(req);
 			req.setAttribute("contentPage", "tour/detail_View_CT14.jsp");
-		}else if(req.getSession().getAttribute("ContentTypeId").equals("15") || cti.equals("문화시설")) {
+		}else if(req.getSession().getAttribute("ContentTypeId").equals("15")) {
 			tdao.getTourDetail_CT15(req);
 			req.setAttribute("contentPage", "tour/detail_View_CT15.jsp");
-		}else if(req.getSession().getAttribute("ContentTypeId").equals("28") || cti.equals("레포츠")) {
+		}else if(req.getSession().getAttribute("ContentTypeId").equals("28")) {
 			tdao.getTourDetail_CT28(req);
 			req.setAttribute("contentPage", "tour/detail_View_CT28.jsp");
-		}else if(req.getSession().getAttribute("ContentTypeId").equals("39") || cti.equals("카페")) {
+		}else if(req.getSession().getAttribute("ContentTypeId").equals("39")) {
 			tdao.getTourDetail_CT39(req);
 			
 			req.setAttribute("contentPage", "tour/detail_View_CT39.jsp");

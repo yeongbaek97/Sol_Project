@@ -69,6 +69,13 @@
         <a href="goto.Index" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 class="m-0 text-primary">Title</h2>
         </a>
+        
+        <div class="position-relative mx-auto" style="max-width: 800px; margin-left: 300px;">
+            <input class="form-control border-0 w-100 py-3 ps-4 pe-5" id="word" type="text" placeholder="검색어 입력" onkeypress="if(event.keyCode==13){searchEnter();}" onclick="wordVisible();" autocomplete="off">
+            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" onclick="searchEnter();">Search</button>
+        </div>
+        
+        
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
