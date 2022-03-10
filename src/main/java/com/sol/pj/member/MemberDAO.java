@@ -197,12 +197,7 @@ public class MemberDAO {
         return userInfo;
     }
 
-	public void myPage(HttpServletRequest req) {
-		BookmarkMapper bm = ss.getMapper(BookmarkMapper.class);
-		List<Bookmark> bml = bm.getBookmark();
-		req.setAttribute("bml", bml);
-		
-	}
+
 
 	public void modifyInfo(HttpServletRequest req) {
 		Member curMember = (Member)req.getSession().getAttribute("loginMember");
@@ -222,12 +217,18 @@ public class MemberDAO {
 		req.getSession().setAttribute("loginMember", modMember);
 	}
 
-	public void deleteBookmark(HttpServletRequest req, Bookmark b) {
+	
+	// 회원가입
+	public void regMember(Member m, HttpServletRequest req) {
+
+		int mm = ss.getMapper(MemberMapper.class).regMember(m);
+		if(mm == 1) {
+			System.out.println("가입 성공");
+		} else {
+			System.out.println("가입 실패");
+		}
 		
-		BookmarkMapper bm = ss.getMapper(BookmarkMapper.class);
-		bm.deleteMark(b);
 		
 	}
-	
 
 }

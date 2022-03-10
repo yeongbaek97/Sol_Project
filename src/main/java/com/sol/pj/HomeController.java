@@ -33,7 +33,10 @@ public class HomeController {
 
 	@RequestMapping(value = "home.go", method = RequestMethod.GET)
 	public String homeGo(HttpServletRequest req) {
-		return home(req);
+		mDAO.logincheck(req);
+		
+		req.setAttribute("contentPage", "main_info_view.jsp");
+		return "home";
 	}
 	
 

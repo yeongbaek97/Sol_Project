@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <button id="mark_btn">즐겨찾기</button>
 <input id="check_image" type="hidden" value="${param.image }">
 	<div>

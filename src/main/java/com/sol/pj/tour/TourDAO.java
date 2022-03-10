@@ -54,7 +54,7 @@ public class TourDAO {
 		requrl += "&areaCode=" + areaCode;
 		requrl += "&contentTypeId=" + ContentTypeId;
 		requrl += "&pageNo=" + pageNo;
-		requrl += "&numOfRows=9";
+		requrl += "&numOfRows=8";
 		requrl += "&MobileOS=ETC";
 		requrl += "&MobileApp=AppTest";
 		requrl += "&_type=json";
@@ -99,7 +99,7 @@ public class TourDAO {
             allTourListCount =Integer.parseInt(body.get("totalCount").toString());
             System.out.println(allTourListCount);
             
-            int pageCount = (int) Math.ceil(allTourListCount / 9);	//10은 url주소에서 페이지당 10개 보여주는걸로 설정되었기 때문
+            int pageCount = (int) Math.ceil(allTourListCount / 8);	//10은 url주소에서 페이지당 10개 보여주는걸로 설정되었기 때문
 
             
             //페이지 변수값 넘겨주기
@@ -830,6 +830,19 @@ public class TourDAO {
 		String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailInfo";
 		requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
 		requrl += "&contentTypeId=12";
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		requrl += "&contentId=" + contentid;
 		requrl += "&MobileOS=ETC";
 		requrl += "&MobileApp=AppTest";
@@ -1191,13 +1204,7 @@ public int getmark_change(Bookmark b,HttpServletRequest req) {
 	//conid랑 비교해서 같은게 있으면 리턴값 보내고
 	
 	//없으면 데이터 저장해서 리턴값 다른거 보내고
-	
-	System.out.println(bookmark.size());
-	//System.out.println(bookmark.get(0).getB_contentid());
-	//System.out.println(req.getParameter("b_contentid"));
-	System.out.println(b);
-	System.out.println(b.getB_image());
-	System.out.println(b.getB_title());
+
 	
 	if(bookmark.size() !=0) {
 		for(Bookmark list: bookmark) {

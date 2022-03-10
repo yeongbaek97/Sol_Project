@@ -47,26 +47,30 @@ public class MemberController {
 	// 카카오 로그인
 	@RequestMapping(value = "kakao.login", method = RequestMethod.GET)
 	public String kakaoLogin(@RequestParam String code,HttpServletRequest req ) {
-		
+		 
 		System.out.println(code);
 		 String access_Token = mDAO.getReturnAccessToken(code);
 
-
 		 HashMap<String, Object> userInfo = mDAO.getUserInfo(access_Token,req);
-
  
 		 System.out.println(userInfo.get("nickname"));
 
-		
-		
-		 
-		
 		return "home";
 	}
 	
 	// 회원가입 페이지 이동
 	@RequestMapping(value = "goto.Reg", method = RequestMethod.GET)
 	public String gotoReg() {
+		return "member/regUser";
+	}
+	
+	// 회원가입
+	@RequestMapping(value = "goto.RegUser", method = RequestMethod.POST)
+	public String regMember(HttpServletRequest req, Member m) {
+			
+		mDAO.regMember(m, req);
+		mDAO.logincheck(req);
+			
 		return "member/regMember";
 
 	}
@@ -76,7 +80,7 @@ public class MemberController {
 	public String myPage(HttpServletRequest req, Member m) {
 		
 		mDAO.logincheck(req);
-		mDAO.myPage(req);
+
 		
 		req.setAttribute("contentPage", "member/myPage.jsp");
 		
@@ -88,7 +92,7 @@ public class MemberController {
 		
 		mDAO.logincheck(req);
 		mDAO.modifyInfo(req);
-		mDAO.myPage(req);
+
 		
 		req.setAttribute("contentPage", "member/myPage.jsp");
 		
@@ -99,8 +103,7 @@ public class MemberController {
 	public String deleteBookmark(HttpServletRequest req, Bookmark b) {
 		
 		mDAO.logincheck(req);
-		mDAO.deleteBookmark(req, b);
-		mDAO.myPage(req);
+
 		
 		req.setAttribute("contentPage", "member/myPage.jsp");
 		
