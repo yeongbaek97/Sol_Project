@@ -64,7 +64,9 @@ create table tourRank(
 	title varchar2(50 char) not null,
 	image varchar2(300 char) not null,
 	count number not null,
-	contentTypeId varchar2(20 char) not null
+	contentTypeId varchar2(20 char) not null,
+	x varchar2 (30 char) not null,
+	y varchar2 (30 char) not null
 )
 
 drop table tourRank

@@ -99,19 +99,28 @@
             <div class="row g-4 justify-content-center">
             	<c:forEach  var="trl" items="${tourRankList }" varStatus="status">
             		<c:if test="${status.index + 1 <= 6 }">
-	                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="${(status.index + 1) * 0.1}s">
-	                    <div class="course-item bg-light">
-	                        <div class="position-relative overflow-hidden">
-	                            <img class="img-fluid" src="${trl.image }" alt="" style="width: 400px; height: 300px; object-fit: cover;">
-	                        </div>
-	                        <div class="text-center p-4 pb-0">
-	                            <h3 class="mb-0">${trl.title }</h3>
-	                            <div class="mb-3">
-	                                <small>${trl.contentTypeId }</small>
-	                            </div>
-	                        </div>
-	                    </div>
-	                </div>
+	                <form id="list${status.index }" action="tour.list.detail?contentid=${trl.contentid }" method="post" style="width: 33%;">						
+		                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="${(status.index + 1) * 0.1}s" style="width: 100%">
+		                    <div class="course-item bg-light">
+		                        <div class="position-relative overflow-hidden">
+		                            <img onclick="document.forms['list${status.index }'].submit();" class="img-fluid" src="${trl.image }" alt="" style="width: 400px; height: 300px; object-fit: cover;">
+		                        </div>
+		                        <div class="text-center p-4 pb-0">
+		                            <h3 class="mb-0">${trl.title }</h3>
+		                            <div class="mb-3">
+		                                <small>${trl.contentTypeId }</small>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                
+		                <input type="hidden" name="contentTypeId" id="contentTypeId" value="${trl.contentTypeId }">
+		                <input type="hidden" id="check_mapx" name="x" value="${trl.x }">
+		                <input type="hidden" id="check_mapy" name="y" value="${trl.y }">
+						<input type="hidden" class="title" name="title" value="${trl.title }">
+						<input type="hidden" id="check_contentid" name="image" value="${trl.image }">
+		                
+	                	</form>
 	                </c:if>
 	           	</c:forEach>
                 

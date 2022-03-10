@@ -1,6 +1,8 @@
 package com.sol.pj.tour;
 
 
+import java.util.concurrent.SynchronousQueue;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,21 +83,24 @@ public class TourController {
 		tdao.getdetailImage(req);
 		tdao.TourRank(req, tr);
 		
+		String cti = req.getParameter("contentTypeId");
+		System.out.println(cti);
+		
 		//이곳에서 contentType 구별후 디테일가져오는 작업
-		if(req.getSession().getAttribute("ContentTypeId").equals("12")) {
+		if(req.getSession().getAttribute("ContentTypeId").equals("12") || cti.equals("관광지")) {
 			tdao.getTourDetail_CT12(req);
 			tdao.getTourDetail2(req);
 			req.setAttribute("contentPage", "tour/detail_View_CT12.jsp");
-		}else if(req.getSession().getAttribute("ContentTypeId").equals("14")) {
+		}else if(req.getSession().getAttribute("ContentTypeId").equals("14") || cti.equals("행사/공연/축제")) {
 			tdao.getTourDetail_CT14(req);
 			req.setAttribute("contentPage", "tour/detail_View_CT14.jsp");
-		}else if(req.getSession().getAttribute("ContentTypeId").equals("15")) {
+		}else if(req.getSession().getAttribute("ContentTypeId").equals("15") || cti.equals("문화시설")) {
 			tdao.getTourDetail_CT15(req);
 			req.setAttribute("contentPage", "tour/detail_View_CT15.jsp");
-		}else if(req.getSession().getAttribute("ContentTypeId").equals("28")) {
+		}else if(req.getSession().getAttribute("ContentTypeId").equals("28") || cti.equals("레포츠")) {
 			tdao.getTourDetail_CT28(req);
 			req.setAttribute("contentPage", "tour/detail_View_CT28.jsp");
-		}else if(req.getSession().getAttribute("ContentTypeId").equals("39")) {
+		}else if(req.getSession().getAttribute("ContentTypeId").equals("39") || cti.equals("카페")) {
 			tdao.getTourDetail_CT39(req);
 			
 			req.setAttribute("contentPage", "tour/detail_View_CT39.jsp");
