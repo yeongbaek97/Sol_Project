@@ -12,8 +12,7 @@ function searchEnter(){
 	
 	location.href="tour.list.search?word=" +word;
 
-<<<<<<< HEAD
-=======
+
 }
 
 function logout() {
@@ -26,5 +25,5 @@ function logout() {
 			window.location.reload();
 		}
 	})
->>>>>>> f268fa98c2baa3ccdaf46f68c4995110005ff6f9
+
 }

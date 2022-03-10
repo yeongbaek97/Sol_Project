@@ -71,7 +71,7 @@ function bookmark(){
 	var b_mapx = $("#check_mapx").val();
 	var b_mapy = $("#check_mapy").val();
 	var b_contentid = $("#check_contentid").val();
-<<<<<<< HEAD
+
 	//var b_title = $("#check_title").val();
 	let testArr = [];
 	
@@ -84,13 +84,13 @@ function bookmark(){
 		
 		
 	});
-	console.log(b_mapx);
-=======
+
+
 	var b_title = $("#check_title").val();
 	var b_image = $("#check_image").val();
 	
-	console.log(b_image);
->>>>>>> f268fa98c2baa3ccdaf46f68c4995110005ff6f9
+
+
 		$.ajax({
 			url : "tour.mark",
 			data: {
@@ -110,7 +110,7 @@ function bookmark(){
 		 
 	//클릭했을 때 적용
 	$("#mark_btn").click(function() {
-<<<<<<< HEAD
+
 		if(!b_id){
 			alert("로그인이 필요합니다");
 		}else{
@@ -131,24 +131,8 @@ function bookmark(){
 					}else{
 						$("#mark_btn").css("color", "white");
 					}
-=======
-		$.ajax({
-			url : "tour.mark.change",
-			data: {
-				"b_id" : b_id,
-				"b_mapx" : b_mapx,
-				"b_mapy" : b_mapy,
-				"b_contentid" : b_contentid,
-				"b_title" : b_title,
-				"b_image" : b_image
-			},
-			success : function(data) {
-				console.log(data);
-				if(data == 1){
-					$("#mark_btn").css("background-color", "red");
-				}else{
-					$("#mark_btn").css("background-color", "white");
->>>>>>> f268fa98c2baa3ccdaf46f68c4995110005ff6f9
+
+		
 				}
 				
 			});

@@ -11,30 +11,16 @@
 <meta content="" name="description">
 
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
-<<<<<<< HEAD
-
-<script type="text/javascript" src="resources/js/kakaoMap.js"></script>
-
-<script type="text/javascript" src="resources/js/tourapi.js"></script>
-<script type="text/javascript" src="resources/js/home.js"></script>
-
-<script type="text/javascript" src="resources/js/move.js"></script>
-<script type="text/javascript" src="resources/js/view.js"></script>
-
-
-=======
 <script type="text/javascript" src="resources/js/kakaoMap.js"></script>
 <script type="text/javascript" src="resources/js/tourapi.js"></script>
 <script type="text/javascript" src="resources/js/home.js"></script>
 <script type="text/javascript" src="resources/js/move.js"></script>
 <script type="text/javascript" src="resources/js/myPage.js"></script>
->>>>>>> f268fa98c2baa3ccdaf46f68c4995110005ff6f9
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f9e56e3f8a09664081781aefaf8493c0&libraries=services"></script>
 <link rel="stylesheet" href="resources/css/home.css">
 <link rel="stylesheet" href="resources/css/accom.css">
 <link rel="stylesheet" href="resources/css/tour.css">
 <link rel="stylesheet" href="resources/css/kakaoMap.css">
-<link rel="stylesheet" href="resources/css/main.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -63,106 +49,6 @@
 <link href="resources/css/style.css" rel="stylesheet">
 </head>
 <body>
-<<<<<<< HEAD
-<input id="check_id" type="hidden" value="${sessionScope.loginMember.m_id}">
-<input id="check_mapx" type="hidden" value="${tourdetailcommon.mapx }">
-<input id="check_mapy" type="hidden" value="${tourdetailcommon.mapy }">
-<input id="check_contentid" type="hidden" value="${tourdetail.contentid }">
-<input id="check_title" type="hidden" value="${tourdetailcommon.title }">
-	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-		<a class="navbar-brand text-light text-weight-bold px-5" href="home.go">Tour</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link text-light text-weight-bold px-5" href="goto.Index">Home<span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle text-light text-weight-bold px-5" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">여행지</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="tour.list.regional?sigunguCode=0&areaCode=1&ContentTypeId=39">카페</a>
-						<a class="dropdown-item" href="tour.list.regional?sigunguCode=0&areaCode=1&ContentTypeId=12">관광지</a>
-						<a class="dropdown-item" href="tour.list.regional?sigunguCode=0&areaCode=1&ContentTypeId=15">행사/공연/축제</a>
-						<a class="dropdown-item" href="tour.list.regional?sigunguCode=0&areaCode=1&ContentTypeId=14">문화시설</a>
-						<a class="dropdown-item" href="tour.list.regional?sigunguCode=0&areaCode=1&ContentTypeId=28">레포츠</a>
-						
-					
-					</div>
-						
-				</li>
-				<li class="nav-item">
-					<a class="nav-link text-light text-weight-bold px-5" href="#">여행게시판</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link text-light text-weight-bold px-5" href="accom.home">숙소</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link text-light text-weight-bold px-5" href="goto.accomIndex">숙소+캠핑</a>
-				</li>
-			</ul>
-			
-			<form class="form-inline my-2 my-lg-0 ml-3 navbar-right" onsubmit="return false;">
-				<div class="block">
-				    <ul id="ticker">
-				    	<c:forEach  var="srl" items="${searchRankList }" varStatus="status">
-				    		<c:if test="${status.index + 1 <= 10 }">
-				        		<li><a href="#"><span>${status.index + 1}</span> ${srl.word}</a></li>
-				        	</c:if>
-				        </c:forEach>
-				    </ul>
-				</div>
-				<input class="form-control mr-sm-2 my-2" id="word" type="search" placeholder="Search" aria-label="Search" onkeypress="if(event.keyCode==13){searchEnter();}" onclick="wordVisible();" autocomplete="off">
-				
-				<div class="form-control mr-sm-2 my-2" id="searchWord" style="background-color: efefef; position: absolute; top: 50px; right: 77px; height: 220px; width: 198px; visibility: hidden;">
-					<table style="width:170px;">
-						<c:forEach  var="srl" items="${searchRankList }" varStatus="status">
-							<c:if test="${status.index + 1 <= 10 }">
-								<tr>
-									<td style="width: 20%;">${status.index + 1}</td>
-									<td style="width: 80%;">${srl.word}</td>
-								</tr>
-							</c:if>
-				        </c:forEach>
-					</table>
-				</div>
-				
-				<c:if test="${sessionScope.loginMember.m_id eq null && userInfo.nickname eq null}">
-					<span class="sr-only">(current)</span>
-					<button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="location.href='goto.login'">Sign in</button>
-				</c:if>
-				
-				<c:if test="${sessionScope.loginMember.m_id ne null}">
-					<span class="sr-only">(current)</span>
-					<a class="nav-link disabled my-2 text-light" tabindex="-1" aria-disabled="true">${sessionScope.loginMember.m_name }(${sessionScope.loginMember.m_id })</a>
-					<span class="sr-only">(current)</span>
-					<button class="btn btn-outline-success my-2 my-sm-0 mb-n1" type="button" onclick="location.href='mypage'">내 정보</button>
-					<button class="btn btn-outline-success my-2 my-sm-0 mb-n1" type="button" onclick="location.href='logout'">로그아웃</button>
-				</c:if>
-				
-				<c:if test="${userInfo.nickname ne null }">
-					<span class="sr-only">(current)</span>
-					<a class="nav-link disabled my-2 text-light" tabindex="-1" aria-disabled="true">${userInfo.nickname }(${userInfo.email })</a>
-					<span class="sr-only">(current)</span>
-					<button class="btn btn-outline-success my-2 my-sm-0 mb-n1" type="button" onclick="location.href='logout'">로그아웃</button>
-				</c:if>
-			</form>
-		</div>
-	</nav>
-
-	 
-	<div>
-		<jsp:include page="${contentPage }"></jsp:include>
-	</div>
-
-
-   <!-- Footer-->
-        <footer class="footer bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - 영백,현수,효진</div></div>
-        </footer>
-=======
 	<input id="check_id" type="hidden" value="${sessionScope.loginMember.m_id}">
 	<input id="check_mapx" type="hidden" value="${tourdetailcommon.mapx }">
 	<input id="check_mapy" type="hidden" value="${tourdetailcommon.mapy }">
@@ -227,6 +113,87 @@
  	<div>
 		<jsp:include page="${contentPage }"></jsp:include>
 	</div>
+	
+	<!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Quick Link</h4>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Privacy Policy</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">FAQs & Help</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Contact</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Gallery</h4>
+                    <div class="row g-2 pt-2">
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="resources/img/course-1.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="resources/img/course-2.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="resources/img/course-3.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="resources/img/course-2.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="resources/img/course-3.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="resources/img/course-1.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Newsletter</h4>
+                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+
+                        <!--/*** This template is free as long as you keep the footer authorâs credit link/attribution link/backlink. If you'd like to use the template without the footer authorâs credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a><br><br>
+                        Distributed By <a class="border-bottom" href="https://themewagon.com">ThemeWagon</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="">Home</a>
+                            <a href="">Cookies</a>
+                            <a href="">Help</a>
+                            <a href="">FQAs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
@@ -243,6 +210,5 @@
     <!-- Template Javascript -->
     <script src="resources/js/main.js"></script>
 
->>>>>>> f268fa98c2baa3ccdaf46f68c4995110005ff6f9
 </body>
 </html>
