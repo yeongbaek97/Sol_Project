@@ -65,14 +65,14 @@
 
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0" style="position: fixed; width: 100%;">
         <a href="goto.Index" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 class="m-0 text-primary">Title</h2>
         </a>
         
-        <div class="position-relative mx-auto" style="max-width: 800px; margin-left: 300px;">
-            <input class="form-control border-0 w-100 py-3 ps-4 pe-5" id="word" type="text" placeholder="검색어 입력" onkeypress="if(event.keyCode==13){searchEnter();}" onclick="wordVisible();" autocomplete="off">
-            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" onclick="searchEnter();">Search</button>
+        <div class="position-relative mx-auto" style="max-width: 400px;">
+            <input class="form-control border-2 w-100 py-3 ps-4 pe-5" id="word" type="text" placeholder="검색어 입력" onkeypress="if(event.keyCode==13){searchEnter();}" onclick="wordVisible();" autocomplete="off">
+            <button type="button" style="margin-top: 10px;" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" onclick="searchEnter();">Search</button>
         </div>
         
         
@@ -117,7 +117,7 @@
     </nav>
     <!-- Navbar End -->
 
- 	<div>
+ 	<div style="margin-top: 75px;">
 		<jsp:include page="${contentPage }"></jsp:include>
 	</div>
 	
