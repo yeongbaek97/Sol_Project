@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<script type="text/javascript" src="resources/js/tourapi.js"></script>
+
 </head>
 <body>
 <div class="wrap">
@@ -50,15 +52,17 @@
 					<div class="item_img"><img src="${c.firstimage2 }"style="width: 100%; height: 180px; object-fit: cover;"></div>
 					
 					<div class="item_title">
-						<div id="mark_btn"style="float: right; margin-right: 5px;z-index: 4;"><span>★</span></div>
+						<div class="mark_btn" style="float: right; margin-right: 5px;z-index: 4;"><span>★</span></div>
 						<div><img src="resources/img/neogul.png" style="position:absolute; width: 100px;height: 80px;left:-50px;top: -18px"></div>
 						<div class="list_title">${c.title }</div>
 						
 						<div class="list_addr">${c.addr1 }</div>
 					
-						<input type="hidden" id="check_mapy" name="y" value="${c.mapy }">
-						<input type="hidden" class="title" name="title" value="${c.title }">
-						<input type="hidden" id="check_contentid"name="image" value="${c.firstimage2 }">
+						<input type="hidden" class="check_mapx" name="x" value="${c.mapx }">
+						<input type="hidden" class="check_mapy" name="y" value="${c.mapy }">
+						<input type="hidden" class="check_title" name="title" value="${c.title }">
+						<input type="hidden" class="check_contentid" value="${c.contentid }">
+						<input type="hidden" class="check_image" value="${c.firstimage2 }">
 					</div>		
 				</div>
 			</form>

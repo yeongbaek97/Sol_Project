@@ -1182,7 +1182,7 @@ public void getsearch(HttpServletRequest req) {
 public int getmark(Bookmark b,HttpServletRequest req) {
 	
 	List<Bookmark> bookmark = ss.getMapper(BookmarkMapper.class).getMarkByID(b);
-
+	System.out.println(req.getParameter("b_contentid"));
 	if(bookmark.size() !=0) {
 		for(Bookmark list: bookmark) {
 			

@@ -12,7 +12,7 @@
 
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/kakaoMap.js"></script>
-<script type="text/javascript" src="resources/js/tourapi.js"></script>
+
 <script type="text/javascript" src="resources/js/home.js"></script>
 <script type="text/javascript" src="resources/js/move.js"></script>
 <script type="text/javascript" src="resources/js/myPage.js"></script>
@@ -50,10 +50,7 @@
 </head>
 <body>
 	<input id="check_id" type="hidden" value="${sessionScope.loginMember.m_id}">
-	<input id="check_mapx" type="hidden" value="${tourdetailcommon.mapx }">
-	<input id="check_mapy" type="hidden" value="${tourdetailcommon.mapy }">
-	<input id="check_contentid" type="hidden" value="${tourdetail.contentid }">
-	<input id="check_title" type="hidden" value="${tourdetailcommon.title }">
+
 	
 	<!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
