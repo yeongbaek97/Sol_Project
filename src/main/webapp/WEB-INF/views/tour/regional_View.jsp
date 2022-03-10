@@ -72,7 +72,7 @@
 			</form>
 		</div>
 	</c:forEach>
-</div>	
+</div>		
 
 <!-- 지역선택 Type2 -->
 	<aside id="sidebar" class="tour_list_select_wrap">

@@ -84,6 +84,7 @@ public class TourController {
 		tdao.TourRank(req, tr);
 		
 		String cti = req.getParameter("contentTypeId");
+		System.out.println("cti :" + cti);
 		
 		if(cti.equals("카페")) {
 			req.getSession().setAttribute("ContentTypeId", "39");
