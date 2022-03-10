@@ -48,6 +48,23 @@
 						<input type="hidden" name="y" value="${c.mapy }">
 						<input type="hidden" name="title" value="${c.title }">
 						<input type="hidden" name="image" value="${c.firstimage2 }">
+						<c:choose>
+							<c:when test="${ContentTypeId == 12}">
+								<input type="hidden" name="contentTypeId" value="관광지">
+							</c:when>
+							<c:when test="${ContentTypeId == 15}">
+								<input type="hidden" name="contentTypeId" value="행사/공연/축제">
+							</c:when>
+							<c:when test="${ContentTypeId == 14}">
+								<input type="hidden" name="contentTypeId" value="문화시설">
+							</c:when>
+							<c:when test="${ContentTypeId == 28}">
+								<input type="hidden" name="contentTypeId" value="레포츠">
+							</c:when>
+							<c:when test="${ContentTypeId == 39}">
+								<input type="hidden" name="contentTypeId" value="카페">
+							</c:when>
+						</c:choose>
 					</div>
 				</form>
 			</c:forEach>

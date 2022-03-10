@@ -927,7 +927,6 @@ public class TourDAO {
 		String mlevel = "";
         String overview = "";
 
-		System.out.println(contentid);
 		String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon";
 		requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
 		requrl += "&defaultYN=Y";
@@ -939,7 +938,7 @@ public class TourDAO {
 		requrl += "&MobileApp=AppTest";
 		requrl += "&_type=json";
 		
-
+		System.out.println(requrl);
 		
 		try {
 			URL url = new URL(requrl);

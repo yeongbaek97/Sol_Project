@@ -5,30 +5,36 @@ public class TourRank {
 	private String title;
 	private String image;
 	private int count;
+	private String contentTypeId;
 	
 	public TourRank() {
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public TourRank(String contentid, String title, String image, int count) {
+	public TourRank(String contentid, String title, String image, int count, String contentTypeId) {
 		super();
 		this.contentid = contentid;
 		this.title = title;
 		this.image = image;
 		this.count = count;
+		this.contentTypeId = contentTypeId;
 	}
 
+	public String getContentTypeId() {
+		return contentTypeId;
+	}
+
+	public void setContentTypeId(String contentTypeId) {
+		this.contentTypeId = contentTypeId;
+	}
 
 	public String getImage() {
 		return image;
 	}
 
-
 	public void setImage(String image) {
 		this.image = image;
 	}
-
 
 	public String getContentid() {
 		return contentid;

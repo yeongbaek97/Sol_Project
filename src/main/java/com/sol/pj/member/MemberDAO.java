@@ -213,11 +213,6 @@ public class MemberDAO {
 		String m_email = req.getParameter("m_email");
 		String m_number = req.getParameter("m_number");
 		
-		System.out.println(m_id);
-		System.out.println(m_pw);
-		System.out.println(m_name);
-		System.out.println(m_gender);
-		
 		Member m = new Member(m_id, m_pw, m_name, m_email, m_gender, m_number);
 		
 		MemberMapper mm = ss.getMapper(MemberMapper.class);
@@ -225,6 +220,13 @@ public class MemberDAO {
 		
 		Member modMember = ss.getMapper(MemberMapper.class).getMemberByID(m);
 		req.getSession().setAttribute("loginMember", modMember);
+	}
+
+	public void deleteBookmark(HttpServletRequest req, Bookmark b) {
+		
+		BookmarkMapper bm = ss.getMapper(BookmarkMapper.class);
+		bm.deleteMark(b);
+		
 	}
 	
 

@@ -13,3 +13,15 @@ function searchEnter(){
 	location.href="tour.list.search?word=" +word;
 
 }
+
+function logout() {
+	$.ajax({
+		type: "GET",
+		url : "logout",
+		data: {
+		},
+		success: function(data) {
+			window.location.reload();
+		}
+	})
+}
