@@ -229,5 +229,17 @@ public class MemberDAO {
 		
 	}
 	
+	// 회원가입
+	public void regMember(Member m, HttpServletRequest req) {
+
+		int mm = ss.getMapper(MemberMapper.class).regMember(m);
+		if(mm == 1) {
+			System.out.println("가입 성공");
+		} else {
+			System.out.println("가입 실패");
+		}
+		
+		
+	}
 
 }

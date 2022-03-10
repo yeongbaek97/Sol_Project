@@ -5,6 +5,8 @@ import java.util.List;
 public interface MemberMapper {
 
 	public Member getMemberByID(Member m);
+	
+	public int regMember(Member m);
 
 	public int modifyInfo(Member m);
 	

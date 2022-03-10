@@ -34,7 +34,7 @@ public class GoCampingDAO {
 	        urlBuilder.append("&" + URLEncoder.encode("MobileApp","UTF-8") + "=" + URLEncoder.encode("AppTest", "UTF-8")); /*서비스명=어플명*/
 	        urlBuilder.append("&" + URLEncoder.encode("doNm","UTF-8") + "=" + URLEncoder.encode(areaCode, "UTF-8"));
 	        URL url = new URL(urlBuilder.toString());
-
+	        
 	        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 	        conn.setRequestMethod("GET");
 	        /* 	

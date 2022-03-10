@@ -41,6 +41,17 @@
 	<script src="resources/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="resources/js/loginmain.js"></script>
+	
+<style type="text/css">
+.limiter{
+	min-height: 100vh;
+	background: -webkit-gradient(linear, left bottom, right top, from(#8A8C8F), to(#343a40));
+	background: -webkit-linear-gradient(bottom left, #8A8C8F 0%, #343a40 100%);
+	background: -moz-linear-gradient(bottom left, #8A8C8F 0%, #343a40 100%);
+	background: -o-linear-gradient(bottom left, #8A8C8F 0%, #343a40 100%);
+	background: linear-gradient(to top right, #8A8C8F 0%, #343a40 100%);
+}
+</style>
 </head>
 <body>
 	
@@ -49,11 +60,16 @@
 			<div class="wrap-login100">
 				<form action="javascript:login();" class="login100-form validate-form p-l-55 p-r-55 p-t-178" method="post">
 					<span class="login100-form-title">
-						Sign In
+						SIGN IN
 					</span>
 
+<<<<<<< HEAD
 					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter userID">
 						<input class="input100" type="text" id="m_id" name="m_id"placeholder="UserID">
+=======
+					<div class="wrap-input100 validate-input m-t-16 m-b-16" data-validate="Please enter userID">
+						<input class="input100" type="text" name="m_id"placeholder="UserID">
+>>>>>>> f0e9f9a16306f33d46bc5246f979e11aea68ef80
 						<span class="focus-input100"></span>
 					</div>
 
