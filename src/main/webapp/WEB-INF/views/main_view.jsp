@@ -11,17 +11,22 @@
 </head>
 <body>
 	<h1>메인(홈)화면입니다</h1>
+<div class="wrap">	
+	<div class="inner-list">
+		<c:forEach  var="trl" items="${tourRankList }" varStatus="status">
+			<div class="inner">
+				${trl.contentid}
+				${trl.title}
+				<img src="${trl.image }"style="width: 300px; height: 150px; object-fit: cover;">
+			</div>
+		</c:forEach>
 	
-	<c:forEach  var="trl" items="${tourRankList }" varStatus="status">
-		<table border="1">
-			<tr>
-				<td>${status.index + 1}</td>
-				<td>${trl.contentid}</td>
-				<td>${trl.title}</td>
-				<td><img src="${trl.image }"style="width: 300px; height: 150px; object-fit: cover;"></td>
-				<td>${trl.count}</td>
-			</tr>
-		</table>
-	</c:forEach>
+	</div>
+	
+	<div class="button-list">
+  		<button class="button-left">← Left</button>
+ 		<button class="button-right">Right →</button>
+	</div>
+</div>
 </body>
 </html>

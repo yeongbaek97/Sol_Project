@@ -60,11 +60,30 @@ function GuOfficeEvent() {
 
 function bookmark(){
 	//처음에 확인
+	//var b_mapx = $(this).find("#check_mapx").val();
+	
+	
+	
+	
+	////////////////////////////////////////
+	
 	var b_id = $("#check_id").val();
 	var b_mapx = $("#check_mapx").val();
 	var b_mapy = $("#check_mapy").val();
 	var b_contentid = $("#check_contentid").val();
-	var b_title = $("#check_title").val();
+	//var b_title = $("#check_title").val();
+	let testArr = [];
+	
+	$(".item_title .title").each(function(i,c){
+		console.log(i);
+		let a = $(c).val();
+
+		testArr[i] = a;
+		
+		
+		
+	});
+	console.log(b_mapx);
 		$.ajax({
 			url : "tour.mark",
 			data: {
@@ -74,9 +93,9 @@ function bookmark(){
 			success : function(data) {
 				console.log(data);
 				if(data == 1){
-					$("#mark_btn").css("background-color", "red");
+					$("#mark_btn").css("color", "red");
 				}else{
-					$("#mark_btn").css("background-color", "white");
+					$("#mark_btn").css("color", "white");
 				}
 			}
 			
@@ -84,27 +103,53 @@ function bookmark(){
 		
 	//클릭했을 때 적용
 	$("#mark_btn").click(function() {
-		$.ajax({
-			url : "tour.mark.change",
-			data: {
-				"b_id" : b_id,
-				"b_mapx" : b_mapx,
-				"b_mapy" : b_mapy,
-				"b_contentid" : b_contentid,
-				"b_title" : b_title
-			},
-			success : function(data) {
-				console.log(data);
-				if(data == 1){
-					$("#mark_btn").css("background-color", "red");
-				}else{
-					$("#mark_btn").css("background-color", "white");
+		if(!b_id){
+			alert("로그인이 필요합니다");
+		}else{
+			$.ajax({
+				url : "tour.mark.change",
+				data: {
+					"b_id" : b_id,
+					"b_mapx" : b_mapx,
+					"b_mapy" : b_mapy,
+					"b_contentid" : b_contentid,
+					"b_title" : b_title
+				},
+				success : function(data) {
+					console.log(data);
+					if(data == 1){
+						$("#mark_btn").css("color", "red");
+						//줄겨찾기 추가됨
+					}else{
+						$("#mark_btn").css("color", "white");
+					}
 				}
-			}
-			
-		});
+				
+			});
+		}
+		
+		
 	})
 
+}
+
+function sidebar(){
+	
+		var duration = 300;
+
+		var $side = $('#sidebar');
+		var $sidebt = $side.find('button').on('click', function(){
+			$side.toggleClass('open');
+
+			if($side.hasClass('open')) {
+				$side.stop(true).animate({right:'0px'}, duration);
+				$sidebt.find('span').text('지역 필터');
+			}else{
+				$side.stop(true).animate({right:'-300px'}, duration);
+				$sidebt.find('span').text('지역 필터');
+			};
+		});
+	
 }
 
 
@@ -113,8 +158,10 @@ function bookmark(){
 $(function() {
 	bookmark();
 	areaEvent();
+	sidebar();
 	GuOfficeEvent();
 	guEvent();
+	
 	
 	
 });

@@ -45,7 +45,7 @@ public class MemberController {
 	// 카카오 로그인
 	@RequestMapping(value = "kakao.login", method = RequestMethod.GET)
 	public String kakaoLogin(@RequestParam String code,HttpServletRequest req ) {
-		
+		 
 		System.out.println(code);
 		 String access_Token = mDAO.getReturnAccessToken(code);
 

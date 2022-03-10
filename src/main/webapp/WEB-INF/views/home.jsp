@@ -15,6 +15,7 @@
 <script type="text/javascript" src="resources/js/home.js"></script>
 
 <script type="text/javascript" src="resources/js/move.js"></script>
+<script type="text/javascript" src="resources/js/view.js"></script>
 
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f9e56e3f8a09664081781aefaf8493c0&libraries=services"></script>
@@ -22,6 +23,7 @@
 <link rel="stylesheet" href="resources/css/accom.css">
 <link rel="stylesheet" href="resources/css/tour.css">
 <link rel="stylesheet" href="resources/css/kakaoMap.css">
+<link rel="stylesheet" href="resources/css/main.css">
 
 <!--  -->
 <link href="css/styles.css" rel="stylesheet" />
@@ -50,7 +52,7 @@
 <input id="check_contentid" type="hidden" value="${tourdetail.contentid }">
 <input id="check_title" type="hidden" value="${tourdetailcommon.title }">
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-		<a class="navbar-brand text-light text-weight-bold px-5" href="goto.Index">Tour</a>
+		<a class="navbar-brand text-light text-weight-bold px-5" href="home.go">Tour</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -131,11 +133,16 @@
 			</form>
 		</div>
 	</nav>
-	
+
 	 
 	<div>
 		<jsp:include page="${contentPage }"></jsp:include>
 	</div>
 
+
+   <!-- Footer-->
+        <footer class="footer bg-light py-5">
+            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - 영백,현수,효진</div></div>
+        </footer>
 </body>
 </html>
