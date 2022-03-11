@@ -91,7 +91,6 @@
                     </div>
                 </div>
                 <a href="#" class="nav-item nav-link">여행게시판</a>
-                <a href="accom.home" class="nav-item nav-link">숙소</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">숙소+캠핑</a>
                     <div class="dropdown-menu fade-down m-0">
