@@ -23,13 +23,56 @@
 			
 		</div>
 
+		 <!-- 
+	    <div class="container-fluid" style="height: 400px; width: 600px; margin-bottom: 20px;">
+	        <div class="owl-carousel header-carousel " style="bottom: 50px;">
+	        	<c:forEach var="c" items="${originimgurl}">
+		            <div class="owl-carousel-item">
+		            	<img src="${c }" style="height: 400px; width: 600px;">
+		            </div>
+	            </c:forEach>
+	        </div>
+	    </div>
+ 		-->
 
-		<div style="margin-top: 80px; margin-bottom: 70px;">
-			<c:forEach var="c" items="${originimgurl}">
-				<img src="${c }" width="350px" height="200px">
-			</c:forEach>
+		<div id="carouselExampleIndicators" class="carousel slide"
+			data-bs-ride="carousel" data-bs-interval="false" style="width: 600px; height: 400px; top: -50px;">
+			
+			<div class="carousel-indicators">
+				<c:forEach var="c" items="${originimgurl}" end="0" varStatus="status">
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+				</c:forEach>
+				<c:forEach var="c" items="${originimgurl}" begin="1" varStatus="status">
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${status.index }" aria-label="Slide ${status.index + 1 }"></button>
+				</c:forEach>			
+			</div>
+			
+			<div class="carousel-inner">
+				<c:forEach var="c" items="${originimgurl}" end="0" varStatus="status">
+					<div class="carousel-item active">
+						<img src="${c }" class="d-block w-100" alt="..." style="width: 600px; height: 400px;">
+					</div>
+				</c:forEach>
+				<c:forEach var="c" items="${originimgurl}" begin="1" varStatus="status">
+					<div class="carousel-item">
+						<img src="${c }" class="d-block w-100" alt="..." style="width: 600px; height: 400px;">
+					</div>
+				</c:forEach>
+				
+			</div>
+			
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
 		</div>
-		
+
 		<div style="margin-bottom: 50px; width: 60%;">
 			${tourdetailcommon.overview}
 		</div>
