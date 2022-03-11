@@ -157,7 +157,7 @@ function process() {
 			
 			
 
-			list_item += "<li class='accom_item'>";
+			list_item += "<li class='accom_item' onclick=''>";
 			list_item += "<div>";
 				list_item += "<div>";
 					list_item += "<img src=" + img
@@ -168,6 +168,8 @@ function process() {
 				
 				list_item += "<div>";
 					list_item += item[i].title;
+					list_item += "<input value=" + item[i].mapx + ">";
+					list_item += "<input value=" + item[i].mapy + ">";
 				list_item += "</div>";
 
 			
