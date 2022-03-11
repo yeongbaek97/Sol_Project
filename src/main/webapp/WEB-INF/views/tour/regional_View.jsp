@@ -14,11 +14,11 @@
 <div class="wrap">
 
 <div>
-	<img src="resources/img/coffee.jpg" width="100%"height="300px;">
+	<img src="resources/img/coffee.jpg" width="100%"height="250px;">
 
 </div>
 
-<div style="margin-top: 100px;margin-left: 10%;margin-right:10%; border-bottom: 1px solid #d8d8d8;">
+<div style="margin-top: 150px;margin-left: 10%;margin-right:10%; border-bottom: 1px solid #d8d8d8;">
 	<strong style="font-size: 40px;">여행지</strong>
 
 	
@@ -60,12 +60,14 @@
 						<div class="list_title">${c.title }</div>
 						
 						<div class="list_addr">${c.addr1 }</div>
-					
+
+						
+						<input type="hidden"  id="contentTypeId" name="contentTypeId" value="${ContentTypeId }">
 						<input type="hidden" class="check_mapx" name="x" value="${c.mapx }">
 						<input type="hidden" class="check_mapy" name="y" value="${c.mapy }">
 						<input type="hidden" class="check_title" name="title" value="${c.title }">
-						<input type="hidden" class="check_contentid" value="${c.contentid }">
-						<input type="hidden" class="check_image" value="${c.firstimage2 }">
+						<input type="hidden" class="check_contentid" name="contentid" value="${c.contentid }">
+						<input type="hidden" class="check_image" name="image" value="${c.firstimage2 }">
 
 					</div>		
 				</div>

@@ -114,6 +114,7 @@
 		                    </div>
 		                </div>
 		                
+		                <input  value="${trl.contentid }">
 		                <input type="hidden" name="contentTypeId" id="contentTypeId" value="${trl.contentTypeId }">
 		                <input type="hidden" id="check_mapx" name="x" value="${trl.x }">
 		                <input type="hidden" id="check_mapy" name="y" value="${trl.y }">
