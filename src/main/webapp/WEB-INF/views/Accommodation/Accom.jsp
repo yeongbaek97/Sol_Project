@@ -103,6 +103,26 @@
 		</tbody>
 	</table>
 
+	<aside id="sidebar2" class="kakaoMap_sidebar" style="border: 3px solid #DBDBDB;">
+	<button class="btn_a">지도 검색</button>
+		<div class="kakaoMap_sidebar_select">
+			<input style="width: 300px;" class="form-control border-1 py-2 ps-4 pe-4" id="search" type="text" placeholder="키워드 입력" autocomplete="off">
+			<br>
+			<div style="width: 870px; height: 500px;">
+				<div id="map" style="width:800px; height:500px; float: left;"></div>
+				<!-- 
+				<button id="narrow">좁은 구역 보기</button>
+				<button id="wide">넓은 구역 보기</i></button>
+				 -->
+				<div style="float: right;">
+				<button id="narrow" style="border-radius: 30px 30px 30px 30px; margin: 10px;" class="btn btn-lg btn-primary btn-lg-square"><i class="bi bi-plus"></i></button>
+				<button id="wide" style="border-radius: 30px 30px 30px 30px; margin: 10px;" class="btn btn-lg btn-secondary btn-lg-square"><i class="bi bi-dash"></i></button>
+				</div>
+				<input type="hidden" id="x" value="${param.x }">
+				<input type="hidden" id="y" value="${param.y }">
+			</div>
+		</div>
+	</aside>
 
 </body>
 </html>

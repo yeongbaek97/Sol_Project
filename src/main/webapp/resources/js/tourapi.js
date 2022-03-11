@@ -162,9 +162,6 @@ function sidebar(){
 	
 }
 
-
-
-
 $(function() {
 	bookmark();
 	areaEvent();

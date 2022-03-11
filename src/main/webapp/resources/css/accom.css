@@ -1,3 +1,37 @@
 @charset "UTF-8";
 
+.kakaoMap_sidebar{
+	position: fixed;
+ 	width: 900px;
+	margin-top: 180px;
+ 	text-align:right;
+ 	padding: 30px;
+ 	background-color: #f7f7f7;
+ 	top: 0;
+ 	right: -900px;
+ 	z-index: 5;
+}
 
+	
+#sidebar2 .btn_a {
+	background:#333;
+	position: absolute;
+	top: 50px;
+	right: 897px;
+	width: 52px;
+	height: 52px;
+	border: none;
+	
+	color: white;
+}
+
+.kakaoMap_sidebar_select{
+	width: 100%;
+	float: left;
+	margin-bottom: 20px;
+
+}
+
+ .kakaoMap_sidebar_select ul{
+ 	list-style: none;
+}

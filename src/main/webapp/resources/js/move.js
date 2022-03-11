@@ -15,15 +15,3 @@ function searchEnter(){
 
 }
 
-function logout() {
-	$.ajax({
-		type: "GET",
-		url : "logout",
-		data: {
-		},
-		success: function(data) {
-			window.location.reload();
-		}
-	})
-
-}

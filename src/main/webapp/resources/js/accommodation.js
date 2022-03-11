@@ -125,3 +125,28 @@ function process() {
 	document.getElementById("accomTBody").innerHTML = tabB;
 }
 
+
+function sidebar2(){
+	
+	var duration = 500;
+	
+	var $side = $('#sidebar2');
+	
+	console.log($side.find('.btn_a'));
+	var $sidebt = $side.find('.btn_a').on('click', function(){
+		$side.toggleClass('open');
+
+		if($side.hasClass('open')) {
+			$side.stop(true).animate({right:'0px'}, duration);
+			$sidebt.find('span').text('지도 검색');
+		}else{
+			$side.stop(true).animate({right:'-900px'}, duration);
+			$sidebt.find('span').text('지도 검색');
+		};
+	});
+
+}
+
+$(function() {
+	sidebar2();
+});

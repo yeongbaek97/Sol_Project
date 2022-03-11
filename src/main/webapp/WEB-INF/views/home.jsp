@@ -16,6 +16,7 @@
 <script type="text/javascript" src="resources/js/home.js"></script>
 <script type="text/javascript" src="resources/js/move.js"></script>
 <script type="text/javascript" src="resources/js/myPage.js"></script>
+<script type="text/javascript" src="resources/js/loginmain.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f9e56e3f8a09664081781aefaf8493c0&libraries=services"></script>
 <link rel="stylesheet" href="resources/css/home.css">
 <link rel="stylesheet" href="resources/css/accom.css">
@@ -71,7 +72,7 @@
         </a>
         
         <div class="position-relative mx-auto">
-            <input style="width: 300px;" class="form-control border-2 py-3 ps-4 pe-5" id="word" type="text" placeholder="검색어 입력" onkeypress="if(event.keyCode==13){searchEnter();}" onclick="wordVisible();" autocomplete="off">
+            <input style="width: 300px;" class="form-control border-1 py-3 ps-4 pe-5" id="word" type="text" placeholder="검색어 입력" onkeypress="if(event.keyCode==13){searchEnter();}" onclick="wordVisible();" autocomplete="off">
             <button type="button" style="margin-top: 10px;" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" onclick="searchEnter();">Search</button>
         </div>
         
