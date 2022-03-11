@@ -169,6 +169,8 @@ public class TourDAO {
             			);
             	tourList.add(tl);
             }
+            
+            System.out.println(ContentTypeId + "  	??????????????????????");
             req.setAttribute("tourList", tourList);
             req.getSession().setAttribute("areaCode", areaCode);
             req.getSession().setAttribute("ContentTypeId", ContentTypeId);
@@ -1237,6 +1239,8 @@ public int getmark_change(Bookmark b,HttpServletRequest req) {
 
 	public void TourRank(HttpServletRequest req, TourRank tr) {
 		
+		System.out.println("sssss : " + req.getParameter("contentid"));		// 2622715
+		
 		TourRankMapper trm = ss.getMapper(TourRankMapper.class);
 		
 		if(trm.getTourRank(tr) == 1) {
@@ -1250,6 +1254,11 @@ public int getmark_change(Bookmark b,HttpServletRequest req) {
 	public void getTourRank(HttpServletRequest req) {
 		
 		TourRankMapper trm = ss.getMapper(TourRankMapper.class);
+		
+		
+		
+		
+		
 		
 		List<TourRank> tourRankList = trm.getTourRankList();
 		req.setAttribute("tourRankList", tourRankList);
