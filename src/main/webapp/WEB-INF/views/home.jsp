@@ -70,8 +70,8 @@
             <h2 class="m-0 text-primary">Title</h2>
         </a>
         
-        <div class="position-relative mx-auto" style="max-width: 400px;">
-            <input class="form-control border-2 w-100 py-3 ps-4 pe-5" id="word" type="text" placeholder="검색어 입력" onkeypress="if(event.keyCode==13){searchEnter();}" onclick="wordVisible();" autocomplete="off">
+        <div class="position-relative mx-auto">
+            <input style="width: 300px;" class="form-control border-2 py-3 ps-4 pe-5" id="word" type="text" placeholder="검색어 입력" onkeypress="if(event.keyCode==13){searchEnter();}" onclick="wordVisible();" autocomplete="off">
             <button type="button" style="margin-top: 10px;" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" onclick="searchEnter();">Search</button>
         </div>
         
@@ -94,7 +94,13 @@
                 </div>
                 <a href="#" class="nav-item nav-link">여행게시판</a>
                 <a href="accom.home" class="nav-item nav-link">숙소</a>
-                <a href="goto.accomIndex" class="nav-item nav-link">숙소+캠핑</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">숙소+캠핑</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="goto.accom" class="dropdown-item">숙소</a>
+                        <a href="goto.gocamping" class="dropdown-item">캠핑</a>
+                    </div>
+                </div>
             </div>
             
             <c:if test="${sessionScope.loginMember.m_id eq null && userInfo.nickname eq null}">
