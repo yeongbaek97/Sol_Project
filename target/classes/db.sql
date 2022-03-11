@@ -18,10 +18,6 @@ SELECT *  FROM bookmark;
 alter table member drop column m_photo;
 ALTER TABLE member ADD(m_number varchar2(50 char));
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f268fa98c2baa3ccdaf46f68c4995110005ff6f9
 create table bookmark(
 	b_no varchar2 (30 char) primary key,
 	b_id varchar2 (30 char) not null,
@@ -33,7 +29,9 @@ create table bookmark(
 );
 
 create sequence bookmark_seq;
-<<<<<<< HEAD
+
+
+drop table bookmark;
 
 
 
@@ -42,22 +40,29 @@ insert into member values('hjj', 'hjj', '효진', 'ad@asd', 'f', 'sdf');
 
 
 
+
 select * from aboutmember
 
-=======
 select * from bookmark;
->>>>>>> f268fa98c2baa3ccdaf46f68c4995110005ff6f9
+
+
+
+select * from bookmark;
+
 
 UPDATE member SET m_number = '010-0000-0000' WHERE m_name='영백';
 UPDATE member SET m_number = '010-1111-1111' WHERE m_name='효진';
 
 ALTER TABLE member MODIFY (m_number NOT NULL);
 
-<<<<<<< HEAD
+
+
 select * from aboutmember
-=======
+
 select * from member
->>>>>>> f268fa98c2baa3ccdaf46f68c4995110005ff6f9
+
+
+
 
 create table tourRank(
 	contentid varchar2(10 char) primary key,

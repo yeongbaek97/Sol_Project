@@ -59,36 +59,23 @@ function GuOfficeEvent() {
 }
 
 function bookmark(){
-	//처음에 확인
-	//var b_mapx = $(this).find("#check_mapx").val();
-	
-	
-	
-	
-	////////////////////////////////////////
-	
-	var b_id = $("#check_id").val();
-	var b_mapx = $("#check_mapx").val();
-	var b_mapy = $("#check_mapy").val();
-	var b_contentid = $("#check_contentid").val();
 
-	//var b_title = $("#check_title").val();
-	let testArr = [];
+	//로드가 완료 됐을때
 	
-	$(".item_title .title").each(function(i,c){
-		console.log(i);
-		let a = $(c).val();
-
-		testArr[i] = a;
+	$(".item_title").each(function(i,c){
+		//console.log(this.value);
+		let mark_btn = $(this).children('.mark_btn');
 		
+		let b_id = $("#check_id").val();
+
 		
-		
-	});
+		let b_mapx = $(this).children('.check_mapx').val();
+		let b_mapy = $(this).children('.check_mapy').val();
+		let b_title = $(this).children('.check_title').val();
+		let b_contentid = $(this).children('.check_contentid').val();
+		let b_image = $(this).children('.check_image').val();
 
 
-	var b_title = $("#check_title").val();
-	var b_image = $("#check_image").val();
-	
 
 
 		$.ajax({
@@ -98,48 +85,71 @@ function bookmark(){
 				"b_contentid" : b_contentid
 			},
 			success : function(data) {
-				console.log(data);
-				if(data == 1){
-					$("#mark_btn").css("color", "red");
-				}else{
-					$("#mark_btn").css("color", "white");
-				}
+
+				
+					if(data == 1){
+						mark_btn.css("color", "green");
+					}else{
+						mark_btn.css("color", "red");
+					}
+
+
+			
+				
 			}
 			
 		});
-		 
-	//클릭했을 때 적용
-	$("#mark_btn").click(function() {
+		
+		
+		//클릭했을 때 적용
+		mark_btn.click(function(e) {
 
-		if(!b_id){
-			alert("로그인이 필요합니다");
-		}else{
-			$.ajax({
-				url : "tour.mark.change",
-				data: {
-					"b_id" : b_id,
-					"b_mapx" : b_mapx,
-					"b_mapy" : b_mapy,
-					"b_contentid" : b_contentid,
-					"b_title" : b_title
-				},
-				success : function(data) {
-					console.log(data);
-					if(data == 1){
-						$("#mark_btn").css("color", "red");
-						//줄겨찾기 추가됨
-					}else{
-						$("#mark_btn").css("color", "white");
+			if(!b_id){
+				alert("로그인이 필요합니다");
+			}else{
+				console.log(b_mapx);
+				console.log(b_mapy);
+				console.log(b_contentid);
+				console.log(b_title);
+				$.ajax({
+					url : "tour.mark.change",
+					data: {
+						"b_id" : b_id,
+						"b_mapx" : b_mapx,
+						"b_mapy" : b_mapy,
+						"b_contentid" : b_contentid,
+						"b_title" : b_title,
+						"b_image" : b_image
+					},
+					success : function(data) {
+						console.log(data);
+						if(data == 1){
+							mark_btn.css("color", "green");
+							//줄겨찾기 추가됨
+						}else{
+							mark_btn.css("color", "red");
+						}
+
+			
 					}
+					
+				});
+			}
+			e.stopImmediatePropagation();
+			
+		})
+		
+		
+		
+		
+		
+		
+		
+		
+	});
 
-		
-				}
-				
-			});
-		}
-		
-		
-	})
+		 
+	
 
 }
 
@@ -161,6 +171,7 @@ function sidebar(){
 		});
 	
 }
+
 
 $(function() {
 	bookmark();

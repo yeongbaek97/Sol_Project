@@ -11,29 +11,32 @@
 
 <button id="mark_btn">즐겨찾기</button>
 <input id="check_image" type="hidden" value="${param.image }">
-	<div>
+	<div class="wrap" align="center">
 
-		<div>
+		<div align="center" style=" width:70%; margin-top:100px;margin-bottom:100px; border-bottom: 1px solid;">
 	
-			<h1 style="">${tourdetailcommon.title}</h1>
-
-			${tourdetailcommon.addr1}<br>
-			${tourdetailcommon.addr2}<br>
-			${tourdetailcommon.overview}<br>
-
+			<div>
+			<h1 >${tourdetailcommon.title}</h1>
+			
+			</div>
+			
+			
 		</div>
 
 
-		<div>
+		<div style="margin-top: 80px; margin-bottom: 70px;">
 			<c:forEach var="c" items="${originimgurl}">
 				<img src="${c }" width="350px" height="200px">
 			</c:forEach>
 		</div>
+		
+		<div style="margin-bottom: 50px; width: 60%;">
+			${tourdetailcommon.overview}
+		</div>
 
-		<div>
-		<section>
-			<jsp:include page="${kakaoMap }"></jsp:include>
-		</section>
+		<div style="margin-top:40px;margin-left: 20%;border-bottom: 1px solid;" align="left">
+		
+		
 			전화번호 : ${tourdetailcommon.tel}<br>
 			
 			오픈시간 : ${tourdetail.opentimefood } <br>
@@ -49,6 +52,14 @@
 			메뉴 : ${tourdetail.treatmenu } <br>
 			
 
+		</div>
+		
+		<div>
+		<section>
+			<jsp:include page="${kakaoMap }"></jsp:include>
+		</section>
+		${tourdetailcommon.addr1}<br>
+			${tourdetailcommon.addr2}<br>
 		</div>
 
 

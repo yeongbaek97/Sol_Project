@@ -99,7 +99,7 @@
             <div class="row g-4 justify-content-center">
             	<c:forEach  var="trl" items="${tourRankList }" varStatus="status">
             		<c:if test="${status.index + 1 <= 6 }">
-	                <form id="list${status.index }" action="tour.list.detail?contentid=${trl.contentid }" method="post" style="width: 33%;">						
+	                <form id="list${status.index }" action="tour.list.detail" method="post" style="width: 33%;">						
 		                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="${(status.index + 1) * 0.1}s" style="width: 100%">
 		                    <div class="course-item bg-light">
 		                        <div class="position-relative overflow-hidden">
@@ -114,6 +114,7 @@
 		                    </div>
 		                </div>
 		                
+		                <input type="hidden" name="contentid" value="${trl.contentid }">
 		                <input type="hidden" name="contentTypeId" id="contentTypeId" value="${trl.contentTypeId }">
 		                <input type="hidden" id="check_mapx" name="x" value="${trl.x }">
 		                <input type="hidden" id="check_mapy" name="y" value="${trl.y }">
