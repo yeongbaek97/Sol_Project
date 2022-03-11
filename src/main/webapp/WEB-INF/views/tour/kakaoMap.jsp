@@ -15,8 +15,8 @@
 	<button id="wide">넓은 구역 보기</i></button>
 	 -->
 	<div style="float: right;">
-	<button id="wide" style="border-radius: 30px 30px 30px 30px; margin: 10px;" class="btn btn-lg btn-primary btn-lg-square"><i class="bi bi-plus"></i></button>
-	<button id="narrow" style="border-radius: 30px 30px 30px 30px; margin: 10px;" class="btn btn-lg btn-secondary btn-lg-square"><i class="bi bi-dash"></i></button>
+	<button id="narrow" style="border-radius: 30px 30px 30px 30px; margin: 10px;" class="btn btn-lg btn-primary btn-lg-square"><i class="bi bi-plus"></i></button>
+	<button id="wide" style="border-radius: 30px 30px 30px 30px; margin: 10px;" class="btn btn-lg btn-secondary btn-lg-square"><i class="bi bi-dash"></i></button>
 	</div>
 	<input type="hidden" id="x" value="${param.x }">
 	<input type="hidden" id="y" value="${param.y }">
