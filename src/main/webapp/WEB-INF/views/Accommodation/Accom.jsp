@@ -54,7 +54,11 @@
 	</div>
 	
 	<div style="width: 50%;">
-		<ul id="list_item"></ul>
+		<ul id="accom_list_item"></ul>
+	</div>
+	
+	<div style="width: 50%;">		<!-- 이곳에 해주세요 -->
+		
 	</div>
 
 

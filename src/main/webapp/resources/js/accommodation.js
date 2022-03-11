@@ -157,7 +157,7 @@ function process() {
 			
 			
 
-			list_item += "<li class='item'>";
+			list_item += "<li class='accom_item'>";
 			list_item += "<div>";
 				list_item += "<div>";
 					list_item += "<img src=" + img
@@ -180,7 +180,7 @@ function process() {
 			
 			
 
-			document.getElementById("list_item").innerHTML = list_item;
+			document.getElementById("accom_list_item").innerHTML = list_item;
 		}
 		
 
