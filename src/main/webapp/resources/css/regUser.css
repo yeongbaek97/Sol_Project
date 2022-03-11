@@ -403,7 +403,8 @@ label.error {
   display: block;
   position: absolute;
   top: 0px;
-  right: 0; }
+  text-align: right;
+  color: #c70000; }
   label.error:after {
     font-family: 'Material-Design-Iconic-Font';
     position: absolute;

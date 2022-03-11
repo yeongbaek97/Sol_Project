@@ -6,4 +6,6 @@ public interface MemberMapper {
 	
 	public int regMember(Member m);
 
+	public int checkIdValue(Member m);
+
 }

@@ -4,11 +4,13 @@ create table member(
 	m_name varchar2(20 char) not null,
 	m_email varchar2(20 char) not null,
 	m_gender varchar2(20 char) not null,
-	m_photo varchar2(200 char) not null
+	m_number varchar2(50 char) not null
 )
 
 insert into member values('yb', '1234','영백','asd@asdf','m','s')
 insert into member values('hs', '1234','현수','qwer@asdf','m','010-2222-2222')
+
+select m_id from member;
 
 SELECT *  FROM bookmark;
 

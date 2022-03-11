@@ -209,4 +209,10 @@ public class MemberDAO {
 		
 	}
 
+	public int checkIdValue(Member m) {
+		int cnt = ss.getMapper(MemberMapper.class).checkIdValue(m);
+		System.out.println("DAO cnt: " + cnt);
+		return cnt;
+	}
+
 }

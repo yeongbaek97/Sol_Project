@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MemberController {
@@ -69,8 +70,16 @@ public class MemberController {
 		mDAO.regMember(m, req);
 		mDAO.logincheck(req);
 			
-		return "member/regMember";
+		return "home";
 
+	}
+	
+	@RequestMapping(value = "checkID.value", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+	public @ResponseBody int checkIdValue(Member m) {
+		System.out.println("이동완료");
+		int cnt = mDAO.checkIdValue(m);
+		System.out.println("Controller cnt: " + cnt);
+		return cnt;
 	}
 	
 	//마이페이지
@@ -84,4 +93,9 @@ public class MemberController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "findInfo.login", method = RequestMethod.GET)
+	public String findInfo() {
+		
+		return "member/FindInfo";
+	}
 }
