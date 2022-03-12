@@ -23,6 +23,11 @@ import org.springframework.stereotype.Service;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.sol.pj.tour.Bookmark;
+import com.sol.pj.tour.BookmarkMapper;
+import com.sol.pj.tour.SearchRankMapper;
+import com.sol.pj.tour.TourRank;
+import com.sol.pj.tour.TourRankMapper;
 
 @Service
 public class MemberDAO {
@@ -192,10 +197,26 @@ public class MemberDAO {
         return userInfo;
     }
 
-	public void getTourRank(HttpServletRequest req) {
-		System.out.println("2");
+
+
+	public void modifyInfo(HttpServletRequest req) {
+		Member curMember = (Member)req.getSession().getAttribute("loginMember");
+		String m_id = curMember.getM_id();
+		String m_pw = req.getParameter("m_pw");
+		String m_name = req.getParameter("m_name");
+		String m_gender = curMember.getM_gender();
+		String m_email = req.getParameter("m_email");
+		String m_number = req.getParameter("m_number");
 		
+		Member m = new Member(m_id, m_pw, m_name, m_email, m_gender, m_number);
+		
+		MemberMapper mm = ss.getMapper(MemberMapper.class);
+		mm.modifyInfo(m);
+		
+		Member modMember = ss.getMapper(MemberMapper.class).getMemberByID(m);
+		req.getSession().setAttribute("loginMember", modMember);
 	}
+
 	
 	// 회원가입
 	public void regMember(Member m, HttpServletRequest req) {

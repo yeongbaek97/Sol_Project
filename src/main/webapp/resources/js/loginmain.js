@@ -46,3 +46,33 @@ $(function() {
 	}
 
 });
+
+function login() {
+	var m_id = document.getElementById("m_id").value;
+	var m_pw = document.getElementById("m_pw").value;
+	
+	$.ajax({
+		type: "POST",
+		url : "login",
+		data: {
+			m_id: m_id,
+			m_pw: m_pw
+		},
+		success: function(data) {
+			location.href="goto.Index"
+		}
+	})
+}
+
+function logout() {
+	$.ajax({
+		type: "GET",
+		url : "logout",
+		data: {
+		},
+		success: function(data) {
+			window.location.reload();
+		}
+	})
+
+}

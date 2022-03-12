@@ -12,4 +12,6 @@ function searchEnter(){
 	
 	location.href="tour.list.search?word=" +word;
 
+
 }
+

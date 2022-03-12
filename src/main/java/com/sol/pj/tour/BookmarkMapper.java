@@ -10,4 +10,5 @@ public interface BookmarkMapper {
 
 	public int deleteMark(Bookmark b);
 
+	public List<Bookmark> getBookmark();
 }

@@ -1,3 +1,67 @@
 @charset "UTF-8";
 
+.kakaoMap_sidebar{
+	position: fixed;
+ 	width: 900px;
+	margin-top: 180px;
+ 	text-align:right;
+ 	padding: 30px;
+ 	background-color: #f7f7f7;
+ 	top: 0;
+ 	right: -900px;
+ 	z-index: 5;
+}
 
+	
+#sidebar2 .btn_a {
+	background:#333;
+	position: absolute;
+	top: 50px;
+	right: 897px;
+	width: 52px;
+	height: 52px;
+	border: none;
+	
+	color: white;
+}
+
+.kakaoMap_sidebar_select{
+	width: 100%;
+	float: left;
+	margin-bottom: 20px;
+
+}
+
+ .kakaoMap_sidebar_select ul{
+ 	list-style: none;
+}
+
+
+
+ul {
+    text-align: center;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-right: 0;
+}
+
+ul li {
+    text-align: center;
+    float: left;
+}
+
+ul li a {
+    display: block;
+    font-size: 14px;
+    padding: 9px 12px;
+    border-right: solid 1px #ccc;
+    box-sizing: border-box;
+}
+
+ul li.on {
+    background: #eda712;
+}
+
+ul li.on a {
+    color: #fff;
+}

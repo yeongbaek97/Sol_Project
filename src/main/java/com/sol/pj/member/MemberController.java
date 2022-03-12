@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sol.pj.tour.Bookmark;
+
 @Controller
 public class MemberController {
 
@@ -20,7 +22,7 @@ public class MemberController {
 	// 로그인 페이지 이동
 	@RequestMapping(value = "goto.login", method = RequestMethod.GET)
 	public String gotoLogin() {
-		return "member/Login";
+		return "member/login";
 	}
 	
 	// 로그인
@@ -46,7 +48,7 @@ public class MemberController {
 	// 카카오 로그인
 	@RequestMapping(value = "kakao.login", method = RequestMethod.GET)
 	public String kakaoLogin(@RequestParam String code,HttpServletRequest req ) {
-		
+		 
 		System.out.println(code);
 		 String access_Token = mDAO.getReturnAccessToken(code);
 
@@ -87,6 +89,30 @@ public class MemberController {
 	public String myPage(HttpServletRequest req, Member m) {
 		
 		mDAO.logincheck(req);
+
+		
+		req.setAttribute("contentPage", "member/myPage.jsp");
+		
+		return "home";
+	}
+	
+	@RequestMapping(value = "modifyInfo", method = RequestMethod.GET)
+	public String modifyId(HttpServletRequest req) {
+		
+		mDAO.logincheck(req);
+		mDAO.modifyInfo(req);
+
+		
+		req.setAttribute("contentPage", "member/myPage.jsp");
+		
+		return "home";
+	}
+	
+	@RequestMapping(value = "deleteBookmark", method = RequestMethod.GET)
+	public String deleteBookmark(HttpServletRequest req, Bookmark b) {
+		
+		mDAO.logincheck(req);
+
 		
 		req.setAttribute("contentPage", "member/myPage.jsp");
 		

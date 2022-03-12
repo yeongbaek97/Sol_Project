@@ -9,8 +9,6 @@
 </head>
 <body>
 	<input id="search" placeholder="키워드 검색">
-	<div id="map" style="width:500px;height:400px;"></div>
-	<button id="narrow">좁은 구역 보기</button>
-	<button id="wide">넓은 구역 보기</button>
+	<jsp:include page="../tour/kakaoMap.jsp"></jsp:include>
 </body>
 </html>
