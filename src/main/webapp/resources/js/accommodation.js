@@ -157,7 +157,7 @@ function process() {
 			
 			
 
-			list_item += "<li class='accom_item' onclick=''>";
+			list_item += "<li class='accom_item' onclick='accomMap();'>";
 			list_item += "<div>";
 				list_item += "<div>";
 					list_item += "<img src=" + img
@@ -168,8 +168,8 @@ function process() {
 				
 				list_item += "<div>";
 					list_item += item[i].title;
-					list_item += "<input value=" + item[i].mapx + ">";
-					list_item += "<input value=" + item[i].mapy + ">";
+					list_item += "<input type='hidden' id='mapx' value=" + item[i].mapx + ">";
+					list_item += "<input type='hidden' id='mapy' value=" + item[i].mapy + ">";
 				list_item += "</div>";
 
 			
@@ -370,3 +370,36 @@ function sidebar2() {
 $(function() {
 	sidebar2();
 });
+
+
+
+function accomMap() {
+	var li = event.currentTarget;
+	
+	var mapx = li.querySelector("#mapx").value;
+	var mapy = li.querySelector("#mapy").value;
+
+	var container = document.getElementById('accomMap'); //지도를 담을 영역의 DOM 레퍼런스
+	var options = { //지도를 생성할 때 필요한 기본 옵션
+		center: new kakao.maps.LatLng(mapy, mapx), //지도의 중심좌표.
+		level: 7, //지도의 레벨(확대, 축소 정도)
+		disableDoubleClickZoom: true
+	};
+	
+	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
+	var imageSrc2 = 'resources/img/markerImage/destination.png', 
+    imageSize2 = new kakao.maps.Size(21, 21), 
+    imageOption2 = {offset: new kakao.maps.Point(15, 15)}; 
+      
+   
+    var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize2, imageOption2),
+        markerPosition2 = new kakao.maps.LatLng(mapy, mapx); 
+    
+    var marker2 = new kakao.maps.Marker({
+        position: markerPosition2, 
+        image: markerImage2
+    });
+    
+    marker2.setMap(map); 
+}
