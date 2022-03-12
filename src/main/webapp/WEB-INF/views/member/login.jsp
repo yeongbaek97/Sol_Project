@@ -78,7 +78,7 @@
 							Forgot?
 						</span>
 
-						<a href="#" class="txt2">
+						<a href="findInfo.login" class="txt2">
 							UserID / Password
 						</a>
 					</div>

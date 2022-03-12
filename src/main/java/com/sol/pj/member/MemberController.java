@@ -94,8 +94,25 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "findInfo.login", method = RequestMethod.GET)
-	public String findInfo() {
+	public String findInfo(HttpServletRequest req) {
+		req.setAttribute("contentPage", "member/FindInfo.jsp");
+		return "home";
+	}
+	
+	@RequestMapping(value = "find.IDValue", method = RequestMethod.POST)
+	public String findID(HttpServletRequest req, Member m) {
 		
-		return "member/FindInfo";
+		mDAO.findID(req, m);
+		System.out.println(req.getAttribute("id"));
+		req.setAttribute("contentPage", "member/FindResult.jsp");
+		return "home";
+	}
+	
+	@RequestMapping(value = "find.PWValue", method = RequestMethod.POST)
+	public String findPW(HttpServletRequest req, Member m) {
+		mDAO.findPW(req, m);
+		System.out.println(req.getAttribute("pw"));
+		req.setAttribute("contentPage", "member/FindResult.jsp");
+		return "home";
 	}
 }

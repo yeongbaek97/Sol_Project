@@ -9,8 +9,10 @@ create table member(
 
 insert into member values('yb', '1234','영백','asd@asdf','m','s')
 insert into member values('hs', '1234','현수','qwer@asdf','m','010-2222-2222')
+insert into member values('hj', 'hj', '이효진', 'asd@asdf.asd','female', '01033333333');
 
 select m_id from member;
+select * from member;
 
 SELECT *  FROM bookmark;
 
