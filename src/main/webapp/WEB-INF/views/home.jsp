@@ -17,10 +17,12 @@
 <script type="text/javascript" src="resources/js/move.js"></script>
 <script type="text/javascript" src="resources/js/myPage.js"></script>
 <script type="text/javascript" src="resources/js/loginmain.js"></script>
+<script type="text/javascript" src="resources/js/board.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f9e56e3f8a09664081781aefaf8493c0&libraries=services"></script>
 <link rel="stylesheet" href="resources/css/home.css">
 <link rel="stylesheet" href="resources/css/accom.css">
 <link rel="stylesheet" href="resources/css/tour.css">
+<link rel="stylesheet" href="resources/css/board.css">
 <link rel="stylesheet" href="resources/css/kakaoMap.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -104,9 +106,9 @@
                         <a href="tour.list.regional?sigunguCode=0&areaCode=1&ContentTypeId=28" class="dropdown-item">레포츠</a>
                     </div>
                 </div>
-                <a href="#" class="nav-item nav-link">여행게시판</a>
+                <a href="goto.board" class="nav-item nav-link">여행게시판</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">숙소+캠핑</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">숙소</a>
                     <div class="dropdown-menu fade-down m-0">
                         <a href="goto.accom" class="dropdown-item">숙소</a>
                         <a href="goto.gocamping" class="dropdown-item">캠핑</a>

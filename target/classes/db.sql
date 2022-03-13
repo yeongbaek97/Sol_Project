@@ -74,16 +74,44 @@ create table tourRank(
 	y varchar2 (30 char) not null
 )
 
-drop table tourRank
 select * from tourRank
-delete from tourRank
-select * from tourRank where contentid = 2622715
-update tourRank set count = count + 1 where contentid = 2622715
 
 create table searchRank(
 	word varchar2(30 char) primary key,
 	count number not null
 )
 
-select * from searchRank
+select * from searchRank;
 
+create sequence board_seq nocache;
+
+create table board (
+	b_no number primary key,
+	b_title varchar2(100 char) not null,
+	b_content varchar2(1000 char) not null,
+	b_image varchar2(300 char),
+	b_writer varchar2(20 char) not null,
+	b_comments number not null,
+	b_views number not null,
+	b_date date not null
+)
+
+drop table board;
+insert into board values(board_seq.nextval, '제목2', '내용', '이미지', '작성자', 0, 0, to_date(sysdate, 'yyyy-mm-dd hh24:mi:ss'));
+select * from board;
+delete from board
+update board set b_comments = b_comments + 1 where b_no = 13
+
+create sequence comment_seq nocache;
+
+create table comments (
+	c_seq number primary key,
+	c_no number not null,
+	c_writer varchar2(20 char) not null,
+	c_comment varchar2(200 char) not null,
+	c_date date not null,
+	constraint comments_fk foreign key (c_no) references board(b_no) on delete cascade
+)
+
+drop table comments;
+select * from comments;

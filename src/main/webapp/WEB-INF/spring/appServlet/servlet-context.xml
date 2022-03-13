@@ -57,6 +57,7 @@
 				<beans:value>classpath:bookmarkMapper.xml</beans:value>
 				<beans:value>classpath:tourRankMapper.xml</beans:value>
 				<beans:value>classpath:searchRankMapper.xml</beans:value>
+				<beans:value>classpath:boardMapper.xml</beans:value>
 
 			</beans:list>
 		</beans:property>

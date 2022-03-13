@@ -62,7 +62,7 @@
 	
 	
 	<div style="width: 50%; float: right;">		<!-- 이곳에 해주세요 -->
-		<div id="accomMap" style="width:500px; height:500px;"></div>
+		<div id="accomMap" style="width:600px; height:600px;"></div>
 	</div>
 
 
