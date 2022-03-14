@@ -17,12 +17,12 @@
 <script type="text/javascript" src="resources/js/move.js"></script>
 <script type="text/javascript" src="resources/js/myPage.js"></script>
 <script type="text/javascript" src="resources/js/loginmain.js"></script>
-<<<<<<< HEAD
+
 <script type="text/javascript" src="resources/js/tourapi.js"></script>
 
-=======
+
 <script type="text/javascript" src="resources/js/board.js"></script>
->>>>>>> f152755481d13b680b4de97896d6eccbce8446a0
+
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f9e56e3f8a09664081781aefaf8493c0&libraries=services"></script>
 <link rel="stylesheet" href="resources/css/home.css">
 <link rel="stylesheet" href="resources/css/accom.css">
@@ -74,7 +74,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0" style="position: fixed; width: 100%;">
         <a href="goto.Index" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary">Title</h2>
+            <h2 class="m-0 text-primary">TourGether</h2>
         </a>
         
         <div class="position-relative mx-auto">

@@ -97,7 +97,7 @@
 							다른 서비스 계정으로 로그인
 						</span>
 						<div class="container-login100-form-btn">
-							<button style="background-color: #FEE500" type="button" class="login100-form-btn" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=500a463927b5af4c4a3224e8a14e8ace&redirect_uri=http://localhost/pj/kakao.login&response_type=code'">
+							<button style="background-color: #FEE500" type="button" class="login100-form-btn" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=500a463927b5af4c4a3224e8a14e8ace&redirect_uri=http://localhost/goto.kakao.login&response_type=code'">
 								<img src="resources/img/kakao_login_medium_narrow.png">
 							</button>
 						</div>

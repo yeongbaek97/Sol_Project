@@ -93,7 +93,7 @@ public class MemberDAO {
             StringBuilder sb = new StringBuilder();
             sb.append("grant_type=authorization_code");
             sb.append("&client_id=500a463927b5af4c4a3224e8a14e8ace");  //앱 KEY VALUE
-            sb.append("&redirect_uri=http://localhost/pj/kakao.login"); // 앱 CALLBACK 경로
+            sb.append("&redirect_uri=http://localhost/goto.kakao.login"); // 앱 CALLBACK 경로
             sb.append("&code=" + authorize_code);
             bw.write(sb.toString());
             bw.flush();

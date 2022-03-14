@@ -92,7 +92,9 @@ function process() {
 	var totalCount = body.totalCount;
 	totalData = totalCount;
 	
-	console.log("총갯수 :" + totalCount);
+	
+	
+	
 	// 출력
 
 	
@@ -170,15 +172,16 @@ function process() {
 					list_item += item[i].title;
 					list_item += "<input type='hidden' id='mapx' value=" + item[i].mapx + ">";
 					list_item += "<input type='hidden' id='mapy' value=" + item[i].mapy + ">";
+					
 				list_item += "</div>";
 
+				console.log(item[i].addr1);
 			
 	
 			list_item += "</div>";
 			list_item += "</li>";
 			
-		 
-			console.log(list_item);
+
 			
 			
 
