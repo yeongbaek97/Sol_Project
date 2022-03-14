@@ -40,9 +40,9 @@ $(function() {
 </head>
 <body>
 
-	<div class="container">
+	<div class="find-container">
 		<div class="find-content">
-			<form action="find.IDValue" class="find-form" method="post">
+			<form action="find.IDValue" class="findID-form" method="post">
 			<h2>아이디 찾기</h2>
 				<label>회원가입 시, 입력하신 이름 + 이메일 또는 휴대폰 번호로 아이디를 확인하실 수 있습니다.</label>
 				<div class="form-radio">
@@ -64,7 +64,7 @@ $(function() {
 		</div>
 		
 		<div class="find-content">
-			<form action="find.PWValue" class="find-form" method="post">
+			<form action="find.PWValue" class="findPW-form" method="post">
 			<h2>비밀번호 찾기</h2>
 				<label>회원가입 시, 사용하신 아이디 + 이메일 또는 휴대폰 번호로 비밀번호를 확인하실 수 있습니다.</label>
 				<div class="form-radio">

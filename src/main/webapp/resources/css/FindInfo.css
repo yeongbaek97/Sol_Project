@@ -1,108 +1,22 @@
 @charset "UTF-8";
 
-358*873(가*세)
-600*400
-
-.container{
-	width: 1200px;
-	position: relative;
-	margin: 0 auto;
-	border-radius: 3px;
-	box-shadow: 0px 10px 9.9px 0.1px rgba(0, 0, 0, 0.1);
-	-moz-box-shadow: 0px 10px 9.9px 0.1px rgba(0, 0, 0, 0.1);
-	-webkit-box-shadow: 0px 10px 9.9px 0.1px rgba(0, 0, 0, 0.1);
-	-o-box-shadow: 0px 10px 9.9px 0.1px rgba(0, 0, 0, 0.1);
-	-ms-box-shadow: 0px 10px 9.9px 0.1px rgba(0, 0, 0, 0.1);
-	vertical-align: middle;
+.findID-form{
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex: 1 1 40%;
+	float: left;
+    width: 200px;
+    height: 100px;
 }
 
-.find-content {
-  padding: 10px 0;
-  width: 50%;
-  float: left;
-  margin-left: auto;
-  margin-right: auto;
+.findPW-form{
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex: 1 1 40%;
+	display: inline-block;
+    width: 200px;
+    height: 100px;
+    margin-left: 10px;
 }
-
-.find-form {
-  padding: 40px 48px 0px 48px;
-  height: 400px;
-  text-align: center;
-}
-
-label {
-  text-transform: uppercase;
-  font-weight: 800;
-  margin-bottom: 23px;
-  display: block;
-  width: 100%;
-}
-
-input {
-  width: 100%;
-  border: 1px solid #ebebeb;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px;
-  box-sizing: border-box;
-  padding: 15px 20px;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-input::-webkit-input-placeholder {
-    color: #999;
-    text-transform: uppercase;
-    font-weight: 600; }
-input::-moz-placeholder {
-    color: #999;
-    text-transform: uppercase;
-    font-weight: 600; }
-input:-ms-input-placeholder {
-    color: #999;
-    text-transform: uppercase;
-    font-weight: 600; }
-input:-moz-placeholder {
-    color: #999;
-    text-transform: uppercase;
-    font-weight: 600; }
-
-.findID_radio, .findPW_radio {
-    margin: 0px;
-    padding-right: 10px;
-    width: 94px;
-    display: inline-block;
-    text-align: center;
-    font-weight: 600;
-    color: #888;
-    text-align: center;
-    text-transform: none;
-}
-
-.form-group, .form-radio {
-    width: 50%;
-    padding: 0 11px;
-    margin-bottom: 23px;
-	position: relative; }
-    
-.form-submit {
-  width: auto;
-  background: #1da0f2;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 900;
-  padding: 16px 50px;
-  display: inline-block;
-  border: none;
-  margin-top: 37px;
-  cursor: pointer; }
-
-.form-submit:hover {
-    background: #0c85d0; }
-    
-@media screen and (max-width: 900px) {
-  .container {
-    width: calc( 100% - 30px);
-    max-width: 100%; } }
