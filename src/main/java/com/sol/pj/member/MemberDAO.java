@@ -231,4 +231,65 @@ public class MemberDAO {
 		
 	}
 
+	public int checkIdValue(Member m) {
+		int cnt = ss.getMapper(MemberMapper.class).checkIdValue(m);
+		System.out.println("DAO ID cnt: " + cnt);
+		return cnt;
+	}
+	
+	public int checkEmailValue(Member m) {
+		int cnt = ss.getMapper(MemberMapper.class).checkEmailValue(m);
+		System.out.println("DAO Email cnt: " + cnt);
+		return cnt;
+	}
+
+	public void findID(HttpServletRequest req, Member m) {
+		String m_name = req.getParameter("m_name");
+		String m_email = req.getParameter("m_email");
+		String m_number = req.getParameter("m_number");
+		System.out.println("-- DAO 입성 --");
+		System.out.println(m_name);
+		System.out.println(m_email);
+		System.out.println(m_number);
+		
+		
+		if(m_number == null) {
+			System.out.println("Number == 0, email == 1");
+			Member mm = ss.getMapper(MemberMapper.class).findIDbyEmail(m_name, m_email);
+			System.out.println(mm.getM_id() + ": DAO에서 email로 알아낸 ID");
+			req.setAttribute("id", mm.getM_id());
+		} else if(m_email == null) {
+			System.out.println("email == 0, number == 1");
+			Member mm = ss.getMapper(MemberMapper.class).findIDbyPhone(m_name, m_number);
+			System.out.println(mm.getM_id() + ": DAO에서 phone number로 알아낸 ID");
+			req.setAttribute("id", mm.getM_id());
+		}
+		
+		
+	}
+
+	public void findPW(HttpServletRequest req, Member m) {
+		String m_id = req.getParameter("m_id");
+		String m_email = req.getParameter("m_email");
+		String m_number = req.getParameter("m_number");
+		System.out.println("-- DAO 입성 --");
+		System.out.println(m_id);
+		System.out.println(m_email);
+		System.out.println(m_number);
+		
+		
+		if(m_number == null) {
+			System.out.println("Number == 0, email == 1");
+			Member mm = ss.getMapper(MemberMapper.class).findPWbyEmail(m_id, m_email);
+			System.out.println(mm.getM_id() + ": DAO에서 email로 알아낸 PW");
+			req.setAttribute("pw", mm.getM_pw());
+		} else if(m_email == null) {
+			System.out.println("email == 0, number == 1");
+			Member mm = ss.getMapper(MemberMapper.class).findPWbyPhone(m_id, m_number);
+			System.out.println(mm.getM_id() + ": DAO에서 phone number로 알아낸 PW");
+			req.setAttribute("pw", mm.getM_pw());
+		}
+		
+	}
+
 }
