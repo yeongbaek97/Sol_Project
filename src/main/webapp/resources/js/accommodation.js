@@ -172,12 +172,10 @@ function process() {
 					list_item += item[i].title;
 					list_item += "<input type='hidden' id='mapx' value=" + item[i].mapx + ">";
 					list_item += "<input type='hidden' id='mapy' value=" + item[i].mapy + ">";
-<<<<<<< HEAD
-					
-=======
+
 					list_item += "<input type='hidden' id='addr1' value='" + item[i].addr1 + "'>";
 					list_item += "<input type='hidden' id='title' value='" + item[i].title + "'>";
->>>>>>> e44ed5734caa9eea9dcf55569ddab18a8543ff24
+
 				list_item += "</div>";
 
 				console.log(item[i].addr1);
