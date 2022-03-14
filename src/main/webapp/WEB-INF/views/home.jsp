@@ -107,13 +107,8 @@
                     </div>
                 </div>
                 <a href="goto.board" class="nav-item nav-link">여행게시판</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">숙소</a>
-                    <div class="dropdown-menu fade-down m-0">
-                        <a href="goto.accom" class="dropdown-item">숙소</a>
-                        <a href="goto.gocamping" class="dropdown-item">캠핑</a>
-                    </div>
-                </div>
+                <a href="goto.accom" class="nav-item nav-link">숙소</a>
+                
             </div>
             
             <c:if test="${sessionScope.loginMember.m_id eq null && userInfo.nickname eq null}">
