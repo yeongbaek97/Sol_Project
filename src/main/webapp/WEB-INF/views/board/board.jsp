@@ -17,10 +17,10 @@
 
 	<div align="right" style="margin-top:38px; margin-right: 10%;">
 		<button onclick="location.href='/dbtest'" style="margin-bottom:8px">더미추가</button>
-		<button onclick="gotoWrite();" style="margin-bottom:8px">글쓰기</button>
+		<button onclick="gotoWrite();" style="margin-bottom:8px">글작성</button>
 	</div>
-	<div align="center" style="margin-left: 10%;margin-right: 10%;padding: 20px 50px 50px 50px;">
 	
+	<div align="center" style="margin-left: 10%;margin-right: 10%;padding: 20px 50px 50px 50px;">
 	
 	<form id="postForm" action="detail.post" method="post" enctype="multipart/form-data">
 		<input type="hidden" id="b_no" name="b_no">
@@ -71,5 +71,6 @@
 	
 	<input id="loginCheck" type="hidden" value="${sessionScope.loginMember.m_id}">
 	</div>
+</div>
 </body>
 </html>

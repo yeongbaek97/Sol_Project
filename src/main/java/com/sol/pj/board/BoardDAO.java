@@ -25,7 +25,11 @@ public class BoardDAO {
 		
 		int totalPost, startPage, endPage, curPage, lastPage, start, end, boardPage;
 		
-		curPage = Integer.parseInt(req.getParameter("curPage"));
+		if(req.getParameter("curPage")==null || req.getParameter("curPage").equals("null")) {
+			curPage = 1;
+		} else {
+			curPage = Integer.parseInt(req.getParameter("curPage"));
+		}
 		
 		totalPost = bm.getTotalPost();
 		lastPage = (totalPost / 10) + 1;

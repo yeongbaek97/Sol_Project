@@ -10,19 +10,20 @@
 </head>
 <body>
 	<div align="center" style="margin-top:200px;">
-	<table border="1" id="postTable" style="">
+	<table border="1" id="postTable" style="width: 800px;">
 		<tr>
-			<td>${post.b_no }</td>
-			<td style="width: 500px;">${post.b_title }</td>
-			<td>${post.b_writer }</td>
-			<td><fmt:formatDate value="${post.b_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+			<td align="center" style="width: 100px;">${post.b_no }</td>
+			<td style="width: 550px;">${post.b_title }</td>
+			<td align="center" colspan="2" style="width: 150px;"><fmt:formatDate value="${post.b_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 		</tr>
 		<tr>
-			<td>댓글 ${post.b_comments }</td>
-			<td>조회 ${post.b_views }</td>
+			<td align="center">${post.b_writer }</td>
+			<td></td>
+			<td align="center">댓글 ${post.b_comments }</td>
+			<td align="center">조회 ${post.b_views }</td>
 		</tr>
 		<tr>
-			<td><img src="resources/img/${post.b_image }" style="width: auto; height: auto; max-width: 600px; max-height: 400px; ">
+			<td colspan="3"><img src="resources/img/${post.b_image }" style="width: auto; height: auto; max-width: 700px; max-height: 800px; ">
 			<br>${post.b_content }</td>
 		</tr>
 	</table>
@@ -31,28 +32,33 @@
 	<input type="hidden" id="b_content" value="${post.b_content }">
 	<input type="hidden" id="b_image" value="${post.b_image }">
 
-	<div>
+	<div style="padding-top: 20px;">
 		<c:if test="${post.b_writer eq sessionScope.loginMember.m_id}">
-			<button id="modifyButton" onclick="modifyPost();">수정</button>
-			<button id="deleteButton" onclick="deletePost();">삭제</button>
+			<button id="modifyButton" onclick="modifyPost();" style="margin: 5px;">수정</button>
+			<button id="deleteButton" onclick="deletePost();" style="margin: 5px;">삭제</button>
 		</c:if>
-		<button onclick="location.href='goto.board'">목록으로</button>
+		<button onclick="location.href='goto.board'" style="margin: 5px;">목록으로</button>
 	</div>
 	
-	<input type="hidden" id="c_no" value="${post.b_no }">
-	<input type="hidden" id="c_writer" value="${sessionScope.loginMember.m_id}">
-	<textArea id="c_comment" style="width: 400px; margin-top: 50px;"></textArea>
-	<button onclick="writeComment();">등록</button>
+	<div style="height: 150px;">
+		<input type="hidden" id="c_no" value="${post.b_no }">
+		<input type="hidden" id="c_writer" value="${sessionScope.loginMember.m_id}">
+		<table>
+		
+		<tr><td><textArea id="c_comment" style="width: 800px; height: 60px;margin-top: 50px;"></textArea></td>
+		<td><button onclick="writeComment();" style="margin-left: 15px; margin-top: 42px; height: 60px;">등록</button></tr>
+		</table>
+	</div>
 	
-	<table id="commentTable">
+	<table id="commentTable" style="width: 900px;">
 		<c:forEach var="c" items="${comments }">
 			<tr>
 				<td><input id="c_seq" type="hidden" value="${c.c_seq }"></td>
-				<td>${c.c_writer }</td>
-				<td>${c.c_comment }</td>
-				<td><c:if test="${c.c_writer eq sessionScope.loginMember.m_id}"><button id="modifyButton2" onclick="modifyComment();">수정</button></c:if></td>
-				<td><c:if test="${c.c_writer eq sessionScope.loginMember.m_id}"><button onclick="deleteComment();">삭제</button></c:if></td>
-				<td><fmt:formatDate value="${c.c_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+				<td style="width: 80px;">${c.c_writer }</td>
+				<td style="width: 550px;">${c.c_comment }</td>
+				<td style="width: 60px;"><c:if test="${c.c_writer eq sessionScope.loginMember.m_id}"><button id="modifyButton2" onclick="modifyComment();">수정</button></c:if></td>
+				<td style="width: 60px;"><c:if test="${c.c_writer eq sessionScope.loginMember.m_id}"><button onclick="deleteComment();">삭제</button></c:if></td>
+				<td style="width: 150px;"><fmt:formatDate value="${c.c_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 			</tr>
 			</c:forEach>
 	</table>
