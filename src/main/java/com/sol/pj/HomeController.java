@@ -25,7 +25,8 @@ public class HomeController {
 	public String home(HttpServletRequest req) {
 		
 		mDAO.logincheck(req);
-		
+		tDAO.getTourRank(req);
+		tDAO.getSearchRank(req);
 		req.setAttribute("contentPage", "main_view.jsp");
 		return "home";
 	}

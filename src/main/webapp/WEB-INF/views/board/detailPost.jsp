@@ -9,10 +9,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table border="1" id="postTable" style="width: 400px;">
+	<div align="center" style="margin-top:200px;">
+	<table border="1" id="postTable" style="">
 		<tr>
 			<td>${post.b_no }</td>
-			<td>${post.b_title }</td>
+			<td style="width: 500px;">${post.b_title }</td>
 			<td>${post.b_writer }</td>
 			<td><fmt:formatDate value="${post.b_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 		</tr>
@@ -21,8 +22,8 @@
 			<td>조회 ${post.b_views }</td>
 		</tr>
 		<tr>
-			<td><img src="resources/img/${post.b_image }" style="width: auto; height: auto; max-width: 600px; max-height: 400px; "></td>
-			<td>${post.b_content }</td>
+			<td><img src="resources/img/${post.b_image }" style="width: auto; height: auto; max-width: 600px; max-height: 400px; ">
+			<br>${post.b_content }</td>
 		</tr>
 	</table>
 	
@@ -55,5 +56,6 @@
 			</tr>
 			</c:forEach>
 	</table>
+	</div>
 </body>
 </html>
