@@ -25,6 +25,7 @@
 <link rel="stylesheet" href="resources/css/tour.css">
 <link rel="stylesheet" href="resources/css/board.css">
 <link rel="stylesheet" href="resources/css/kakaoMap.css">
+<link rel="stylesheet" href="resources/css/mypage.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
