@@ -62,7 +62,7 @@ function bookmark(){
 
 	//로드가 완료 됐을때
 	
-	$(".item_title").each(function(i,c){
+	$(".check_attr").each(function(i,c){
 		//console.log(this.value);
 		let mark_btn = $(this).children('.mark_btn');
 		
@@ -75,6 +75,12 @@ function bookmark(){
 		let b_contentid = $(this).children('.check_contentid').val();
 		let b_image = $(this).children('.check_image').val();
 
+		
+		console.log(b_id);
+		console.log(b_mapx);
+		console.log(b_mapy);
+		console.log(b_contentid);
+		console.log(b_title);
 
 
 

@@ -125,19 +125,19 @@ public class TourDAO {
             	// nullpoint 처리
             	//addr1
             	if(!itemObject.containsKey("addr1")) {
-            		addr1 = "없음";
+            		addr1 = "정보없음";
                 } else {
                 	addr1 = itemObject.get("addr1").toString();
                 }
             	//contentid
             	if(!itemObject.containsKey("contentid")) {
-            		contentid = "없음";
+            		contentid = "정보없음";
                 } else {
                 	contentid = itemObject.get("contentid").toString();
                 }
             	//title
             	if(!itemObject.containsKey("title")) {
-            		title = "없음";
+            		title = "정보없음";
                 } else {
                 	title = itemObject.get("title").toString();
                 }
@@ -149,8 +149,8 @@ public class TourDAO {
                 }
             	//mapx,mapy
             	if(!itemObject.containsKey("mapx")) {
-            		mapx = "없음";
-            		mapy = "없음";
+            		mapx = "정보없음";
+            		mapy = "정보없음";
                 } else {
                 	mapx = itemObject.get("mapx").toString();
                 	mapy = itemObject.get("mapy").toString();
@@ -195,14 +195,14 @@ public class TourDAO {
 		
 		String contentid = req.getParameter("contentid");
 
-		String parking = "";
-        String chkpet = "";
-        String infocenter = "";
-        String restdate = "";
-        String usetime = "";
-        String expguide = "";
-        String expagerange = "";
-        String chkbabycarriage = "";
+		String parking = "정보없음";
+        String chkpet = "정보없음";
+        String infocenter = "정보없음";
+        String restdate = "정보없음";
+        String usetime = "정보없음";
+        String expguide = "정보없음";
+        String expagerange = "정보없음";
+        String chkbabycarriage = "정보없음";
 		
 		
 		System.out.println(contentid);
@@ -293,18 +293,18 @@ public class TourDAO {
 		
 		
 		
-		String accomcountculture = "";
-		String chkbabycarriageculture = "";
-        String chkpetculture = "";
-        String discountinfo = "";
-        String infocenterculture = "";
-        String parkingculture = "";
-        String parkingfee = "";
-        String restdateculture = "";
-        String usefee = "";
-        String usetimeculture = "";
-        String scale = "";
-        String spendtime = "";
+		String accomcountculture = "정보없음";
+		String chkbabycarriageculture = "정보없음";
+        String chkpetculture = "정보없음";
+        String discountinfo = "정보없음";
+        String infocenterculture = "정보없음";
+        String parkingculture = "정보없음";
+        String parkingfee = "정보없음";
+        String restdateculture = "정보없음";
+        String usefee = "정보없음";
+        String usetimeculture = "정보없음";
+        String scale = "정보없음";
+        String spendtime = "정보없음";
 
 		
 		System.out.println(contentid);
@@ -410,24 +410,24 @@ public class TourDAO {
 	
 	
 	
-	String agelimit = "";
-    String bookingplace = "";
-    String discountinfofestival = "";
-    String eventenddate = "";
-    String eventhomepage = "";
-    String eventplace = "";
-    String eventstartdate = "";
-    String festivalgrade = "";
-    String placeinfo = "";
-    String playtime = "";
-    String program = "";
-    String spendtimefestival = "";
-    String sponsor1 = "";
-    String sponsor1tel = "";
-    String sponsor2 = "";
-    String sponsor2tel = "";
-    String subevent = "";
-    String usetimefestival = "";
+	String agelimit = "정보없음";
+    String bookingplace = "정보없음";
+    String discountinfofestival = "정보없음";
+    String eventenddate = "정보없음";
+    String eventhomepage = "정보없음";
+    String eventplace = "정보없음";
+    String eventstartdate = "정보없음";
+    String festivalgrade = "정보없음";
+    String placeinfo = "정보없음";
+    String playtime = "정보없음";
+    String program = "정보없음";
+    String spendtimefestival = "정보없음";
+    String sponsor1 = "정보없음";
+    String sponsor1tel = "정보없음";
+    String sponsor2 = "정보없음";
+    String sponsor2tel = "정보없음";
+    String subevent = "정보없음";
+    String usetimefestival = "정보없음";
 	
 	
 	System.out.println(contentid);
@@ -557,19 +557,19 @@ public class TourDAO {
 	
 	
 	
-	String accomcountleports = "";
-    String chkbabycarriageleports = "";
-    String chkpetleports = "";
-    String expagerangeleports = "";
-    String infocenterleports = "";
-    String openperiod = "";
-    String parkingfeeleports = "";
-    String parkingleports = "";
-    String reservation = "";
-    String restdateleports = "";
-    String scaleleports = "";
-    String usefeeleports = "";
-    String usetimeleports = "";
+	String accomcountleports = "정보없음";
+    String chkbabycarriageleports = "정보없음";
+    String chkpetleports = "정보없음";
+    String expagerangeleports = "정보없음";
+    String infocenterleports = "정보없음";
+    String openperiod = "정보없음";
+    String parkingfeeleports = "정보없음";
+    String parkingleports = "정보없음";
+    String reservation = "정보없음";
+    String restdateleports = "정보없음";
+    String scaleleports = "정보없음";
+    String usefeeleports = "정보없음";
+    String usetimeleports = "정보없음";
 	
 	
 	System.out.println(contentid);
@@ -679,21 +679,21 @@ public class TourDAO {
 		
 		String contentid =req.getParameter("contentid");
 
-		String discountinfofood = "";
-	    String firstmenu = "";
-	    String infocenterfood = "";
-	    String kidsfacility = "";
-	    String opendatefood = "";
-	    String opentimefood = "";
-	    String packing = "";
-	    String parkingfood = "";
-	    String reservationfood = "";
-	    String restdatefood = "";
-	    String scalefood = "";
-	    String seat = "";
-	    String smoking = "";
-	    String treatmenu = "";
-	    String lcnsno = "";
+		String discountinfofood = "정보없음";
+	    String firstmenu = "정보없음";
+	    String infocenterfood = "정보없음";
+	    String kidsfacility = "정보없음";
+	    String opendatefood = "정보없음";
+	    String opentimefood = "정보없음";
+	    String packing = "정보없음";
+	    String parkingfood = "정보없음";
+	    String reservationfood = "정보없음";
+	    String restdatefood = "정보없음";
+	    String scalefood = "정보없음";
+	    String seat = "정보없음";
+	    String smoking = "정보없음";
+	    String treatmenu = "정보없음";
+	    String lcnsno = "정보없음";
 	    
 		
 		
@@ -825,8 +825,8 @@ public class TourDAO {
 	public void getTourDetail2(HttpServletRequest req) {
 		String contentid =req.getParameter("contentid");
 		
-		String infoname = "";
-        String infotext = "";
+		String infoname = "정보없음";
+        String infotext = "정보없음";
 
 		System.out.println(contentid);
 		String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailInfo";
@@ -928,19 +928,19 @@ public class TourDAO {
 	public void getTourDetail_common(HttpServletRequest req) {
 		int contentid = Integer.parseInt(req.getParameter("contentid"));
 		
-		String createdtime = "";
-		String homepage = "";
-		String modifiedtime = "";
-		String tel = "";
-		String telname = "";
-		String title = "";
-		String addr1 = "";
-		String addr2 = "";
-		String zipcode = "";
-		String mapx = "";
-		String mapy = "";
-		String mlevel = "";
-        String overview = "";
+		String createdtime = "정보없음";
+		String homepage = "정보없음";
+		String modifiedtime = "정보없음";
+		String tel = "정보없음";
+		String telname = "정보없음";
+		String title = "정보없음";
+		String addr1 = "정보없음";
+		String addr2 = "정보없음";
+		String zipcode = "정보없음";
+		String mapx = "정보없음";
+		String mapy = "정보없음";
+		String mlevel = "정보없음";
+        String overview = "정보없음";
 
 		String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon";
 		requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
@@ -1131,19 +1131,27 @@ public class TourDAO {
 	
 	
 	
-public void getsearch(HttpServletRequest req) {
+public void getsearch(int pageNo, HttpServletRequest req) {
 
 		try {
 			
-			String keyword = req.getParameter("keyword");
+			String word = req.getParameter("word");
+			
+			
+			if(req.getParameter("word")==null) {
+				word = (String) req.getSession().getAttribute("word");
+			}
 			
 
+			System.out.println(word);
 			String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword";
 			requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
 			requrl += "&MobileOS=ETC";
 			requrl += "&MobileApp=AppTest";
 			requrl += "&_type=json";
-			requrl += "&keyword="+URLEncoder.encode(keyword, "UTF-8");
+			requrl += "&numOfRows=8";
+			requrl += "&keyword="+URLEncoder.encode(word, "UTF-8");
+			requrl += "&pageNo=" + pageNo;
 			
 			System.out.println(requrl);
 			
@@ -1166,7 +1174,91 @@ public void getsearch(HttpServletRequest req) {
             System.out.println("1111" + body);
             JSONObject items = (JSONObject) body.get("items");
             System.out.println("2" + items);
+            JSONArray item = (JSONArray) items.get("item");
+            System.out.println("3" + item);       
+            
+          //totalCount
+            int allTourListCount;
+            allTourListCount =Integer.parseInt(body.get("totalCount").toString());
+            System.out.println(allTourListCount);
+            
+            int pageCount = (int) Math.ceil(allTourListCount / 8);	//10은 url주소에서 페이지당 10개 보여주는걸로 설정되었기 때문
 
+            
+            //페이지 변수값 넘겨주기
+            req.setAttribute("pageCount", pageCount);	//전체 페이지 수
+            req.setAttribute("curPage", pageNo);		//현재 페이지 수
+            
+            
+            ArrayList<TourList> tourList = new ArrayList<TourList>();
+            String addr1 = null;
+            String contentid = null;
+            String title = null;
+            String firstimage2 = null;
+            String mapx = null;
+            String mapy = null;
+            
+            
+            
+            
+            for(int i=0 ; i < item.size(); i++) {
+            	
+            	JSONObject itemObject = (JSONObject) item.get(i);
+            	
+            	// nullpoint 처리
+            	//addr1
+            	if(!itemObject.containsKey("addr1")) {
+            		addr1 = "정보없음";
+                } else {
+                	addr1 = itemObject.get("addr1").toString();
+                }
+            	//contentid
+            	if(!itemObject.containsKey("contentid")) {
+            		contentid = "정보없음";
+                } else {
+                	contentid = itemObject.get("contentid").toString();
+                }
+            	//title
+            	if(!itemObject.containsKey("title")) {
+            		title = "정보없음";
+                } else {
+                	title = itemObject.get("title").toString();
+                }
+            	//firstimage2
+            	if(!itemObject.containsKey("firstimage2")) {
+            		firstimage2 = "resources/img/s.jpg";
+                } else {
+                	firstimage2 = itemObject.get("firstimage2").toString();
+                }
+            	//mapx,mapy
+            	if(!itemObject.containsKey("mapx")) {
+            		mapx = "정보없음";
+            		mapy = "정보없음";
+                } else {
+                	mapx = itemObject.get("mapx").toString();
+                	mapy = itemObject.get("mapy").toString();
+                }
+            	
+            	
+            	
+            	//각 객체 저장
+            	TourList tl = new TourList(
+            			addr1,
+            			contentid,
+            			title,
+            			mapx,
+            			mapy,
+            			firstimage2
+            			);
+            	tourList.add(tl);
+            }
+            
+            req.setAttribute("tourList", tourList);
+            req.getSession().setAttribute("word", word);
+            
+            
+           
+            
             
 
 		} catch (Exception e) {
@@ -1284,6 +1376,150 @@ public int getmark_change(Bookmark b,HttpServletRequest req) {
 		//req.setAttribute("searchRankList", searchRankList);
 		req.getSession().setAttribute("searchRankList", searchRankList);
 	}
+	
+	/*public void keywordSearch() {
+
+		String contentid =req.getParameter("contentid");
+
+		String discountinfofood = "정보없음";
+	    String firstmenu = "정보없음";
+	    String infocenterfood = "정보없음";
+	    String kidsfacility = "정보없음";
+	    String opendatefood = "정보없음";
+	    String opentimefood = "정보없음";
+	    String packing = "정보없음";
+	    String parkingfood = "정보없음";
+	    String reservationfood = "정보없음";
+	    String restdatefood = "정보없음";
+	    String scalefood = "정보없음";
+	    String seat = "정보없음";
+	    String smoking = "정보없음";
+	    String treatmenu = "정보없음";
+	    String lcnsno = "정보없음";
+	    
+		
+		
+		System.out.println(contentid);
+		String requrl ="http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailIntro";
+		requrl += "?serviceKey=ugrsQN5mBJx2apH2PQGGoKmAb6uyNqMQ4VAQj7RjCnYdrLjq7xeLmrsdyjmj27EjoCoNmhp5uehb2xdSZ7xADg==";
+		////////
+		requrl += "&contentTypeId=39";
+		requrl += "&contentId=" + contentid;
+		requrl += "&MobileOS=ETC";
+		requrl += "&MobileApp=AppTest";
+		requrl += "&_type=json";
+
+		
+		try {
+			
+	        
+			URL url = new URL(requrl);
+			
+			//Connection 설정
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			
+	        //파싱구간
+	        InputStream is = conn.getInputStream();
+			InputStreamReader isr = new InputStreamReader(is, "utf-8");
+			
+	        JSONParser parser = new JSONParser();
+	        JSONObject tourData = (JSONObject) parser.parse(isr);
+	        System.out.println(tourData);
+	        //데이터 뽑기
+	        JSONObject response = (JSONObject) tourData.get("response");
+	        JSONObject body = (JSONObject) response.get("body");
+	        System.out.println("1" + body);
+	        JSONObject items = (JSONObject) body.get("items");
+	        System.out.println("2" + items);
+	        JSONObject item = (JSONObject) items.get("item");
+	        System.out.println("3" + item);
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+		    
+	        
+	       
+	        if(item.containsKey("discountinfofood")) {
+	        	discountinfofood = item.get("discountinfofood").toString();}
+	        
+	        if(item.containsKey("firstmenu")) {
+	        	firstmenu = item.get("firstmenu").toString();}
+	        
+	        if(item.containsKey("infocenterfood")) {
+	        	infocenterfood = item.get("infocenterfood").toString();}
+	        
+	        if(item.containsKey("kidsfacility")) {
+	        	kidsfacility = item.get("kidsfacility").toString();}
+	        
+	        if(item.containsKey("opendatefood")) {
+	        	opendatefood = item.get("opendatefood").toString();}
+	        
+	        if(item.containsKey("opentimefood")) {
+	        	opentimefood = item.get("opentimefood").toString();}
+	        
+	        
+	        
+	       
+		    
+		    
+	        if(item.containsKey("packing")) {
+	        	packing = item.get("packing").toString();}
+	        
+	        if(item.containsKey("parkingfood")) {
+	        	parkingfood = item.get("parkingfood").toString();}
+	        
+	        if(item.containsKey("reservationfood")) {
+	        	reservationfood = item.get("reservationfood").toString();}
+	        
+	        if(item.containsKey("restdatefood")) {
+	        	restdatefood = item.get("restdatefood").toString();}
+	        
+	        if(item.containsKey("scalefood")) {
+	        	scalefood = item.get("scalefood").toString();}
+	        
+	        if(item.containsKey("seat")) {
+	        	seat = item.get("seat").toString();}
+	        
+	        if(item.containsKey("smoking")) {
+	        	smoking = item.get("smoking").toString();}
+	        
+	        if(item.containsKey("treatmenu")) {
+	        	treatmenu = item.get("treatmenu").toString();}
+	        
+	        if(item.containsKey("lcnsno")) {
+	        	lcnsno = item.get("lcnsno").toString();}
+	        
+
+	        TourDetailCT39 tourdetail = new TourDetailCT39(
+	        		 discountinfofood,
+	    		     firstmenu,
+	    		     infocenterfood,
+	    		     kidsfacility,
+	    		     opendatefood,
+	    		     opentimefood,
+	    		     packing,
+	    		     parkingfood,
+	    		     reservationfood,
+	    		     restdatefood,
+	    		     scalefood,
+	    		     seat,
+	    		     smoking,
+	    		     treatmenu,
+	    		     lcnsno,
+	    		     contentid
+	        		); 
+	        req.setAttribute("tourdetail", tourdetail);
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}*/
 
 	
 	

@@ -127,7 +127,22 @@ public class TourController {
 		mDAO.logincheck(req);
 		tdao.searchRank(req, sr);
 		tdao.getSearchRank(req);
-		req.setAttribute("contentPage", "tour/search.jsp");
+		tdao.getsearch(1, req);
+		req.setAttribute("contentPage", "tour/search_view.jsp");
+		
+		return "home";
+	}
+	
+	@RequestMapping(value = "tour.list.search_change", method = RequestMethod.GET)
+	public String toursearchchange(SearchRank sr,HttpServletRequest req) {
+		
+		mDAO.logincheck(req);
+		
+		
+		int p = Integer.parseInt(req.getParameter("p"));
+		
+		tdao.getsearch(p, req);
+		req.setAttribute("contentPage", "tour/search_view.jsp");
 		
 		return "home";
 	}

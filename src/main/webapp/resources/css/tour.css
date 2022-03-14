@@ -1,148 +1,172 @@
 @charset "UTF-8";
 
-footer{
-
-	overflow:hidden;
+footer {
+	overflow: hidden;
 	width: 100%;
-
 }
 
-.wrap{
-
+.wrap {
 	min-height: 100vh;
 }
 
-.tour_list_view{
-	float:left;
+.tour_list_view {
+	float: left;
 	width: 80%;
-	text-align:center;
+	text-align: center;
 	padding: 30px;
 	margin-left: 10%;
 	margin-right: 10%;
 	margin-bottom: 60px;
 }
 
-.list_item{
+.list_item {
 	width: 25%;
 	float: left;
 	padding: 30px;
 	text-align: center;
-	height:230px;
-	margin-bottom:40px;
+	height: 230px;
+	margin-bottom: 40px;
 	display: block;
-    position: relative;
-    overflow: hidden;
-
-}
-.list_item:hover{
-	    box-shadow: 0 20px 20px 0 rgb(0 0 0 / 4%);
+	position: relative;
+	overflow: hidden;
 }
 
-.list_item:hover .item_title{
+.list_item:hover {
+	box-shadow: 0 20px 20px 0 rgb(0 0 0/ 4%);
+}
+
+.list_item:hover .item_title {
 	transition: all .4s ease;
-	bottom:18px;
-	
+	bottom: 18px;
 }
 
-.tour_list_select_wrap{
+.tour_list_select_wrap {
 	position: fixed;
- 	width: 300px;
+	width: 300px;
 	margin-top: 180px;
- 	text-align:right;
- 	padding: 30px;
- 	background-color: #f7f7f7;
- 	top: 0;
- 	right: -300px;
- 	z-index: 5;
+	text-align: right;
+	padding: 30px;
+	background-color: #f7f7f7;
+	top: 0;
+	right: -300px;
+	z-index: 5;
 }
 
-	
-#sidebar > button {
-	background:#333;
+#sidebar>button {
+	background: #333;
 	position: absolute;
 	top: 50px;
 	right: 300px;
 	width: 52px;
 	height: 52px;
 	border: none;
-	
 	color: white;
 }
 
-.tour_list_select{
+.tour_list_select {
 	width: 100%;
 	float: left;
 	margin-bottom: 20px;
-
 }
 
- .tour_list_select ul{
- 	list-style: none;
-}
-
-.area_select{
-	float:left;
-	margin:3px;
-	padding:4px;
-	background-color: white;
-	border: 1px solid white;
-	border-radius: 15px;
-	text-align: center;
-}
-
-.Gu_office{
-	border-top: 1px solid #d8d8d8;
-	float:left;
-	width: 100%;
-
-
-}
-
-.Gu_office ul{
-	margin-top:20px;
+.tour_list_select ul {
 	list-style: none;
 }
 
-.gu_select{
-	float:left;
-	margin:3px;
-	padding:4px;
+.area_select {
+	float: left;
+	margin: 3px;
+	padding: 4px;
 	background-color: white;
 	border: 1px solid white;
 	border-radius: 15px;
 	text-align: center;
 }
-.item_img{
+
+.Gu_office {
+	border-top: 1px solid #d8d8d8;
+	float: left;
+	width: 100%;
+}
+
+.Gu_office ul {
+	margin-top: 20px;
+	list-style: none;
+}
+
+.gu_select {
+	float: left;
+	margin: 3px;
+	padding: 4px;
+	background-color: white;
+	border: 1px solid white;
+	border-radius: 15px;
+	text-align: center;
+}
+
+.item_img {
 	position: relative;
-    width: 100%;
-    height: 180px;
-    background-repeat: no-repeat;
-    background-position: 0px 0px;
-    box-shadow: 1px 5px 10px rgb(0 0 0 / 10%);
-    overflow: hidden;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+	width: 100%;
+	height: 180px;
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	box-shadow: 1px 5px 10px rgb(0 0 0/ 10%);
+	overflow: hidden;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
 }
 
-.item_title{
+.item_title {
 	position: absolute;
-    left: 0px;
-    right: 0;
-	bottom:-20px;
-    z-index: 1;
-    box-sizing: border-box;
-    margin: 0px 40px 0px 40px;
-    width: auto;
-    padding: 0px;
-    background-color: white;
+	left: 0px;
+	right: 0;
+	bottom: -20px;
+	z-index: 1;
+	box-sizing: border-box;
+	margin: 0px 40px 0px 40px;
+	width: auto;
+	padding: 0px;
+	background-color: white;
 }
 
-.list_title{
-	margin-top:6px;
+.list_title {
+	margin-top: 6px;
 	font-size: 16px;
-    font-weight: 500;
-    line-height: 22px;
-
+	font-weight: 500;
+	line-height: 22px;
 }
 
+.detail_title_warp {
+	width: 70%;
+	margin-top: 200px;
+	margin-bottom: 100px;
+	border-bottom: 1px solid #d8d8d8;
+}
 
+.detail_body_warp {
+	width: 70%;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	border-bottom: 1px solid #d8d8d8;
+}
+
+.detail_title {
+	margin-bottom: 38px;
+}
+
+.detail_info {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	margin-left: 20%;
+}
+
+.detail_info_item {
+	width: 50%;
+	margin-bottom: 10px;
+}
+
+.detail_info_item_value{
+	margin-left: 8px;
+}

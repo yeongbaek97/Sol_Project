@@ -61,7 +61,7 @@
 									style="width: 100%; height: 180px; object-fit: cover;">
 							</div>
 
-							<div class="item_title">
+							<div class="item_title check_attr">
 								<div class="mark_btn"
 									style="float: right; margin-right: 5px; z-index: 4;">
 									<span>★</span>
@@ -158,7 +158,7 @@
 
 
 		<!-- 페이징 부분 뷰는 추후에 작업예정 -->
-		<div>
+		<div align="center">
 			<c:if test="${curPage != 1 }">
 				<a href="tour.list.regional_change?p=${curPage - 1 }">이전</a>
 			</c:if>
