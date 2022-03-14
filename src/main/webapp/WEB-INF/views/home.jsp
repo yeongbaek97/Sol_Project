@@ -17,17 +17,24 @@
 <script type="text/javascript" src="resources/js/move.js"></script>
 <script type="text/javascript" src="resources/js/myPage.js"></script>
 <script type="text/javascript" src="resources/js/loginmain.js"></script>
+<<<<<<< HEAD
 <script type="text/javascript" src="resources/js/tourapi.js"></script>
 
+=======
+<script type="text/javascript" src="resources/js/board.js"></script>
+>>>>>>> f152755481d13b680b4de97896d6eccbce8446a0
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f9e56e3f8a09664081781aefaf8493c0&libraries=services"></script>
 <link rel="stylesheet" href="resources/css/home.css">
 <link rel="stylesheet" href="resources/css/accom.css">
 <link rel="stylesheet" href="resources/css/tour.css">
+<link rel="stylesheet" href="resources/css/board.css">
 <link rel="stylesheet" href="resources/css/kakaoMap.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/abbb1ab547.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
 <!-- Favicon -->
 <link href="resources/img/homeImage/favicon.ico" rel="icon">
@@ -73,8 +80,20 @@
         <div class="position-relative mx-auto">
             <input style="width: 300px;" class="form-control border-1 py-3 ps-4 pe-5" id="word" type="text" placeholder="검색어 입력" onkeypress="if(event.keyCode==13){searchEnter();}" onclick="wordVisible();" autocomplete="off">
             <button type="button" style="margin-top: 10px;" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" onclick="searchEnter();">Search</button>
-        </div>
         
+        	<div class="form-control" id="searchWord" style="background-color:white; border-style: ridge; border-width: 1px; border-color: black; position: absolute; visibility: hidden; margin-top: 10px;">
+			<table style="width: 100%">
+				<c:forEach  var="srl" items="${searchRankList }" varStatus="status">
+					<c:if test="${status.index + 1 <= 5 }">
+						<tr style="color: #${status.index + 3}${status.index + 5}${status.index + 3}${status.index + 5}${status.index + 3}${status.index + 5}">
+							<td align="center" style="width: 30%;"><i class="fa-solid fa-${status.index + 1 }" style="font-size: 20px;"></i></td>
+							<td align="center" style="width: 70%; font-family: 'Noto Sans KR', sans-serif; font-weight: bold; font-size: 20px; padding-bottom: 7px;">${srl.word}</td>
+						</tr>
+					</c:if>
+		        </c:forEach>
+			</table>
+			</div>
+        </div>
         
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -92,9 +111,9 @@
                         <a href="tour.list.regional?sigunguCode=0&areaCode=1&ContentTypeId=28" class="dropdown-item">레포츠</a>
                     </div>
                 </div>
-                <a href="#" class="nav-item nav-link">여행게시판</a>
+                <a href="goto.board" class="nav-item nav-link">여행게시판</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">숙소+캠핑</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">숙소</a>
                     <div class="dropdown-menu fade-down m-0">
                         <a href="goto.accom" class="dropdown-item">숙소</a>
                         <a href="goto.gocamping" class="dropdown-item">캠핑</a>

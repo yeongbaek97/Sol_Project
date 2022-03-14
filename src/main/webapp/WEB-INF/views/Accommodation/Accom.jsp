@@ -11,7 +11,7 @@
 <script src="https://tistory1.daumcdn.net/tistory/2784544/skin/images/xmltojsonPast.min.js"></script>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap" style="height: 2500px;">
 	<div class="select_areaCode_option">
 		<select id="areaCode" name="areaCode">
 			<option value="1" selected>서울</option>
@@ -53,19 +53,18 @@
 		<button type="button" id="btn">검색</button>
 	</div>
 	
-	<div style="width: 50%;">
+	<div style="width: 50%; float: left;">
 		<ul id="accom_list_item"></ul>
+
+		<ul id="pagingul" style=" float: left;">
+	</ul>
 	</div>
 	
-	<div style="width: 50%;">		<!-- 이곳에 해주세요 -->
-		
+	
+	<div style="width: 50%; float: right;">		<!-- 이곳에 해주세요 -->
+		<div id="accomMap" style="width:600px; height:600px;"></div>
 	</div>
 
-
-
-
-			<ul id="pagingul">
-			</ul>
 
 
 </div>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sol.pj.board.BoardMapper">
+
+<insert id="writePost" parameterType="com.sol.pj.board.Board">
+	insert into board values (board_seq.nextval, #{b_title}, #{b_content}, #{b_image}, #{b_writer}, 0, 0, sysdate)
+</insert>
+
+<select id="getPost" resultType="com.sol.pj.board.Board">
+	select * from board order by b_no desc
+</select>
+
+<select id="getDetailPost" parameterType="com.sol.pj.board.Board" resultType="com.sol.pj.board.Board">
+	select * from board where b_no = #{b_no}
+</select>
+
+<insert id="writeComment" parameterType="com.sol.pj.board.Comment">
+	insert into comments values (comment_seq.nextval, #{c_no}, #{c_writer}, #{c_comment}, sysdate)
+</insert>
+
+<select id="getComments" resultType="com.sol.pj.board.Comment">
+	select * from comments where c_no = #{c_no} order by c_date desc
+</select>
+
+<update id="commentInc" parameterType="com.sol.pj.board.Board">
+	update board set b_comments = b_comments + 1 where b_no = #{b_no}
+</update>
+
+<update id="commentDec" parameterType="com.sol.pj.board.Board">
+	update board set b_comments = b_comments - 1 where b_no = #{b_no}
+</update>
+
+<update id="viewCount" parameterType="com.sol.pj.board.Board">
+	update board set b_views = b_views + 1 where b_no = #{b_no}
+</update>
+
+<delete id="deletePost" parameterType="com.sol.pj.board.Board">
+	delete from board where b_no = #{b_no}
+</delete>
+
+<update id="modifyPost" parameterType="com.sol.pj.board.Board">
+	update board set b_title = #{b_title}, b_content = #{b_content}, b_image = #{b_image} where b_no = #{b_no}
+</update>
+
+<delete id="deleteComment" parameterType="com.sol.pj.board.Comment">
+	delete from comments where c_seq = ${c_seq}
+</delete>
+
+<update id="modifyComment" parameterType="com.sol.pj.board.Comment">
+	update comments set c_comment = #{c_comment} where c_seq = #{c_seq}
+</update>
+
+</mapper>
