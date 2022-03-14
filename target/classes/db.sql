@@ -101,12 +101,12 @@ create table board (
 	b_date date not null
 )
 
-drop table board;
-insert into board values(board_seq.nextval, '제목2', '내용', '이미지', '작성자', 0, 0, to_date(sysdate, 'yyyy-mm-dd hh24:mi:ss'));
+insert into board values(board_seq.nextval, '제목2', '내용', null, '작성자', 0, 0, to_date(sysdate, 'yyyy-mm-dd hh24:mi:ss'));
+select rownum, board.* from (select * from board order by b_no desc);
+select * from(select row_number() over(order by b_no desc) row_num, board.* from board) where row_num between 1 and 10
+select * from (select rownum rn, a.* from (select * from board order by b_no desc) a) where rn between 11 and 20
 select * from board;
-delete from board
-update board set b_comments = b_comments + 1 where b_no = 13
-
+	
 create sequence comment_seq nocache;
 
 create table comments (
@@ -120,3 +120,7 @@ create table comments (
 
 drop table comments;
 select * from comments;
+
+insert into board values (board_seq.nextval, 'test', 'test', 'test.jpg', 'test', 0, 0, sysdate)
+
+

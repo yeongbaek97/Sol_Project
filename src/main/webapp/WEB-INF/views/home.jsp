@@ -108,7 +108,7 @@
                         <a href="tour.list.regional?sigunguCode=0&areaCode=1&ContentTypeId=28" class="dropdown-item">레포츠</a>
                     </div>
                 </div>
-                <a href="goto.board" class="nav-item nav-link">여행게시판</a>
+                <a href="goto.board?curPage=1" class="nav-item nav-link">여행게시판</a>
                 <a href="goto.accom" class="nav-item nav-link">숙소</a>
                 
             </div>
