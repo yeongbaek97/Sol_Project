@@ -113,4 +113,14 @@ public class BoardController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "/dbtest", method = RequestMethod.GET)
+	public String dbtest(HttpServletRequest req) {
+		
+		mDAO.logincheck(req);
+		bDAO.dbtest(req);
+		
+		req.setAttribute("contentPage", "board/board.jsp");
+		return "home";
+	}
+	
 }

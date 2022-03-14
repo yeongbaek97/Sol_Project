@@ -6,8 +6,8 @@
 	insert into board values (board_seq.nextval, #{b_title}, #{b_content}, #{b_image}, #{b_writer}, 0, 0, sysdate)
 </insert>
 
-<select id="getPost" resultType="com.sol.pj.board.Board">
-	select * from board order by b_no desc
+<select id="getPost" parameterType="com.sol.pj.board.Paging" resultType="com.sol.pj.board.Board">
+	select * from (select rownum rn, a.* from (select * from board order by b_no desc) a) where rn between #{start} and #{end}
 </select>
 
 <select id="getDetailPost" parameterType="com.sol.pj.board.Board" resultType="com.sol.pj.board.Board">
@@ -49,5 +49,13 @@
 <update id="modifyComment" parameterType="com.sol.pj.board.Comment">
 	update comments set c_comment = #{c_comment} where c_seq = #{c_seq}
 </update>
+
+<select id="getTotalPost" resultType="java.lang.Integer">
+	select count(*) from board
+</select>
+
+<insert id="testdb" parameterType="com.sol.pj.board.Board">
+	insert into board values (board_seq.nextval, 'test', 'test', 'test.jpg', 'test', 0, 0, sysdate)
+</insert>
 
 </mapper>

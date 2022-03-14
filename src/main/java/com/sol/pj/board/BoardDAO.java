@@ -22,10 +22,25 @@ public class BoardDAO {
 	
 	public void getPost(HttpServletRequest req) {
 		BoardMapper bm = ss.getMapper(BoardMapper.class);
-		List<Board> posts = bm.getPost();
+		
+		int totalPost, startPage, endPage, curPage, lastPage, start, end, boardPage;
+		
+		curPage = Integer.parseInt(req.getParameter("curPage"));
+		
+		totalPost = bm.getTotalPost();
+		lastPage = (totalPost / 10) + 1;
+		startPage = (curPage / 10) * 10 + 1;
+		endPage = (curPage / 10) * 10 + 10;
+		start = ((curPage - 1) * 10) + 1;
+		end = ((curPage - 1) * 10) + 10;
+		boardPage = ((curPage-1) / 10) + 1;
+		
+		Paging p = new Paging(totalPost, startPage, endPage, lastPage, start, end, boardPage);
+		
+		req.setAttribute("p", p);
+		List<Board> posts = bm.getPost(p);
 		
 		req.setAttribute("posts", posts);
-		
 	}
 
 	public void writePost(HttpServletRequest req, Board b) {
@@ -38,7 +53,13 @@ public class BoardDAO {
 			String b_title = mr.getParameter("b_title");
 			String b_content = mr.getParameter("b_content");
 			String b_image = mr.getFilesystemName("b_image");
-			b_image = URLEncoder.encode(b_image, "utf-8");
+			if(b_image != null) {
+				b_image = URLEncoder.encode(b_image, "utf-8");
+				
+				b.setB_image(b_image.replace("+", " "));
+			} else {
+				b.setB_image("");
+			}
 			
 			String b_writer = mr.getParameter("b_writer");
 			System.out.println(b_title);
@@ -48,7 +69,6 @@ public class BoardDAO {
 			
 			b.setB_title(b_title);
 			b.setB_content(b_content);
-			b.setB_image(b_image.replace("+", " "));
 			b.setB_writer(b_writer);
 			
 			BoardMapper bm = ss.getMapper(BoardMapper.class);
@@ -120,6 +140,14 @@ public class BoardDAO {
 		System.out.println(req.getParameter("c_comment"));
 		bm.modifyComment(c);
 		
+	}
+
+	public void dbtest(HttpServletRequest req) {
+		BoardMapper bm = ss.getMapper(BoardMapper.class);
+		
+		for(int i=0; i<100; i++) {
+			bm.testdb();
+		}
 	}
 
 

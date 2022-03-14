@@ -16,6 +16,7 @@
 
 
 	<div align="right" style="margin-top:38px; margin-right: 10%;">
+		<button onclick="location.href='/dbtest'" style="margin-bottom:8px">더미추가</button>
 		<button onclick="gotoWrite();" style="margin-bottom:8px">글쓰기</button>
 	</div>
 	<div align="center" style="margin-left: 10%;margin-right: 10%;padding: 20px 50px 50px 50px;">
@@ -36,7 +37,7 @@
 			<c:forEach var="p" items="${posts }">
 			<tr id="post" onclick="detailPost();" align="center" style="height:40px;">
 				<td>${p.b_no }</td>
-				<td align="left" style="">${p.b_title }</td>
+				<td align="left" style="padding-left: 20px;">${p.b_title }</td>
 				<td>${p.b_writer }</td>
 				<td>${p.b_comments }</td>
 				<td>${p.b_views }</td>
@@ -46,7 +47,26 @@
 		</table>
 	</form>
 	
-	
+	<div style="padding-top: 20px;">
+		<c:if test="${param.curPage gt 10 }">
+			<a href='goto.board?curPage=${(p.boardPage-2)*10+1}'>◀ &nbsp;&nbsp;&nbsp;</a>
+		</c:if>
+		
+		<c:if test="${p.endPage lt p.lastPage }">
+		<c:forEach begin="${p.startPage }" end="${p.endPage }" varStatus="status">
+			<a href='goto.board?curPage=${((p.boardPage-1)*10)+status.count }'>${((p.boardPage-1)*10)+status.count } &nbsp;&nbsp;&nbsp;</a>
+		</c:forEach>
+		</c:if>
+		
+		<c:if test="${p.endPage gt p.lastPage }">
+		<c:forEach begin="${p.startPage }" end="${p.lastPage }" varStatus="status">
+			<a href='goto.board?curPage=${((p.boardPage-1)*10)+status.count }'>${((p.boardPage-1)*10)+status.count } &nbsp;&nbsp;&nbsp;</a>
+		</c:forEach>
+		</c:if>
+		
+		<c:if test="${p.endPage lt p.lastPage }">
+			<a href='goto.board?curPage=${p.boardPage*10+1}'>▶</a>
+		</c:if>
 	</div>
 	
 	<input id="loginCheck" type="hidden" value="${sessionScope.loginMember.m_id}">

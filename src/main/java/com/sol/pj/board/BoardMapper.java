@@ -7,7 +7,7 @@ public interface BoardMapper {
 
 	int writePost(Board b);
 
-	List<Board> getPost();
+	List<Board> getPost(Paging p);
 
 	Board getDetailPost(Board b);
 
@@ -28,6 +28,10 @@ public interface BoardMapper {
 	void deleteComment(Comment c);
 
 	void modifyComment(Comment c);
+
+	int getTotalPost();
+
+	void testdb();
 
 
 }
