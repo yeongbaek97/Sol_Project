@@ -12,6 +12,7 @@
 
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/kakaoMap.js"></script>
+<script type="text/javascript" src="resources/js/tourapi.js"></script>
 
 <script type="text/javascript" src="resources/js/home.js"></script>
 <script type="text/javascript" src="resources/js/move.js"></script>

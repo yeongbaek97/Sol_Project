@@ -120,7 +120,7 @@ footer {
 	position: absolute;
 	left: 0px;
 	right: 0;
-	bottom: -20px;
+	bottom: -38px;
 	z-index: 1;
 	box-sizing: border-box;
 	margin: 0px 40px 0px 40px;
@@ -134,7 +134,24 @@ footer {
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 22px;
+	
+
+	display:inline-block;
+	white-space: nowrap;
+	overflow:hidden;
+	text-overflow: ellipsis;
+	width: 230px;
+
 }
+
+.list_addr{
+	display:inline-block;
+	white-space: nowrap;
+	overflow:hidden;
+	text-overflow: ellipsis;
+	width: 210px;
+	
+	}
 
 .detail_title_warp {
 	width: 70%;
@@ -170,3 +187,4 @@ footer {
 .detail_info_item_value{
 	margin-left: 8px;
 }
+

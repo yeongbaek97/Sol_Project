@@ -11,7 +11,9 @@
 <script src="https://tistory1.daumcdn.net/tistory/2784544/skin/images/xmltojsonPast.min.js"></script>
 </head>
 <body>
-<div class="wrap" style="height: 2500px;">
+<div class="wrap">
+
+<div class="option_select">
 	<div class="select_areaCode_option">
 		<select id="areaCode" name="areaCode">
 			<option value="1" selected>서울</option>
@@ -32,10 +34,7 @@
 			<option value="38">전라남도</option>
 			<option value="39">제주도</option>
 		</select>
-	</div>
-
-	<div class="select_classification_option">
-
+		
 		<select id="classification" name="classification">
 			<option value="B02010100">호텔</option>
 			<option value="B02010900">모텔</option>
@@ -52,17 +51,22 @@
 		
 		<button type="button" id="btn">검색</button>
 	</div>
+
 	
-	<div style="width: 50%; float: left;">
+</div>
+	
+	
+	
+	<div style="width: 50%; float: left;padding-left: 100px;">
 		<ul id="accom_list_item"></ul>
 
-		<ul id="pagingul" style=" float: left;">
+		<ul id="pagingul" style=" float: left;margin-left: 98px;">
 	</ul>
 	</div>
 	
 	
 	<div style="width: 50%; float: right;">		<!-- 이곳에 해주세요 -->
-		<div id="accomMap" style="width:600px; height:600px;"></div>
+		<div id="accomMap" style="width:800px; height:600px;margin-top: 12px;margin-right: 10%;"></div>
 	</div>
 
 

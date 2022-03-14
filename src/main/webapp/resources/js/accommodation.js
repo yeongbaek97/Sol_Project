@@ -169,7 +169,7 @@ function process() {
 				
 				
 				list_item += "<div>";
-					list_item += item[i].title;
+					list_item += "<strong class='accom_item_title'>" + item[i].title + "</strong>";
 					list_item += "<input type='hidden' id='mapx' value=" + item[i].mapx + ">";
 					list_item += "<input type='hidden' id='mapy' value=" + item[i].mapy + ">";
 

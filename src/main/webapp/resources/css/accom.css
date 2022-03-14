@@ -41,8 +41,8 @@
 ul {
     text-align: center;
     display: inline-block;
-    border: 1px solid #ccc;
-    border-right: 0;
+   	list-style:none;
+
 }
 
 ul li {
@@ -64,4 +64,29 @@ ul li.on {
 
 ul li.on a {
     color: #fff;
+}
+
+.option_select{
+	margin-top: 158px;
+	margin-left: 5%;
+	padding-bottom:38px;
+	border-bottom: 1px solid #d8d8d8;
+	margin-right: 5%;
+}
+
+
+
+
+.accom_item{
+	margin: 0;
+	padding: 18px;
+	}
+	
+	
+.accom_item_title{
+	display:inline-block;
+	white-space: nowrap;
+	overflow:hidden;
+	text-overflow: ellipsis;
+	width: 190px;
 }
