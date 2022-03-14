@@ -233,7 +233,13 @@ public class MemberDAO {
 
 	public int checkIdValue(Member m) {
 		int cnt = ss.getMapper(MemberMapper.class).checkIdValue(m);
-		System.out.println("DAO cnt: " + cnt);
+		System.out.println("DAO ID cnt: " + cnt);
+		return cnt;
+	}
+	
+	public int checkEmailValue(Member m) {
+		int cnt = ss.getMapper(MemberMapper.class).checkEmailValue(m);
+		System.out.println("DAO Email cnt: " + cnt);
 		return cnt;
 	}
 
@@ -285,5 +291,5 @@ public class MemberDAO {
 		}
 		
 	}
-	
+
 }

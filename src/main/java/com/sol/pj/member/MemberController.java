@@ -42,6 +42,9 @@ public class MemberController {
 		mDAO.logout(req);
 		mDAO.logincheck(req);
 		
+		// myPage에서 로그아웃 버튼을 누르면 myPage 화면은 그대로 나오고, home으로 가서 추가함
+		req.setAttribute("contentPage", "main_view.jsp");
+		
 		return "home";
 	}
 	
@@ -78,9 +81,17 @@ public class MemberController {
 	
 	@RequestMapping(value = "checkID.value", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
 	public @ResponseBody int checkIdValue(Member m) {
-		System.out.println("이동완료");
+		System.out.println("아이디 이동완료");
 		int cnt = mDAO.checkIdValue(m);
-		System.out.println("Controller cnt: " + cnt);
+		System.out.println("ID C cnt: " + cnt);
+		return cnt;
+	}
+	
+	@RequestMapping(value = "checkEmail.value", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+	public @ResponseBody int checkEmailValue(Member m) {
+		System.out.println("이메일 이동완료");
+		int cnt = mDAO.checkEmailValue(m);
+		System.out.println("Email C cnt: " + cnt);
 		return cnt;
 	}
 	
@@ -119,21 +130,23 @@ public class MemberController {
 		return "home";
 	}
 	
+	// ID/PW 찾으러 가기
 	@RequestMapping(value = "findInfo.login", method = RequestMethod.GET)
 	public String findInfo(HttpServletRequest req) {
 		req.setAttribute("contentPage", "member/FindInfo.jsp");
 		return "home";
 	}
 	
+	// ID 찾기
 	@RequestMapping(value = "find.IDValue", method = RequestMethod.POST)
 	public String findID(HttpServletRequest req, Member m) {
-		
 		mDAO.findID(req, m);
 		System.out.println(req.getAttribute("id"));
 		req.setAttribute("contentPage", "member/FindResult.jsp");
 		return "home";
 	}
 	
+	// PW 찾기
 	@RequestMapping(value = "find.PWValue", method = RequestMethod.POST)
 	public String findPW(HttpServletRequest req, Member m) {
 		mDAO.findPW(req, m);

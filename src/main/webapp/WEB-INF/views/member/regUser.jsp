@@ -29,7 +29,8 @@ function maxLengthCheck(object){
 </script>
 <script type="text/javascript">
 $(function() {
-		$("#inputID").keyup(function() {
+	
+	$("#inputID").keyup(function() {
 		let inputVal = $("#inputID").val();
 		var cnt;
 		
@@ -45,16 +46,41 @@ $(function() {
 				if(cnt != 1){ // cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디
 					$('#idCheck').text("사용 가능한 아이디입니다.");
 					$('#idCheck').css("color", "#1da0f2");
-                } else { // cnt가 1일 경우 -> 이미 존재하는 아이디
-                    $('#inputID').attr("class", "form-input error");
-                	$('#inputID').attr("aria-invalid", "true");
-                    $('#idCheck').text("이미 존재하는 아이디입니다. 다른 아이디를 입력해주세요.");
-                    $('#idCheck').css("color","#C70000");
-                }
+	               } else { // cnt가 1일 경우 -> 이미 존재하는 아이디
+	                   $('#inputID').attr("class", "form-input error");
+	               	$('#inputID').attr("aria-invalid", "true");
+	                   $('#idCheck').text("이미 존재하는 아이디입니다. 다른 아이디를 입력해주세요.");
+	                   $('#idCheck').css("color","#C70000");
+	                   $(':input[type="submit"]').prop('disabled', true);
+	               }
 			}
 		})
-	
 	})
+	
+	$("#inputEmail").keyup(function() {
+		let inputVal = $("#inputEmail").val();
+		
+		$.ajax({
+			url : "checkEmail.value",
+			type : "POST",
+			dataType : 'json',
+			data : {"m_email" : inputVal},
+			success : function(data) {
+				console.log(data);
+				if(data != 1){ // data가 1이 아니면(=0일 경우) -> 사용 가능한 이메일
+					$('#emailCheck').text("사용 가능한 이메일입니다.");
+					$('#emailCheck').css("color", "#1da0f2");
+				} else { // data가 1일 경우 -> 이미 존재하는 이메일
+					$('#inputEmail').attr("class", "form-input error");
+					$('#inputEmail').attr("aria-invalid", "true");
+					$('#emailCheck').text("이 이메일로 가입한 아이디가 있습니다. 다른 이메일을 사용해주세요.");
+					$('#emailCheck').css("color","#C70000");
+					$(':input[type="submit"]').prop('disabled', true);
+				}
+			}
+		})
+	})
+	
 })
 </script>
 </head>
@@ -79,7 +105,8 @@ $(function() {
 						
 						<div class="form-group">
 							<label for="email">Email</label>
-							<input type="email" class="form-input" name="m_email" id="email" />
+							<input type="email" class="form-input" name="m_email" id="inputEmail" />
+							<label id="emailCheck" for="validate"></label>
 						</div>
 						
 						<div class="form-group">
