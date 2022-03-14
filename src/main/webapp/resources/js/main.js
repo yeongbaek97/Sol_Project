@@ -1,4 +1,4 @@
-(function ($) {
+$(function() {
     "use strict";
 
     // Spinner
@@ -105,4 +105,4 @@
         }
     });
     
-})(jQuery);
+});

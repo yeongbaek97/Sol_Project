@@ -63,8 +63,6 @@
 						SIGN IN
 					</span>
 
-
-
 					<div class="wrap-input100 validate-input m-t-16 m-b-16" data-validate="Please enter userID">
 						<input class="input100" type="text" id="m_id" name="m_id" placeholder="UserID">
 
@@ -103,13 +101,20 @@
 						</div>
 					</div>
 
-					<div class="flex-col-c p-t-170 p-b-40">
-						<span class="txt1 p-b-9">
+					<div class="flex-row p-t-170 p-b-5">
+						<span class="txt1 p-b-9" style="flex: 1 1 40%; text-align: center">
 							계정이 없으신가요?
 						</span>
-
-						<a href="goto.Reg" class="txt3">
+						<span class="txt1 p-b-9" style="flex: 1 1 40%; text-align: center">
+							메인페이지로 돌아가기
+						</span>
+					</div>
+					<div class="flex-row p-t-5 p-b-40">
+						<a href="goto.Reg" class="txt3" style="flex: 1 1 40%; text-align: center">
 							회원가입
+						</a>
+						<a href="goto.Index" class="txt3" style="flex: 1 1 40%; text-align: center">
+							Home
 						</a>
 					</div>
 				</form>
