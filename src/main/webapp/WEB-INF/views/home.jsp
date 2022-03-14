@@ -69,7 +69,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0" style="position: fixed; width: 100%;">
         <a href="goto.Index" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary">Title</h2>
+            <h2 class="m-0 text-primary">TourGether</h2>
         </a>
         
         <div class="position-relative mx-auto">

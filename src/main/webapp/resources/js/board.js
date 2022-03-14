@@ -1,8 +1,16 @@
+function gotoWrite() {
+	var loginCheck = document.getElementById("loginCheck").value;
+	
+	if(loginCheck == "") {
+		alert("로그인이 필요합니다.")
+	} else {
+		location.href='goto.write';
+	}
+}
+
 function writePost() {
 	var form = $('#writePostForm')[0];
 	var formData = new FormData(form);
-	console.log(form)
-	console.log(formData)
 	
 	$.ajax({
 		type: "POST",
@@ -33,22 +41,26 @@ function writeComment() {
 	var c_writer = document.getElementById("c_writer").value;
 	var c_comment = document.getElementById("c_comment").value;
 	
-	console.log(c_no);
-	console.log(c_comment);
-	
-	$.ajax({
-		type: "GET",
-		url : "write.comment",
-		data: {
-			c_no: c_no,
-			b_no: b_no,
-			c_writer: c_writer,
-			c_comment: c_comment
-		},
-		success: function(data) {
-			window.location.reload();
-		}
-	})
+	var loginCheck = document.getElementById("c_writer").value;
+	if(loginCheck == "") {
+		alert("로그인이 필요합니다.")
+	} else if(c_comment == "") {
+		alert("내용을 입력하세요.")
+	} else {
+		$.ajax({
+			type: "GET",
+			url : "write.comment",
+			data: {
+				c_no: c_no,
+				b_no: b_no,
+				c_writer: c_writer,
+				c_comment: c_comment
+			},
+			success: function(data) {
+				window.location.reload();
+			}
+		})
+	}
 }
 
 function modifyPost() {
