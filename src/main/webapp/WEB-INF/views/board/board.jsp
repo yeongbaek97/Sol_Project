@@ -14,9 +14,8 @@
 		<h1> 여행 게시판</h1>
 	</div>
 
-
 	<div align="right" style="margin-top:38px; margin-right: 10%;">
-		<button onclick="location.href='/dbtest'" style="margin-bottom:8px">더미추가</button>
+		<button onclick="location.href='/dbtest'" style="margin-bottom:8px; display: none;">더미추가</button>
 		<button onclick="gotoWrite();" style="margin-bottom:8px">글작성</button>
 	</div>
 	

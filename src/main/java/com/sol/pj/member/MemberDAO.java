@@ -159,8 +159,8 @@ public class MemberDAO {
 
             //가져올 정보 적으면 되는듯
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
-
-            String profile_image = properties.getAsJsonObject().get("profile_image").getAsString();
+            
+      
 
 
             //String email = kakao_account.getAsJsonObject().get("email").getAsString();
@@ -171,16 +171,15 @@ public class MemberDAO {
             userInfo.put("accessToken", access_Token);
             userInfo.put("nickname", nickname);
 
-            userInfo.put("profile_image", profile_image);
            // userInfo.put("email", email);
             
             Member dbMember = new Member(
-            		"asd",
+            		"변경해 주세요",
             		access_Token,
             		nickname,
-            		"asd",
-            		"asd",
-            		profile_image
+            		"변경해 주세요",
+            		"변경해 주세요",
+            		"변경해 주세요"
             		);
             
             req.getSession().setAttribute("loginMember", dbMember);

@@ -54,47 +54,48 @@
 				</div>
 				
 			</div>
-			
-			<div class="tour_list_view">
-			<c:forEach var="c" items="${mypage_bookmark}" varStatus="status">
-				<div>
-					<form id="list${status.index }" action="tour.list.detail"
-						method="post">
-						<div class="list_item" id="dd"
-							onclick="document.forms['list${status.index }'].submit();">
-							<div class="item_img">
-								<img src="${c.b_image }"
-									style="width: 100%; height: 180px; object-fit: cover;">
-							</div>
-	
-							<div class="item_title check_attr">
-								<div class="mark_btn"
-									style="float: right; margin-right: 5px; z-index: 4;">
-									<span>★</span>
+			<div style="text-align: center;">
+				<div class="" style="display:inline-block; width: 1200px;">
+				<c:forEach var="c" items="${mypage_bookmark}" varStatus="status">
+					<div>
+						<form id="list${status.index }" action="tour.list.detail"
+							method="post">
+							<div class="list_item" id="dd"
+								onclick="document.forms['list${status.index }'].submit();">
+								<div class="item_img">
+									<img src="${c.b_image }"
+										style="width: 100%; height: 180px; object-fit: cover;">
 								</div>
+		
+								<div class="item_title check_attr">
+									<div class="mark_btn"
+										style="float: right; margin-right: 5px; z-index: 4;">
+										<span>★</span>
+									</div>
+		
+									<div>
+										<img src="resources/img/neogul.png"
+											style="position: absolute; width: 100px; height: 80px; left: -50px; top: -18px">
+									</div>
+									<div class="list_title">${c.b_title }</div>
+									<div class="list_title">${c.b_addr1 }</div>
+									
 	
-								<div>
-									<img src="resources/img/neogul.png"
-										style="position: absolute; width: 100px; height: 80px; left: -50px; top: -18px">
+									<input type="hidden" id="contentTypeId" name="contentTypeId" value="${c.b_contentTypeId }">
+									
+									<input type="hidden" class="check_mapx" name="x" value="${c.b_mapx }">
+									<input type="hidden" class="check_mapy" name="y" value="${c.b_mapy }">
+									<input type="hidden" class="check_title" name="title" value="${c.b_title }">
+									<input type="hidden" class="check_contentid" name="contentid" value="${c.b_contentid }">
+									<input type="hidden" class="check_addr1" name="addr1" value="${c.b_addr1 }">
+									<input type="hidden" class="check_image" name="image" value="${c.b_image }">
+		
 								</div>
-								<div class="list_title">${c.b_title }</div>
-								<div class="list_title">${c.b_addr1 }</div>
-								
-
-								<input type="hidden" id="contentTypeId" name="contentTypeId" value="${c.b_contentTypeId }">
-								
-								<input type="hidden" class="check_mapx" name="x" value="${c.b_mapx }">
-								<input type="hidden" class="check_mapy" name="y" value="${c.b_mapy }">
-								<input type="hidden" class="check_title" name="title" value="${c.b_title }">
-								<input type="hidden" class="check_contentid" name="contentid" value="${c.b_contentid }">
-								<input type="hidden" class="check_addr1" name="addr1" value="${c.b_addr1 }">
-								<input type="hidden" class="check_image" name="image" value="${c.b_image }">
-	
 							</div>
-						</div>
-					</form>
-				</div>
-			</c:forEach>
+						</form>
+					</div>
+				</c:forEach>
+			</div>
 		</div>
 	</div>
 
