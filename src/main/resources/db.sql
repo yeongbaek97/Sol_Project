@@ -1,5 +1,5 @@
 create table member(
-	m_id varchar2(20 char) primary key,
+	m_id varchar2(100 char) primary key,
 	m_pw varchar2(30 char) not null,
 	m_name varchar2(20 char) not null,
 	m_email varchar2(20 char) not null,
@@ -26,7 +26,7 @@ ALTER TABLE member ADD(m_number varchar2(50 char));
 
 create table bookmark(
 	b_no varchar2 (30 char) primary key,
-	b_id varchar2 (30 char) not null,
+	b_id varchar2 (100 char) not null,
 	b_mapx varchar2 (30 char) not null,
 	b_mapy varchar2 (30 char) not null,
 	b_contentid varchar2 (30 char) not null,
@@ -81,6 +81,8 @@ create table tourRank(
 	x varchar2 (30 char) not null,
 	y varchar2 (30 char) not null
 )
+
+drop table tourRank
 
 select * from tourRank
 delete from tourrank
