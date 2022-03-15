@@ -23,8 +23,8 @@
 			<td align="center">조회 ${post.b_views }</td>
 		</tr>
 		<tr>
-			<td colspan="3"><img src="resources/img/${post.b_image }" style="width: auto; height: auto; max-width: 700px; max-height: 800px; ">
-			<br>${post.b_content }</td>
+			<td colspan="3" style="padding: 8px;"><img src="resources/img/${post.b_image }" style="width: auto; height: auto; max-width: 500px; max-height: 500px; ">
+			<br><br><br>${post.b_content }</td>
 		</tr>
 	</table>
 	
