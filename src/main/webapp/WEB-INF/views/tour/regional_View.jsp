@@ -156,15 +156,40 @@
 
 
 
-		<!-- 페이징 부분 뷰는 추후에 작업예정 -->
+		
 		<div align="center">
-			<c:if test="${curPage != 1 }">
-				<a href="tour.list.regional_change?p=${curPage - 1 }">이전</a>
-			</c:if>
-			<c:if test="${curPage != pageCount }">
-				<a href="tour.list.regional_change?p=${curPage + 1 }">다음</a>
-			</c:if>
+		
+		<c:if test="${curPage gt 10 }">
+			<a href="tour.list.regional_change?p=${(pageGroup-1)*10 -9}">◀ &nbsp;&nbsp;&nbsp;</a>
+		</c:if>
+		
+		
+		<c:if test="${endPage lt pageCount }">
+			<c:forEach begin="${startPage }" end="${endPage }" varStatus="status">
+				<a href="tour.list.regional_change?p=${startPage-1 + status.count }">${startPage-1 + status.count } &nbsp;&nbsp;&nbsp;</a>
+			</c:forEach>
+		</c:if>
+		
+		<c:if test="${endPage ge pageCount }">
+			<c:forEach begin="${startPage }" end="${pageCount }" varStatus="status">
+				<a href="tour.list.regional_change?p=${startPage-1 + status.count }">${startPage-1 + status.count } &nbsp;&nbsp;&nbsp;</a>
+			</c:forEach>
+		</c:if>
+				
+		<c:if test="${pageGroup*10 lt pageCount }">
+			<a href="tour.list.regional_change?p=${pageGroup*10 +1 }">▶</a>
+		</c:if>
+		
 		</div>
+		
+	
+		
+		
+		
+		
+		
+		
+	
 
 	</div>
 </body>

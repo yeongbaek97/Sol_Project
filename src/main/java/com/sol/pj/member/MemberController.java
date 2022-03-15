@@ -107,6 +107,7 @@ public class MemberController {
 		mDAO.logincheck(req);
 		tdao.getmark(b,req);
 		
+		
 		req.setAttribute("contentPage", "member/myPage.jsp");
 		
 		return "home";

@@ -2,7 +2,6 @@ package com.sol.pj.tour;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -18,8 +17,6 @@ import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sol.pj.accom.Accom;
-import com.sol.pj.member.Member;
 
 @Service
 public class TourDAO {
@@ -100,12 +97,37 @@ public class TourDAO {
             allTourListCount =Integer.parseInt(body.get("totalCount").toString());
             System.out.println(allTourListCount);
             
-            int pageCount = (int) Math.ceil(allTourListCount / 8);	//10은 url주소에서 페이지당 10개 보여주는걸로 설정되었기 때문
+            System.out.println(2/10);
+            
+            int pageCount = (int) Math.ceil((double)allTourListCount / 8);	//8은 url주소에서 페이지당 8개 보여주는걸로 설정되었기 때문
+            System.out.println("pageCount :" + pageCount);
+            int pageGroup = (int) Math.ceil((double)pageNo / 10); // 페이지 그룹
+            System.out.println("pageGroup :" + pageGroup);
+            int lastpage = pageGroup * pageCount; //화면에 보여질 마지막 페이지 번호
+            System.out.println("lastpage :" + lastpage);
+            
 
+            int startPage = pageGroup*10-9;	//페이지 시작 번호
+           // int startPage = (pageNo / 10) * 10 + 1;	//페이지 시작 번호
+            System.out.println("startPage :" + startPage);
+            int endPage = pageGroup*10;	//페이지 마지막 번호
+            
+            System.out.println("endPage :" + endPage);
+            
+    		
+    		
+    		/*endPage = (curPage / 10) * 10 + 10;
+    		start = ((curPage - 1) * 10) + 1;
+    		end = ((curPage - 1) * 10) + 10;
+    		boardPage = ((curPage-1) / 10) + 1;*/
             
             //페이지 변수값 넘겨주기
             req.setAttribute("pageCount", pageCount);	//전체 페이지 수
             req.setAttribute("curPage", pageNo);		//현재 페이지 수
+            req.setAttribute("pageGroup", pageGroup);		//페이지 수
+            req.setAttribute("startPage", startPage);		//페이징 시작
+            req.setAttribute("endPage", endPage);		//페이징 끝
+            req.setAttribute("lastpage", lastpage);		//마지막 페이지 번호
             
             
             
@@ -1282,9 +1304,8 @@ public int getmark(Bookmark b,HttpServletRequest req) {
 	
 	List<Bookmark> bookmark = ss.getMapper(BookmarkMapper.class).getMarkByID(b);
 
-	System.out.println(bookmark);
 	if(bookmark.size() !=0) {
-		req.setAttribute("bookmark", bookmark);
+		req.setAttribute("mypage_bookmark", bookmark);
 		
 		for(Bookmark list: bookmark) {
 			
@@ -1302,14 +1323,18 @@ public int getmark(Bookmark b,HttpServletRequest req) {
 
 public int getmark_change(Bookmark b,HttpServletRequest req) {
 	
+
 	List<Bookmark> bookmark = ss.getMapper(BookmarkMapper.class).getMarkByID(b);
 	//conid랑 비교해서 같은게 있으면 리턴값 보내고
 	
 	//없으면 데이터 저장해서 리턴값 다른거 보내고
 
 	
+	
 	if(bookmark.size() !=0) {
 		for(Bookmark list: bookmark) {
+			
+			
 			
 			if(req.getParameter("b_contentid").equals(list.getB_contentid())) {
 				//제거
@@ -1329,6 +1354,7 @@ public int getmark_change(Bookmark b,HttpServletRequest req) {
 	
 	
 	
+
 	
 	
 	

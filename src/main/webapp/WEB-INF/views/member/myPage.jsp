@@ -33,7 +33,10 @@
 				<div class="mp_tour">
 					<div class="profile_title">
 						<h2>투어 목록</h2>
-					${bookmark[0].b_title }	
+						<c:forEach var="c" items="${mypage_bookmark }">
+								${c.b_title }
+						</c:forEach>
+					
 						
 					</div>
 					
