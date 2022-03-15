@@ -84,16 +84,16 @@ public class TourController {
 		tdao.TourRank(req, tr);
 		
 		String cti = req.getParameter("contentTypeId");
-		System.out.println(cti);
-		if(cti.equals("카페")) {
+		System.out.println("cti : " +cti);
+		if(cti.equals("39")) {
 			req.getSession().setAttribute("ContentTypeId", "39");
-		} else if(cti.equals("관광지")) {
+		} else if(cti.equals("12")) {
 			req.getSession().setAttribute("ContentTypeId", "12");
-		} else if(cti.equals("행사/공연/축제")) {
+		} else if(cti.equals("15")) {
 			req.getSession().setAttribute("ContentTypeId", "15");
-		} else if(cti.equals("문화시설")) {
+		} else if(cti.equals("14")) {
 			req.getSession().setAttribute("ContentTypeId", "14");
-		} else if(cti.equals("레포츠")) {
+		} else if(cti.equals("28")) {
 			req.getSession().setAttribute("ContentTypeId", "28");
 		}
 		

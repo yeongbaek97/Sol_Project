@@ -25,7 +25,7 @@
 					class="check_title" value="${tourdetailcommon.title }"> <input
 					type="hidden" class="check_image" value="${param.image }">
 				<input type="hidden" class="check_addr1" value="${tourdetailcommon.addr1}">
-				<input type="hidden" id="contentTypeId" value="${sessionScope.ContentTypeId}">
+				<input id="contentTypeId" value="${sessionScope.ContentTypeId}">
 			</div>
 
 

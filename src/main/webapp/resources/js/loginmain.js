@@ -71,7 +71,7 @@ function logout() {
 		data: {
 		},
 		success: function(data) {
-			window.location.reload();
+			location.href="goto.Index"
 		}
 	})
 

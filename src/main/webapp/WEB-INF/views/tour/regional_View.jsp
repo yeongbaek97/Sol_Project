@@ -21,32 +21,6 @@
 			style="margin-top: 150px; margin-left: 10%; margin-right: 10%; border-bottom: 1px solid #d8d8d8;">
 			<strong style="font-size: 40px;">여행지</strong>
 
-			<c:choose>
-				<c:when test="${ContentTypeId == 12}">
-					<input type="hidden" name="contentTypeId" value="관광지">
-
-				</c:when>
-				<c:when test="${ContentTypeId == 15}">
-					<input type="hidden" name="contentTypeId" value="행사/공연/축제">
-
-				</c:when>
-				<c:when test="${ContentTypeId == 14}">
-					<input type="hidden" name="contentTypeId" value="문화시설">
-
-				</c:when>
-				<c:when test="${ContentTypeId == 28}">
-					<input type="hidden" name="contentTypeId" value="레포츠">
-
-				</c:when>
-				<c:when test="${ContentTypeId == 39}">
-					<input type="hidden" name="contentTypeId" value="카페">
-
-				</c:when>
-			</c:choose>
-
-
-
-
 		</div>
 		<div class="tour_list_view">
 			<c:forEach var="c" items="${tourList}" varStatus="status">
@@ -78,28 +52,7 @@
 
 
 								<input type="hidden" id="contentTypeId" name="contentTypeId" value="${ContentTypeId }">
-								<c:choose>
-									<c:when test="${ContentTypeId == 12}">
-										<input type="hidden" name="contentTypeId" value="관광지">
-
-									</c:when>
-									<c:when test="${ContentTypeId == 15}">
-										<input type="hidden" name="contentTypeId" value="행사/공연/축제">
-
-									</c:when>
-									<c:when test="${ContentTypeId == 14}">
-										<input type="hidden" name="contentTypeId" value="문화시설">
-
-									</c:when>
-									<c:when test="${ContentTypeId == 28}">
-										<input type="hidden" name="contentTypeId" value="레포츠">
-
-									</c:when>
-									<c:when test="${ContentTypeId == 39}">
-										<input type="hidden" name="contentTypeId" value="카페">
-
-									</c:when>
-								</c:choose>
+								
 								<input type="hidden" class="check_mapx" name="x" value="${c.mapx }">
 								<input type="hidden" class="check_mapy" name="y" value="${c.mapy }">
 								<input type="hidden" class="check_title" name="title" value="${c.title }">

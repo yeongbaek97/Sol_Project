@@ -47,8 +47,8 @@
 				
 
 
-				<div class="mp_tour" style="margin-top: 50px; background-color: silver;">
-					<div class="profile_title" style="background-color: gold;">
+				<div class="mp_tour" style="margin-top: 50px;">
+					<div class="profile_title">
 						<h2>투어 목록</h2>
 					</div>
 				</div>
@@ -80,32 +80,9 @@
 								<div class="list_title">${c.b_title }</div>
 								<div class="list_title">${c.b_addr1 }</div>
 								
-	
-	
-	
-								<input type="hidden"  id="contentTypeId" name="contentTypeId" value="${ContentTypeId }">
-								<c:choose>
-									<c:when test="${c.b_contentTypeId == 12}">
-										<input type="hidden" name="contentTypeId" value="관광지">
-	
-									</c:when>
-									<c:when test="${c.b_contentTypeId == 15}">
-										<input type="hidden" name="contentTypeId" value="행사/공연/축제">
-	
-									</c:when>
-									<c:when test="${c.b_contentTypeId == 14}">
-										<input type="hidden" name="contentTypeId" value="문화시설">
-	
-									</c:when>
-									<c:when test="${c.b_contentTypeId == 28}">
-										<input type="hidden" name="contentTypeId" value="레포츠">
-	
-									</c:when>
-									<c:when test="${c.b_contentTypeId == 39}">
-										<input type="hidden" name="contentTypeId" value="카페">
-	
-									</c:when>
-								</c:choose>
+
+								<input type="hidden" id="contentTypeId" name="contentTypeId" value="${c.b_contentTypeId }">
+								
 								<input type="hidden" class="check_mapx" name="x" value="${c.b_mapx }">
 								<input type="hidden" class="check_mapy" name="y" value="${c.b_mapy }">
 								<input type="hidden" class="check_title" name="title" value="${c.b_title }">

@@ -108,7 +108,24 @@
 		                        <div class="text-center p-4 pb-0">
 		                            <h3 class="mb-0">${trl.title }</h3>
 		                            <div class="mb-3">
-		                                <small>${trl.contentTypeId }</small>
+		                            	<c:choose>
+		                            		<c:when test="${trl.contentTypeId eq 12}">
+		                            			<small>관광지</small>
+		                            		</c:when>
+		                            		<c:when test="${trl.contentTypeId eq 14}">
+		                            			<small>문화시설</small>
+		                            		</c:when>
+		                            		<c:when test="${trl.contentTypeId eq 15}">
+		                            			<small>행사/공연/축제</small>
+		                            		</c:when>
+		                            		<c:when test="${trl.contentTypeId eq 28}">
+		                            			<small>레포츠</small>
+		                            		</c:when>
+		                            		<c:when test="${trl.contentTypeId eq 39}">
+		                            			<small>카페</small>
+		                            		</c:when>
+		                            	</c:choose>
+		                                
 		                            </div>
 		                        </div>
 		                    </div>

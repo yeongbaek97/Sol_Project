@@ -52,7 +52,7 @@ insert into member values('hjj', 'hjj', '효진', 'ad@asd', 'f', 'sdf');
 select * from aboutmember
 
 select * from bookmark;
-
+delete from bookmark;
 
 
 select * from bookmark;
@@ -83,7 +83,7 @@ create table tourRank(
 )
 
 select * from tourRank
-
+delete from tourrank
 create table searchRank(
 	word varchar2(30 char) primary key,
 	count number not null
