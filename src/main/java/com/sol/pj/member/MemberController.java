@@ -132,8 +132,9 @@ public class MemberController {
 	
 	// ID/PW 찾으러 가기
 	@RequestMapping(value = "findInfo.login", method = RequestMethod.GET)
-	public String findInfo(HttpServletRequest req) {
-		req.setAttribute("contentPage", "member/FindInfo.jsp");
+	public String findInfo(HttpServletRequest request) {
+		mDAO.logincheck(request);
+		request.setAttribute("contentPage", "member/FindInfo.jsp");
 		return "home";
 	}
 	
@@ -142,7 +143,7 @@ public class MemberController {
 	public String findID(HttpServletRequest req, Member m) {
 		mDAO.findID(req, m);
 		System.out.println(req.getAttribute("id"));
-		req.setAttribute("contentPage", "member/FindResult.jsp");
+		req.setAttribute("contentPage", "member/FindResultID.jsp");
 		return "home";
 	}
 	
@@ -151,7 +152,7 @@ public class MemberController {
 	public String findPW(HttpServletRequest req, Member m) {
 		mDAO.findPW(req, m);
 		System.out.println(req.getAttribute("pw"));
-		req.setAttribute("contentPage", "member/FindResult.jsp");
+		req.setAttribute("contentPage", "member/FindResultPW.jsp");
 		return "home";
 	}
 }

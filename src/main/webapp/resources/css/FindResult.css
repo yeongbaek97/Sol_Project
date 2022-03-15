@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+.FindResult{
+	max-width: 1280px;
+	height: 600px;
+	margin: 9% auto 4% auto;
+}
+
+.ResultCard{
+	width: 700px;
+	height: 400px;
+}
+
+.title{
+	display: block;
+	font-size: 0;
+	margin: 0 -5px;
+}
+
+.title_img{
+	flex: display;
+	flex-direction: row;
+	vertical-align: middle;
+	box-sizing: border-box;
+		
+}
+
+.title_letter{
+	flex: display;
+	flex-direction: row;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+.LabelOfFind{
+	float: left;
+}
+
+.ResultContent{
+	
+}
+
+#idResultLabel{
+	font-size: 20pt;
+	font-weight: bold;
+}
+
+#findBtn{
+	border-radius:10px;
+	margin-bottom: 10px;
+	width: 100%;
+	height: 60px;
+	background-color: #06bbcc;
+	border-color: #06bbcc;
+	font-size: 15pt;
+	color: white;
+}
+
+#resultBtn{
+	border-radius:10px;
+	margin-bottom: 40px;
+	width: 100%;
+	height: 60px;
+	background-color: #06bbcc;
+	border-color: #06bbcc;
+	font-size: 15pt;
+	color: white;
+}
+
+#findBtn:hover {
+    background: #02444a; }
+
+#resultBtn:hover {
+    background: #02444a; }
