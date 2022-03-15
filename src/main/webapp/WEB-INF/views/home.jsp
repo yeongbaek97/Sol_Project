@@ -119,7 +119,7 @@
         	
         	<c:if test="${sessionScope.loginMember.m_id ne null}">
 				<a class="nav-link disabled my-2 text-light" tabindex="-1" aria-disabled="true">${sessionScope.loginMember.m_name }(${sessionScope.loginMember.m_id })</a>
-				<a href="mypage" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">내정보</a>
+				<a href="mypage?b_id=${sessionScope.loginMember.m_id }" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">내정보</a>
 				<a href="javascript:logout();" class="btn py-4 px-lg-5 d-none d-lg-block" style="background-color: gray;">로그아웃</a>
 			</c:if>
 			

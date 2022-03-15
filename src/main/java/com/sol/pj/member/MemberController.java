@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sol.pj.tour.Bookmark;
+import com.sol.pj.tour.TourDAO;
 
 @Controller
 public class MemberController {
 
 	@Autowired
 	private MemberDAO mDAO;
+	
+	@Autowired
+	private TourDAO tdao;
 	
 	// 로그인 페이지 이동
 	@RequestMapping(value = "goto.login", method = RequestMethod.GET)
@@ -97,10 +101,11 @@ public class MemberController {
 	
 	//마이페이지
 	@RequestMapping(value = "mypage", method = RequestMethod.GET)
-	public String myPage(HttpServletRequest req, Member m) {
+	public String myPage(HttpServletRequest req, Member m, Bookmark b) {
+		
 		
 		mDAO.logincheck(req);
-
+		tdao.getmark(b,req);
 		
 		req.setAttribute("contentPage", "member/myPage.jsp");
 		

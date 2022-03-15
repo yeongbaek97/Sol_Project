@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sol.pj.accom.Accom;
+import com.sol.pj.member.Member;
 
 @Service
 public class TourDAO {
@@ -1274,14 +1275,21 @@ public void getsearch(int pageNo, HttpServletRequest req) {
 
 
 public int getmark(Bookmark b,HttpServletRequest req) {
+	String b_contentid = "";
+	if(req.getParameter("b_contentid")!= null) {
+		b_contentid = req.getParameter("b_contentid");
+	}
 	
 	List<Bookmark> bookmark = ss.getMapper(BookmarkMapper.class).getMarkByID(b);
 
+	System.out.println(bookmark);
 	if(bookmark.size() !=0) {
+		req.setAttribute("bookmark", bookmark);
+		
 		for(Bookmark list: bookmark) {
 			
-			if(req.getParameter("b_contentid").equals(list.getB_contentid())) {
-
+			if(b_contentid.equals(list.getB_contentid())) {
+				
 				return 1;
 			}
 			

@@ -6,6 +6,7 @@ create table member(
 	m_gender varchar2(20 char) not null,
 	m_number varchar2(50 char) not null
 )
+drop table member
 
 select * from member
 

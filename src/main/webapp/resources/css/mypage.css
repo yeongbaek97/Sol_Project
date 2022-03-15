@@ -1,7 +1,31 @@
 @charset "UTF-8";
 
 .column{
-	margin: 0 auto;
+	
+	margin: 186px auto 0 auto;
 	max-width: 964px;
 }
+
+.profile_body dd{
+	    font-size: 14px;
+    line-height: 21px;
+    overflow: hidden;
+    padding-top: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+    color: #666;
+    background: #fff;
+}
+
+.profile_body dt{
+    font-size: 12px;
+    font-weight: 700;
+    float: left;
+    width: 40%;
+    padding-top: 6px;
+    letter-spacing: -1px;
+    color: #333;
+    }
+    
 
