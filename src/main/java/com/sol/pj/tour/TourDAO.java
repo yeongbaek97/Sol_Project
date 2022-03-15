@@ -166,8 +166,8 @@ public class TourDAO {
                 }
             	//firstimage2
             	if(!itemObject.containsKey("firstimage2")) {
-            		firstimage2 = "resources/img/s.jpg";
-                } else {
+            		firstimage2 = "resources/img/noimg.png";
+            	} else {
                 	firstimage2 = itemObject.get("firstimage2").toString();
                 }
             	//mapx,mapy
@@ -1249,7 +1249,7 @@ public void getsearch(int pageNo, HttpServletRequest req) {
                 }
             	//firstimage2
             	if(!itemObject.containsKey("firstimage2")) {
-            		firstimage2 = "resources/img/s.jpg";
+            		firstimage2 = "resources/img/noimg.png";
                 } else {
                 	firstimage2 = itemObject.get("firstimage2").toString();
                 }
