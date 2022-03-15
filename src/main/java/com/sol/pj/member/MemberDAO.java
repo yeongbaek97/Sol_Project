@@ -174,16 +174,16 @@ public class MemberDAO {
             userInfo.put("accessToken", access_Token);
             userInfo.put("nickname", nickname);
 
-
+            userInfo.put("profile_image", profile_image);
            // userInfo.put("email", email);
             
             Member dbMember = new Member(
-            		kakaoid,
-            		"변경해 주세요",
+            		"asd",
+            		access_Token,
             		nickname,
-            		"변경해 주세요",
-            		"변경해 주세요",
-            		"변경해 주세요"
+            		"asd",
+            		"asd",
+            		profile_image
             		);
             
             req.getSession().setAttribute("loginMember", dbMember);
