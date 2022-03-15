@@ -202,9 +202,9 @@ public class MemberDAO {
 	public void modifyInfo(HttpServletRequest req) {
 		Member curMember = (Member)req.getSession().getAttribute("loginMember");
 		String m_id = curMember.getM_id();
-		String m_pw = req.getParameter("m_pw");
+		String m_pw = curMember.getM_pw();
 		String m_name = req.getParameter("m_name");
-		String m_gender = curMember.getM_gender();
+		String m_gender = req.getParameter("m_gender");
 		String m_email = req.getParameter("m_email");
 		String m_number = req.getParameter("m_number");
 		

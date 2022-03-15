@@ -7,7 +7,7 @@
 </select>
 	
 <insert id="setMark" parameterType="com.sol.pj.tour.Bookmark">
-	insert into bookmark values(bookmark_seq.nextval, #{b_id}, #{b_mapx}, #{b_mapy}, #{b_contentid},#{b_title},#{b_image})
+	insert into bookmark values(bookmark_seq.nextval, #{b_id}, #{b_mapx}, #{b_mapy}, #{b_contentid},#{b_title},#{b_image},#{b_addr1}, #{b_contentTypeId})
 </insert>
 
 <delete id="deleteMark" parameterType="com.sol.pj.tour.Bookmark">

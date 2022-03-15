@@ -15,7 +15,7 @@ function modifyCancel() {
 }
 
 function modifyInfo() {
-	var m_pw = document.getElementById("m_pw").value;
+	var m_gender = document.getElementById("m_gender").value;
 	var m_name = document.getElementById("m_name").value;
 	var m_number = document.getElementById("m_number").value;
 	var m_email = document.getElementById("m_email").value;
@@ -24,7 +24,7 @@ function modifyInfo() {
 		type: "GET",
 		url : "modifyInfo",
 		data: {
-			m_pw: m_pw,
+			m_gender: m_gender,
 			m_name: m_name,
 			m_number: m_number,
 			m_email: m_email

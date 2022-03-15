@@ -31,11 +31,13 @@ create table bookmark(
 	b_mapy varchar2 (30 char) not null,
 	b_contentid varchar2 (30 char) not null,
 	b_title varchar2 (30 char) not null,
-	b_image varchar2 (300 char) not null
+	b_image varchar2 (300 char) not null,
+	b_addr1 varchar2 (100 char) not null,
+	b_contentTypeId varchar2(10 char) not null
 );
 
 create sequence bookmark_seq;
-
+select * from bookmark;
 
 drop table bookmark;
 

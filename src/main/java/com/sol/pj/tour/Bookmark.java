@@ -8,13 +8,15 @@ public class Bookmark {
 	private String b_contentid;
 	private String b_title;
 	private String b_image;
+	private String b_addr1;
+	private String b_contentTypeId;
 	
 	public Bookmark() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Bookmark(int b_no, String b_id, String b_mapx, String b_mapy, String b_contentid, String b_title,
-			String b_image) {
+			String b_image, String b_addr1, String b_contentTypeId) {
 		super();
 		this.b_no = b_no;
 		this.b_id = b_id;
@@ -23,6 +25,24 @@ public class Bookmark {
 		this.b_contentid = b_contentid;
 		this.b_title = b_title;
 		this.b_image = b_image;
+		this.b_addr1 = b_addr1;
+		this.b_contentTypeId = b_contentTypeId;
+	}
+
+	public String getB_addr1() {
+		return b_addr1;
+	}
+
+	public void setB_addr1(String b_addr1) {
+		this.b_addr1 = b_addr1;
+	}
+
+	public String getB_contentTypeId() {
+		return b_contentTypeId;
+	}
+
+	public void setB_contentTypeId(String b_contentTypeId) {
+		this.b_contentTypeId = b_contentTypeId;
 	}
 
 	public int getB_no() {

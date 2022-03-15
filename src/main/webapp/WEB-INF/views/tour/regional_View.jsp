@@ -77,7 +77,7 @@
 
 
 
-								<%-- <input type="hidden"  id="contentTypeId" name="contentTypeId" value="${ContentTypeId }"> --%>
+								<input type="hidden" id="contentTypeId" name="contentTypeId" value="${ContentTypeId }">
 								<c:choose>
 									<c:when test="${ContentTypeId == 12}">
 										<input type="hidden" name="contentTypeId" value="관광지">
@@ -105,6 +105,7 @@
 								<input type="hidden" class="check_title" name="title" value="${c.title }">
 								<input type="hidden" class="check_contentid" name="contentid" value="${c.contentid }">
 								<input type="hidden" class="check_image" name="image" value="${c.firstimage2 }">
+								<input type="hidden" class="check_addr1" name="addr1" value="${c.addr1 }">
 
 							</div>
 						</div>

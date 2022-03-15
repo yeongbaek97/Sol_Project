@@ -68,13 +68,13 @@ function bookmark(){
 		
 		let b_id = $("#check_id").val();
 
-		
 		let b_mapx = $(this).children('.check_mapx').val();
 		let b_mapy = $(this).children('.check_mapy').val();
 		let b_title = $(this).children('.check_title').val();
 		let b_contentid = $(this).children('.check_contentid').val();
 		let b_image = $(this).children('.check_image').val();
-
+		let b_addr1 = $(this).children('.check_addr1').val();
+		let b_contentTypeId = document.getElementById("contentTypeId").value;
 		
 		console.log(b_id);
 		console.log(b_mapx);
@@ -125,7 +125,9 @@ function bookmark(){
 						"b_mapy" : b_mapy,
 						"b_contentid" : b_contentid,
 						"b_title" : b_title,
-						"b_image" : b_image
+						"b_image" : b_image,
+						"b_addr1" : b_addr1,
+						"b_contentTypeId" : b_contentTypeId
 					},
 					success : function(data) {
 						console.log(data);

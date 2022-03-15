@@ -29,8 +29,8 @@
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 
 		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />				<!-- 이부분 바꿔주세요 -->
-		<beans:property name="username" value="c##yb" />
-		<beans:property name="password" value="yb" />
+		<beans:property name="username" value="c##hs" />
+		<beans:property name="password" value="hs" />
 
 	</beans:bean>
 
