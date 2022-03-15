@@ -12,6 +12,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,6 +23,11 @@ import org.springframework.stereotype.Service;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.sol.pj.tour.Bookmark;
+import com.sol.pj.tour.BookmarkMapper;
+import com.sol.pj.tour.SearchRankMapper;
+import com.sol.pj.tour.TourRank;
+import com.sol.pj.tour.TourRankMapper;
 
 @Service
 public class MemberDAO {
@@ -87,7 +93,7 @@ public class MemberDAO {
             StringBuilder sb = new StringBuilder();
             sb.append("grant_type=authorization_code");
             sb.append("&client_id=500a463927b5af4c4a3224e8a14e8ace");  //앱 KEY VALUE
-            sb.append("&redirect_uri=http://localhost/pj/kakao.login"); // 앱 CALLBACK 경로
+            sb.append("&redirect_uri=http://localhost/goto.kakao.login"); // 앱 CALLBACK 경로
             sb.append("&code=" + authorize_code);
             bw.write(sb.toString());
             bw.flush();
@@ -191,10 +197,99 @@ public class MemberDAO {
         return userInfo;
     }
 
-	public void getTourRank(HttpServletRequest req) {
-		System.out.println("2");
+
+
+	public void modifyInfo(HttpServletRequest req) {
+		Member curMember = (Member)req.getSession().getAttribute("loginMember");
+		String m_id = curMember.getM_id();
+		String m_pw = req.getParameter("m_pw");
+		String m_name = req.getParameter("m_name");
+		String m_gender = curMember.getM_gender();
+		String m_email = req.getParameter("m_email");
+		String m_number = req.getParameter("m_number");
+		
+		Member m = new Member(m_id, m_pw, m_name, m_email, m_gender, m_number);
+		
+		MemberMapper mm = ss.getMapper(MemberMapper.class);
+		mm.modifyInfo(m);
+		
+		Member modMember = ss.getMapper(MemberMapper.class).getMemberByID(m);
+		req.getSession().setAttribute("loginMember", modMember);
+	}
+
+	
+	// 회원가입
+	public void regMember(Member m, HttpServletRequest req) {
+
+		int mm = ss.getMapper(MemberMapper.class).regMember(m);
+		if(mm == 1) {
+			System.out.println("가입 성공");
+		} else {
+			System.out.println("가입 실패");
+		}
+		
 		
 	}
+
+	public int checkIdValue(Member m) {
+		int cnt = ss.getMapper(MemberMapper.class).checkIdValue(m);
+		System.out.println("DAO ID cnt: " + cnt);
+		return cnt;
+	}
 	
+	public int checkEmailValue(Member m) {
+		int cnt = ss.getMapper(MemberMapper.class).checkEmailValue(m);
+		System.out.println("DAO Email cnt: " + cnt);
+		return cnt;
+	}
+
+	public void findID(HttpServletRequest req, Member m) {
+		String m_name = req.getParameter("m_name");
+		String m_email = req.getParameter("m_email");
+		String m_number = req.getParameter("m_number");
+		System.out.println("-- DAO 입성 --");
+		System.out.println(m_name);
+		System.out.println(m_email);
+		System.out.println(m_number);
+		
+		
+		if(m_number == null) {
+			System.out.println("Number == 0, email == 1");
+			Member mm = ss.getMapper(MemberMapper.class).findIDbyEmail(m_name, m_email);
+			System.out.println(mm.getM_id() + ": DAO에서 email로 알아낸 ID");
+			req.setAttribute("id", mm.getM_id());
+		} else if(m_email == null) {
+			System.out.println("email == 0, number == 1");
+			Member mm = ss.getMapper(MemberMapper.class).findIDbyPhone(m_name, m_number);
+			System.out.println(mm.getM_id() + ": DAO에서 phone number로 알아낸 ID");
+			req.setAttribute("id", mm.getM_id());
+		}
+		
+		
+	}
+
+	public void findPW(HttpServletRequest req, Member m) {
+		String m_id = req.getParameter("m_id");
+		String m_email = req.getParameter("m_email");
+		String m_number = req.getParameter("m_number");
+		System.out.println("-- DAO 입성 --");
+		System.out.println(m_id);
+		System.out.println(m_email);
+		System.out.println(m_number);
+		
+		
+		if(m_number == null) {
+			System.out.println("Number == 0, email == 1");
+			Member mm = ss.getMapper(MemberMapper.class).findPWbyEmail(m_id, m_email);
+			System.out.println(mm.getM_id() + ": DAO에서 email로 알아낸 PW");
+			req.setAttribute("pw", mm.getM_pw());
+		} else if(m_email == null) {
+			System.out.println("email == 0, number == 1");
+			Member mm = ss.getMapper(MemberMapper.class).findPWbyPhone(m_id, m_number);
+			System.out.println(mm.getM_id() + ": DAO에서 phone number로 알아낸 PW");
+			req.setAttribute("pw", mm.getM_pw());
+		}
+		
+	}
 
 }

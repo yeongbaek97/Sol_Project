@@ -1,20 +1,20 @@
 package com.sol.pj.tour;
 
 public class TourDetailCT28 {
-	private String accomcountleports;
-	private String chkbabycarriageleports;
-	private String chkpetleports;
-	private String expagerangeleports;
-	private String infocenterleports;
-	private String openperiod;
-	private String parkingfeeleports;
-	private String parkingleports;
-	private String reservation;
-	private String restdateleports;
-	private String scaleleports;
-	private String usefeeleports;
-	private String usetimeleports;
-	private String contentid;
+	private String accomcountleports;		//수용인원
+	private String chkbabycarriageleports;	//유모차대여 정보
+	private String chkpetleports;			//애완동물동반가능 정보
+	private String expagerangeleports;		//체험 가능연령
+	private String infocenterleports;		//문의 및 안내
+	private String openperiod;				//개장기간	
+	private String parkingfeeleports;		//주차요금
+	private String parkingleports;			//주차시설
+	private String reservation;				//예약안내
+	private String restdateleports;			//쉬는날
+	private String scaleleports;			//규모
+	private String usefeeleports;			//입장료
+	private String usetimeleports;			//이용시간	
+	private String contentid;				
 
 	
 	public TourDetailCT28() {

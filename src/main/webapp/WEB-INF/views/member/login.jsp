@@ -41,24 +41,36 @@
 	<script src="resources/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="resources/js/loginmain.js"></script>
+	
+<style type="text/css">
+.limiter{
+	min-height: 100vh;
+	background: -webkit-gradient(linear, left bottom, right top, from(#8A8C8F), to(#343a40));
+	background: -webkit-linear-gradient(bottom left, #8A8C8F 0%, #343a40 100%);
+	background: -moz-linear-gradient(bottom left, #8A8C8F 0%, #343a40 100%);
+	background: -o-linear-gradient(bottom left, #8A8C8F 0%, #343a40 100%);
+	background: linear-gradient(to top right, #8A8C8F 0%, #343a40 100%);
+}
+</style>
 </head>
 <body>
 	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form action="login" class="login100-form validate-form p-l-55 p-r-55 p-t-178" method="post">
+				<form action="javascript:login();" class="login100-form validate-form p-l-55 p-r-55 p-t-178" method="post">
 					<span class="login100-form-title">
-						Sign In
+						SIGN IN
 					</span>
 
-					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter userID">
-						<input class="input100" type="text" name="m_id"placeholder="UserID">
+					<div class="wrap-input100 validate-input m-t-16 m-b-16" data-validate="Please enter userID">
+						<input class="input100" type="text" id="m_id" name="m_id" placeholder="UserID">
+
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Please enter password">
-						<input class="input100" type="password" name="m_pw" placeholder="Password">
+						<input class="input100" type="password" id="m_pw" name="m_pw" placeholder="Password">
 						<span class="focus-input100"></span>
 					</div>
 
@@ -67,7 +79,7 @@
 							Forgot?
 						</span>
 
-						<a href="#" class="txt2">
+						<a href="findInfo.login" class="txt2">
 							UserID / Password
 						</a>
 					</div>
@@ -83,19 +95,26 @@
 							다른 서비스 계정으로 로그인
 						</span>
 						<div class="container-login100-form-btn">
-							<button style="background-color: #FEE500" type="button" class="login100-form-btn" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=500a463927b5af4c4a3224e8a14e8ace&redirect_uri=http://localhost/pj/kakao.login&response_type=code'">
+							<button style="background-color: #FEE500" type="button" class="login100-form-btn" onclick="location.href='https://kauth.kakao.com/oauth/authorize?client_id=500a463927b5af4c4a3224e8a14e8ace&redirect_uri=http://localhost/goto.kakao.login&response_type=code'">
 								<img src="resources/img/kakao_login_medium_narrow.png">
 							</button>
 						</div>
 					</div>
 
-					<div class="flex-col-c p-t-170 p-b-40">
-						<span class="txt1 p-b-9">
+					<div class="flex-row p-t-170 p-b-5">
+						<span class="txt1 p-b-9" style="flex: 1 1 40%; text-align: center">
 							계정이 없으신가요?
 						</span>
-
-						<a href="goto.Reg" class="txt3">
+						<span class="txt1 p-b-9" style="flex: 1 1 40%; text-align: center">
+							메인페이지로 돌아가기
+						</span>
+					</div>
+					<div class="flex-row p-t-5 p-b-40">
+						<a href="goto.Reg" class="txt3" style="flex: 1 1 40%; text-align: center">
 							회원가입
+						</a>
+						<a href="goto.Index" class="txt3" style="flex: 1 1 40%; text-align: center">
+							Home
 						</a>
 					</div>
 				</form>

@@ -59,12 +59,31 @@ function GuOfficeEvent() {
 }
 
 function bookmark(){
-	//처음에 확인
-	var b_id = $("#check_id").val();
-	var b_mapx = $("#check_mapx").val();
-	var b_mapy = $("#check_mapy").val();
-	var b_contentid = $("#check_contentid").val();
-	var b_title = $("#check_title").val();
+
+	//로드가 완료 됐을때
+	
+	$(".check_attr").each(function(i,c){
+		//console.log(this.value);
+		let mark_btn = $(this).children('.mark_btn');
+		
+		let b_id = $("#check_id").val();
+
+		
+		let b_mapx = $(this).children('.check_mapx').val();
+		let b_mapy = $(this).children('.check_mapy').val();
+		let b_title = $(this).children('.check_title').val();
+		let b_contentid = $(this).children('.check_contentid').val();
+		let b_image = $(this).children('.check_image').val();
+
+		
+		console.log(b_id);
+		console.log(b_mapx);
+		console.log(b_mapy);
+		console.log(b_contentid);
+		console.log(b_title);
+
+
+
 		$.ajax({
 			url : "tour.mark",
 			data: {
@@ -72,49 +91,101 @@ function bookmark(){
 				"b_contentid" : b_contentid
 			},
 			success : function(data) {
-				console.log(data);
-				if(data == 1){
-					$("#mark_btn").css("background-color", "red");
-				}else{
-					$("#mark_btn").css("background-color", "white");
-				}
+
+				
+					if(data == 1){
+						mark_btn.css("color", "green");
+					}else{
+						mark_btn.css("color", "red");
+					}
+
+
+			
+				
 			}
 			
 		});
 		
-	//클릭했을 때 적용
-	$("#mark_btn").click(function() {
-		$.ajax({
-			url : "tour.mark.change",
-			data: {
-				"b_id" : b_id,
-				"b_mapx" : b_mapx,
-				"b_mapy" : b_mapy,
-				"b_contentid" : b_contentid,
-				"b_title" : b_title
-			},
-			success : function(data) {
-				console.log(data);
-				if(data == 1){
-					$("#mark_btn").css("background-color", "red");
-				}else{
-					$("#mark_btn").css("background-color", "white");
-				}
-			}
+		
+		//클릭했을 때 적용
+		mark_btn.click(function(e) {
+
+			if(!b_id){
+				alert("로그인이 필요합니다");
+			}else{
+				console.log(b_mapx);
+				console.log(b_mapy);
+				console.log(b_contentid);
+				console.log(b_title);
+				$.ajax({
+					url : "tour.mark.change",
+					data: {
+						"b_id" : b_id,
+						"b_mapx" : b_mapx,
+						"b_mapy" : b_mapy,
+						"b_contentid" : b_contentid,
+						"b_title" : b_title,
+						"b_image" : b_image
+					},
+					success : function(data) {
+						console.log(data);
+						if(data == 1){
+							mark_btn.css("color", "green");
+							//줄겨찾기 추가됨
+						}else{
+							mark_btn.css("color", "red");
+						}
+
 			
-		});
-	})
+					}
+					
+				});
+			}
+			e.stopImmediatePropagation();
+			
+		})
+		
+		
+		
+		
+		
+		
+		
+		
+	});
+
+		 
+	
 
 }
 
+function sidebar(){
+	
+		var duration = 300;
 
+		var $side = $('#sidebar');
+		var $sidebt = $side.find('button').on('click', function(){
+			$side.toggleClass('open');
+
+			if($side.hasClass('open')) {
+				$side.stop(true).animate({right:'0px'}, duration);
+				$sidebt.find('span').text('지역 필터');
+			}else{
+				$side.stop(true).animate({right:'-300px'}, duration);
+				$sidebt.find('span').text('지역 필터');
+			};
+		});
+	
+}
 
 
 $(function() {
 	bookmark();
 	areaEvent();
+	sidebar();
 	GuOfficeEvent();
 	guEvent();
+	
 	
 	
 });

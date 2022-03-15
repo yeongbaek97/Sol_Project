@@ -25,7 +25,8 @@ public class HomeController {
 	public String home(HttpServletRequest req) {
 		
 		mDAO.logincheck(req);
-		
+		tDAO.getTourRank(req);
+		tDAO.getSearchRank(req);
 		req.setAttribute("contentPage", "main_view.jsp");
 		return "home";
 	}
@@ -33,7 +34,10 @@ public class HomeController {
 
 	@RequestMapping(value = "home.go", method = RequestMethod.GET)
 	public String homeGo(HttpServletRequest req) {
-		return home(req);
+		mDAO.logincheck(req);
+		
+		req.setAttribute("contentPage", "main_info_view.jsp");
+		return "home";
 	}
 	
 

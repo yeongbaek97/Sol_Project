@@ -27,14 +27,10 @@
 
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<beans:property name="url"
 
-			value="jdbc:oracle:thin:@localhost:1521:xe" />				<!-- 이부분 바꿔주세요 -->
-
+		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />				<!-- 이부분 바꿔주세요 -->
 		<beans:property name="username" value="c##yb" />
 		<beans:property name="password" value="yb" />
-
-
 
 	</beans:bean>
 
@@ -52,6 +48,7 @@
 				<beans:value>classpath:bookmarkMapper.xml</beans:value>
 				<beans:value>classpath:tourRankMapper.xml</beans:value>
 				<beans:value>classpath:searchRankMapper.xml</beans:value>
+				<beans:value>classpath:boardMapper.xml</beans:value>
 
 			</beans:list>
 		</beans:property>

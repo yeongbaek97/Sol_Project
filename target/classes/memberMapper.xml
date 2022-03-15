@@ -3,7 +3,39 @@
 <mapper namespace="com.sol.pj.member.MemberMapper">
 
 	<select id="getMemberByID" parameterType="com.sol.pj.member.Member" resultType="com.sol.pj.member.Member">
-		select * from member where m_id = #{m_id}
+		select * from member where m_id = #{m_id} and m_pw = #{m_pw}
 	</select>
+
+	<update id="modifyInfo" parameterType="com.sol.pj.member.Member">
+		update member set m_pw = #{m_pw}, m_name = #{m_name}, m_email = #{m_email}, m_number = #{m_number} where m_id = #{m_id}
+	</update>
+
+	<insert id="regMember" parameterType="com.sol.pj.member.Member">
+		insert into member values(#{m_id}, #{m_pw}, #{m_name}, #{m_email}, #{m_gender}, #{m_number})
+	</insert>
+	
+	<select id="checkIdValue" parameterType="com.sol.pj.member.Member" resultType="java.lang.Integer">
+        SELECT COUNT(m_id) FROM member WHERE m_id= #{m_id}
+    </select>
+    
+    <select id="checkEmailValue" parameterType="com.sol.pj.member.Member" resultType="java.lang.Integer">
+        SELECT COUNT(m_email) FROM member WHERE m_email= #{m_email}
+    </select>
+    
+    <select id="findIDbyEmail" parameterType="java.lang.String" resultType="com.sol.pj.member.Member">
+    	select m_id from member where m_name = #{m_name} and m_email = #{m_email}
+    </select>
+    
+    <select id="findIDbyPhone" parameterType="java.lang.String" resultType="com.sol.pj.member.Member">
+    	select m_id from member where m_name = #{m_name} and m_number = #{m_number}
+    </select>
+    
+    <select id="findPWbyEmail" parameterType="java.lang.String" resultType="com.sol.pj.member.Member">
+    	select m_pw from member where m_id = #{m_id} and m_email = #{m_email}
+    </select>
+    
+    <select id="findPWbyPhone" parameterType="java.lang.String" resultType="com.sol.pj.member.Member">
+    	select m_pw from member where m_id = #{m_id} and m_number = #{m_number}
+    </select>
 
 </mapper>
