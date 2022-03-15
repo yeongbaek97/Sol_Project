@@ -33,8 +33,8 @@ public class BoardDAO {
 		
 		totalPost = bm.getTotalPost();
 		lastPage = (totalPost / 10) + 1;
-		startPage = (curPage / 10) * 10 + 1;
-		endPage = (curPage / 10) * 10 + 10;
+		startPage = ((curPage-1) / 10) * 10 + 1;
+		endPage = ((curPage-1) / 10) * 10 + 10;
 		start = ((curPage - 1) * 10) + 1;
 		end = ((curPage - 1) * 10) + 10;
 		boardPage = ((curPage-1) / 10) + 1;
