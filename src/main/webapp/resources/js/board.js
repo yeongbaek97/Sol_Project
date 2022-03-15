@@ -85,7 +85,7 @@ function modifyPost() {
 		})
 	} else {
 		document.getElementById("postTable").getElementsByTagName("tr")[0].getElementsByTagName("td")[1].innerHTML = "<input id='b_title' value=" +b_title +">"											
-		document.getElementById("postTable").getElementsByTagName("tr")[2].getElementsByTagName("td")[0].innerHTML = "<input id='b_content' value=" +b_content +">"		
+		document.getElementById("postTable").getElementsByTagName("tr")[2].getElementsByTagName("td")[0].innerHTML = "<textArea style='width: 700px; height: 400px;' id='b_content'>" +b_content +"</textArea>"		
 
 		document.getElementById("modifyButton").innerHTML = "수정 완료"
 	}
@@ -141,7 +141,7 @@ function modifyComment() {
 		var c_seq = button.parentNode.parentNode.getElementsByTagName("td")[0].firstChild.value
 		console.log(c_comment)
 		console.log(c_seq)
-		button.parentNode.parentNode.getElementsByTagName("td")[2].innerHTML = "<input id='c_comment' value=" +c_comment +">"	
+		button.parentNode.parentNode.getElementsByTagName("td")[2].innerHTML = "<textArea id='c_comment' style='width:550px;'>" +c_comment +"</textArea>"	
 		
 		document.getElementById("modifyButton2").innerHTML = "수정 완료"
 	}
