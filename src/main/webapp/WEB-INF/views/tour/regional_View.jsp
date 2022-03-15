@@ -13,12 +13,12 @@
 	<div class="wrap">
 
 		<div>
-			<img src="resources/img/coffee.jpg" width="100%" height="250px;">
+			<img src="resources/img/water2.jpg" width="100%" height="300px;">
 
 		</div>
 
 		<div
-			style="margin-top: 150px; margin-left: 10%; margin-right: 10%; border-bottom: 1px solid #d8d8d8;">
+			style="margin-top: 100px; margin-left: 10%; margin-right: 10%; border-bottom: 1px solid #d8d8d8;">
 			<strong style="font-size: 40px;">여행지</strong>
 
 		</div>
@@ -111,7 +111,7 @@
 
 
 		
-		<div align="center">
+		<div align="center" style="margin-bottom: 50px;">
 		
 		<c:if test="${curPage gt 10 }">
 			<a href="tour.list.regional_change?p=${(pageGroup-1)*10 -9}">◀ &nbsp;&nbsp;&nbsp;</a>

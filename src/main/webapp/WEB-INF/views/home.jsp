@@ -75,7 +75,7 @@
         </a>
         
         <div class="position-relative mx-auto">
-            <input style="width: 300px;" class="form-control border-1 py-3 ps-4 pe-5" id="word" type="text" placeholder="검색어 입력" onkeypress="if(event.keyCode==13){searchEnter();}" onclick="wordVisible();" autocomplete="off">
+            <input style="width: 390px;border-radius: 10px;margin-left:28px;" class="form-control border-1 py-3 ps-4 pe-5" id="word" type="text" placeholder="검색어 입력" onkeypress="if(event.keyCode==13){searchEnter();}" onclick="wordVisible();" autocomplete="off">
             <button type="button" style="margin-top: 10px;" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" onclick="searchEnter();">Search</button>
         
         	<div class="form-control" id="searchWord" style="background-color:white; border-style: ridge; border-width: 1px; border-color: black; position: absolute; visibility: hidden; margin-top: 10px;">

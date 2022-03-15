@@ -160,15 +160,12 @@ public class MemberDAO {
             
             //가져올 정보 적으면 되는듯
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
-<<<<<<< HEAD
+
             String kakaoid = element.getAsJsonObject().get("id").getAsString();
 
             System.out.println(kakaoid);
             
-=======
-            
-      
->>>>>>> 15ba51d4a2e0b6101aeac64c099cb50d6be34086
+
 
 
             //String email = kakao_account.getAsJsonObject().get("email").getAsString();
@@ -182,8 +179,8 @@ public class MemberDAO {
            // userInfo.put("email", email);
             
             Member dbMember = new Member(
-            		"변경해 주세요",
-            		access_Token,
+            		kakaoid,
+            		kakaoid,
             		nickname,
             		"변경해 주세요",
             		"변경해 주세요",
