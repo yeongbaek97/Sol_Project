@@ -15,22 +15,23 @@
 		<form id="writePostForm" method="post" enctype="multipart/form-data">
 			<table style="width: 800px;">
 				<tr>
-					<td colspan="2"><input name="b_title" id="b_title" style="width: 800px; height: 40px;"></td>
+					<td style="width: 100px;">제목 : </td>
+					<td><input name="b_title" id="b_title" style="width: 730px; height: 40px;"></td>
 				</tr>
 				<tr><td style="height:20px;"></td></tr>
 				<tr>
 					<td colspan="2"><textarea name="b_content" id="b_content" style="width: 800px; height: 300px;"></textarea></td>
 				</tr>
 				<tr>
-					<td style="width: 10%;">사진 추가</td>
+					<td style="width: 100px;;">사진 추가</td>
 					<td style=""><input name="b_image" id="b_image" type="file"></td>
 				</tr>
 					
 			</table>
 			
 			<div style="padding-top: 50px;">
-				<button style="margin-right: 10px;" type="button" onclick="writePost();">작성</button>
-				<button style="margin-left: 10px;" type="button" onclick="location.href='goto.board'">취소</button>
+				<button class="btn btn-primary" style="margin-right: 10px;" type="button" onclick="writePost();">작성</button>
+				<button class="btn btn-outline-secondary" style="margin-left: 10px;" type="button" onclick="location.href='goto.board'">취소</button>
 			</div>
 			<input type="hidden" name="b_writer" id="b_writer" value="${sessionScope.loginMember.m_id}">
 		</form>

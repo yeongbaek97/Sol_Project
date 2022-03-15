@@ -13,7 +13,7 @@
 	<div class="wrap">
 
 		<div>
-			<img src="resources/img/coffee.jpg" width="100%" height="250px;">
+			<img src="resources/img/pimage2.jpg" width="100%" height="300px;">
 
 		</div>
 

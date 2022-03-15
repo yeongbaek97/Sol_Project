@@ -34,10 +34,10 @@
 
 	<div style="padding-top: 20px;">
 		<c:if test="${post.b_writer eq sessionScope.loginMember.m_id}">
-			<button id="modifyButton" onclick="modifyPost();" style="margin: 5px;">수정</button>
-			<button id="deleteButton" onclick="deletePost();" style="margin: 5px;">삭제</button>
+			<button id="modifyButton" onclick="modifyPost();" class="btn btn-outline-warning" style="margin: 5px;">수정</button>
+			<button id="deleteButton" onclick="deletePost();" class="btn btn-outline-danger" style="margin: 5px;">삭제</button>
 		</c:if>
-		<button onclick="location.href='goto.board'" style="margin: 5px;">목록으로</button>
+		<button onclick="location.href='goto.board'" class="btn btn-outline-secondary" style="margin: 5px;">목록으로</button>
 	</div>
 	
 	<div style="height: 150px;">
@@ -46,18 +46,18 @@
 		<table>
 		
 		<tr><td><textArea id="c_comment" style="width: 800px; height: 60px;margin-top: 50px;"></textArea></td>
-		<td><button onclick="writeComment();" style="margin-left: 15px; margin-top: 42px; height: 60px;">등록</button></tr>
+		<td><button onclick="writeComment();" class="btn btn-primary" style="margin-left: 15px; margin-top: 44px; height: 60px;">등록</button></tr>
 		</table>
 	</div>
 	
-	<table id="commentTable" style="width: 900px;">
+	<table id="commentTable" style="width: 940px;">
 		<c:forEach var="c" items="${comments }">
 			<tr>
 				<td><input id="c_seq" type="hidden" value="${c.c_seq }"></td>
 				<td style="width: 80px;">${c.c_writer }</td>
 				<td style="width: 550px;">${c.c_comment }</td>
-				<td style="width: 60px;"><c:if test="${c.c_writer eq sessionScope.loginMember.m_id}"><button id="modifyButton2" onclick="modifyComment();">수정</button></c:if></td>
-				<td style="width: 60px;"><c:if test="${c.c_writer eq sessionScope.loginMember.m_id}"><button onclick="deleteComment();">삭제</button></c:if></td>
+				<td style="width: 80px;"><c:if test="${c.c_writer eq sessionScope.loginMember.m_id}"><button id="modifyButton2" class="btn btn-outline-warning" onclick="modifyComment();">수정</button></c:if></td>
+				<td style="width: 80px;"><c:if test="${c.c_writer eq sessionScope.loginMember.m_id}"><button class="btn btn-outline-danger" onclick="deleteComment();">삭제</button></c:if></td>
 				<td style="width: 150px;"><fmt:formatDate value="${c.c_date }" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 			</tr>
 			</c:forEach>
