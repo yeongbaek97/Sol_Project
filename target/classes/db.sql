@@ -6,6 +6,7 @@ create table member(
 	m_gender varchar2(20 char) not null,
 	m_number varchar2(50 char) not null
 )
+
 drop table member
 
 select * from member
@@ -83,6 +84,7 @@ create table tourRank(
 )
 
 drop table tourRank
+drop table searchRank
 
 select * from tourRank
 delete from tourrank
@@ -105,6 +107,8 @@ create table board (
 	b_views number not null,
 	b_date date not null
 )
+
+drop table board
 
 insert into board values(board_seq.nextval, '제목2', '내용', null, '작성자', 0, 0, to_date(sysdate, 'yyyy-mm-dd hh24:mi:ss'));
 select rownum, board.* from (select * from board order by b_no desc);

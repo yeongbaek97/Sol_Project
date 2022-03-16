@@ -1,50 +1,60 @@
 @charset "UTF-8";
 
+/* 결과 DIV 밖의 배경이 되는 영역 */
 .FindResult{
 	max-width: 1280px;
 	height: 600px;
 	margin: 9% auto 4% auto;
 }
 
+/* 결과 DIV */
 .ResultCard{
 	width: 700px;
 	height: 400px;
+	background: aliceblue;
+	padding: 50px 5px 20px 5px;
 }
 
-.title{
-	display: block;
-	font-size: 0;
-	margin: 0 -5px;
-}
-
-.title_img{
-	flex: display;
-	flex-direction: row;
-	vertical-align: middle;
-	box-sizing: border-box;
-		
-}
-
-.title_letter{
-	flex: display;
-	flex-direction: row;
-	vertical-align: middle;
-	box-sizing: border-box;
-}
-
+/* 찾기 완료 라벨 */
 .LabelOfFind{
-	float: left;
+	font-size: 10pt;
+	margin-left: 10%;
 }
 
 .ResultContent{
-	
+	margin: 10px 5px 30px 5px;
+	height: 40px;
 }
 
-#idResultLabel{
+.ResultLabelInfo1{
+	float: left;
+    width:25%;
+    box-sizing: border-box;
+    margin-left: 10%;
+    vertical-align: middle;
+    height: 40px;
+}
+
+/* 결과(ID or PW) 라벨 */
+.ResultLabel{
 	font-size: 20pt;
 	font-weight: bold;
+	float: left;
+	margin-left: 5%;
+    width:25%;
+    box-sizing: border-box;
+    vertical-align: middle;
+    color: #06bbcc;
+}
+.ResultLabelInfo2{
+    float: right;
+    width:25%;
+    box-sizing: border-box;
+    vertical-align: middle;
+    height: 40px;
 }
 
+/* ID/PW 찾기 버튼 */
 #findBtn{
 	border-radius:10px;
 	margin-bottom: 10px;
@@ -56,6 +66,7 @@
 	color: white;
 }
 
+/* 로그인 버튼 */
 #resultBtn{
 	border-radius:10px;
 	margin-bottom: 40px;
@@ -67,8 +78,20 @@
 	color: white;
 }
 
+/* ID/PW 찾기 hover 색상 */
 #findBtn:hover {
     background: #02444a; }
 
+/* 로그인 hover 색상 */
 #resultBtn:hover {
     background: #02444a; }
+    
+.title-img{
+	width: 300px;
+	align-items: right;
+}
+
+.title-letter{
+	width: 300px;
+	text-align: left;
+}
