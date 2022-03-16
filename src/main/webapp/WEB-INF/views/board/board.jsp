@@ -16,7 +16,7 @@
 
 	<div align="right" style="margin-top:38px; margin-right: 10%;">
 		<button onclick="location.href='/dbtest'" style="margin-bottom:8px; display: none;">더미추가</button>
-		<button onclick="gotoWrite();" style="margin-bottom:8px">글작성</button>
+		<button onclick="gotoWrite();" class="btn btn-outline-primary" style="margin-bottom:8px">글작성</button>
 	</div>
 	
 	<div align="center" style="margin-left: 10%;margin-right: 10%;padding: 20px 50px 50px 50px;">
