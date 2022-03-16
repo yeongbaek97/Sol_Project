@@ -20,6 +20,7 @@
     <script src="resources/js/regUser.js"></script>
     
 <script type="text/javascript">
+//전화번호 길이 제한
 function maxLengthCheck(object){
 	if (object.value.length > object.maxLength){
 		//object.maxLength : 매게변수 오브젝트의 maxlength 속성 값입니다.
@@ -33,7 +34,7 @@ $(function() {
 	$("#inputID").keyup(function() {
 		let inputVal = $("#inputID").val();
 		var cnt;
-		
+
 		$.ajax({
 			url : "checkID.value",
 			type : "POST",
@@ -59,7 +60,7 @@ $(function() {
 	
 	$("#inputEmail").keyup(function() {
 		let inputVal = $("#inputEmail").val();
-		
+
 		$.ajax({
 			url : "checkEmail.value",
 			type : "POST",
