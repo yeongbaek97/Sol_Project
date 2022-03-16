@@ -62,6 +62,7 @@ public class MemberController {
 		 HashMap<String, Object> userInfo = mDAO.getUserInfo(access_Token,req);
  
 		 System.out.println("내이름" + userInfo.get("nickname"));
+		 req.setAttribute("contentPage", "main_view.jsp");
 
 		return "home";
 	}
@@ -78,6 +79,8 @@ public class MemberController {
 			
 		mDAO.regMember(m, req);
 		mDAO.logincheck(req);
+		
+		
 			
 		return "home";
 
