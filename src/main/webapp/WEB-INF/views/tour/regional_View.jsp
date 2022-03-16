@@ -13,11 +13,8 @@
 	<div class="wrap">
 
 		<div>
-<<<<<<< HEAD
+
 			<img src="resources/img/water2.jpg" width="100%" height="300px;">
-=======
-			<img src="resources/img/pimage2.jpg" width="100%" height="300px;">
->>>>>>> 978daadd1594cca6a8a3f327ea755038e1e0b28c
 
 		</div>
 

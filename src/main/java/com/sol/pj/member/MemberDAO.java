@@ -267,6 +267,8 @@ public class MemberDAO {
 			Member mm = ss.getMapper(MemberMapper.class).findIDbyPhone(m_name, m_number);
 			System.out.println(mm.getM_id() + ": DAO에서 phone number로 알아낸 ID");
 			req.setAttribute("id", mm.getM_id());
+		} else {
+			req.setAttribute("id", "존재하지 않습니다. 다시 시도해주세요.");
 		}
 		
 		
@@ -292,6 +294,8 @@ public class MemberDAO {
 			Member mm = ss.getMapper(MemberMapper.class).findPWbyPhone(m_id, m_number);
 			System.out.println(mm.getM_id() + ": DAO에서 phone number로 알아낸 PW");
 			req.setAttribute("pw", mm.getM_pw());
+		}else {
+			req.setAttribute("id", "존재하지 않습니다. 다시 시도해주세요.");
 		}
 		
 	}
